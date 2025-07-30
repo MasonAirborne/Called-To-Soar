@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Called To Soar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #cbc7f2;
+      color: #333;
+    }
+    header {
+      background-image: url("IMG_0234.JPG");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+    }
+    nav {
+      background-color: #1a1a3d;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav select {
+      font-size: 1rem;
+      padding: 0.5rem;
+    }
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #4b0082;
+    }
+    img.about-photo, .slideshow img {
+      width: 100%;
+      border-radius: 12px;
+      margin: 1rem 0;
+    }
+    .slideshow {
+      position: relative;
+      overflow: hidden;
+      height: 400px;
+    }
+    .slideshow img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .slideshow img.active {
+      opacity: 1;
+      position: relative;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      background-color: #1a1a3d;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Called To Soar</h1>
+    <p>A journey of flight, faith, and fierce perseverance</p>
+  </header>
+
+  <nav>
+    <select onchange="location = this.value;">
+      <option selected disabled>Navigate</option>
+      <option value="#about">About Me</option>
+      <option value="#blog">Blog</option>
+      <option value="#support">Support Me</option>
+    </select>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="slideshow">
+      <img src="IMG_0234.JPG" class="active" alt="Slide 1">
+      <img src="website picture.jpeg" alt="Slide 2">
+    </div>
+    <p><strong>Mason Airborne —</strong><br>
+    After years of uncertainty and dodging the classic holiday questions—“What do you want to be when you grow up?” or “What are you doing these days?”—I finally have an answer I can say with confidence: I'm becoming a pilot.</p>
+    <p>My path to aviation wasn’t linear, but in many ways, it was building in the background all along. I didn’t set foot in a cockpit until I was 22, but the dream had been planted years earlier. At 26, I made the commitment. Not a leap—but a decision born of grit, sacrifice, and years of quiet perseverance. On July 16th, 2025, I completed my first solo flight with 27 hours logged. That’s when the journey to SOAR truly began.</p>
+    <p>As a first-generation college student, I earned my business degree in 2021—completely debt-free. I applied to over 25 scholarships, enrolled in summer courses, and spent countless nights in the library. That experience taught me resilience, discipline, and the value of showing up even when the odds aren’t in your favor.</p>
+    <p>After years of jobs that drained me, I decided to start where I was—with what I had. I got a job at my local Class Charlie airport. Today, I’m immersed in the corporate aviation world, assisting aircraft in extreme weather, maintaining ramp safety, and gaining exposure to what keeps the industry moving. When I watch pilots—especially women—step off a Pilatus PC-24, a King Air, or even a Gulfstream, it reignites my purpose. I want to be one of them.</p>
+    <p>Sure, I’ve had moments of self-doubt. “Why didn’t I do this sooner?” But I’ve come to realize: every year of waiting was building something in me. Every delay fortified me. My journey wasn’t late—it was right on time. Aviation isn’t just a dream—it’s a responsibility. It demands safety, sound judgment, and professionalism. I’m proud to be learning it from the ground up.</p>
+    <p><em>This is my invitation to you: stop asking “Why me?”<br>Start declaring—“Why not me?”</em></p>
+  </section>
+
+  <section id="blog">
+    <h2>Blog</h2>
+    <article>
+      <h3>Life’s Obligation</h3>
+      <p>There are things in life we often overlook—responsibilities we carry whether we realize it or not...</p>
+      <p>Be better. Be the example. Show others what’s possible through resilience, dedication, and faith.</p>
+    </article>
+  </section>
+
+  <section id="support">
+    <h2>Support Me</h2>
+    <p>If you’d like to support my aviation journey, you can help through prayer, encouragement, or donation.</p>
+    <ul>
+      <li><a href="https://www.gofundme.com/f/fund-lindseys-path-to-commercial-aviation/cl/s">GoFundMe</a></li>
+      <li>CashApp / Venmo: Coming soon</li>
+      <li>Prayers & words of encouragement: Always appreciated!</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>© 2025 Called To Soar — Built with heart by Mason Airborne</p>
+  </footer>
+
+  <script>
+    // Simple slideshow animation
+    let slides = document.querySelectorAll('.slideshow img');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 4000);
+  </script>
+</body>
+</html>
