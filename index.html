@@ -76,6 +76,10 @@
       opacity: 1;
       position: relative;
     }
+    .slideshow img.active {
+      opacity: 1;
+      position: relative;
+    }
     footer {
       text-align: center;
       padding: 2rem;
@@ -122,7 +126,7 @@
     let current = 0;
     setInterval(() => {
       slides[current].classList.remove('active');
-      current = (current + 1) % slides.length;
+      current = (current + 2) % slides.length;
       slides[current].classList.add('active');
     }, 4000);
   </script>
