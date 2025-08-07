@@ -4,20 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Called To Soar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Lato' sans-serif;
-  background: linear-gradient(to right, #FF6B35, #FFD166, #F67280);
-
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(to right, #FF6B35, #FFD166, #F67280);
       color: #333;
     }
 
     header {
-      background-image: url("Logo.jpg");
+      background-image: url('Logo.jpg');
       background-size: cover;
       background-position: center;
-      color: Golden Yellow;
       height: 100vh;
       display: flex;
       flex-direction: column;
@@ -25,12 +24,20 @@
       align-items: center;
       text-align: center;
       padding: 2rem;
+      color: white;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
     }
 
     header h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      font-weight: 600;
     }
 
     nav {
@@ -44,32 +51,36 @@
       margin: 0 1rem;
       text-decoration: none;
       font-weight: bold;
+      font-size: 1.1rem;
     }
 
-    section {
+    .about-section {
       max-width: 900px;
       margin: 2rem auto;
       padding: 2rem;
       background-color: white;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      line-height: 1.7;
     }
 
-    h2 {
-      color: #4b0082;
+    .about-section h2 {
+      color: #6A0572;
+      font-family: 'Playfair Display', serif;
     }
 
-    img.about-photo {
-      width: 100%;
-      border-radius: 12px;
-      margin: 1rem 0;
+    .about-section p, .about-section li {
+      font-size: 1.05rem;
     }
 
     .slideshow {
+      max-width: 900px;
+      margin: 2rem auto;
       position: relative;
-      overflow: hidden;
       height: 400px;
+      overflow: hidden;
       border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
     .slideshow img {
@@ -78,7 +89,7 @@
       left: 0;
       opacity: 0;
       width: 100%;
-      height: 400px;
+      height: 100%;
       object-fit: cover;
       transition: opacity 1s ease-in-out;
     }
@@ -110,43 +121,47 @@
     <a href="support.html">Support Me</a>
   </nav>
 
-<!-- About Me Section -->
-<div class="about-section">
-  <h2>About Me</h2>
-  <p>For years, I dreaded the classic questions:</p>
-  <p><em>“So… what do you want to be when you grow up?”</em><br><em>“What are you doing these days?”</em></p>
-  <p>Now, I finally have an answer I can say with absolute confidence:<br><strong>I’m becoming a pilot.</strong></p>
+  <div class="slideshow">
+    <img src="slide1.jpg" class="active" alt="Photo 1" />
+    <img src="slide2.jpg" alt="Photo 2" />
+    <img src="slide3.jpg" alt="Photo 3" />
+  </div>
 
-  <h2>How I Got Here</h2>
-  <p>My path to aviation wasn’t straight. I didn’t set foot in a cockpit until I was 22. But the seed had been planted long before that—and at 26, I finally made the decision.</p>
-  <p>Not a leap. A decision. Born out of grit, sacrifice, and years of quiet perseverance. On July 16, 2025, with 27 hours logged, I completed my first solo flight. That’s when the journey to SOAR truly began.</p>
+  <div class="about-section">
+    <h2>About Me</h2>
+    <p>For years, I dreaded the classic questions:</p>
+    <p><em>“So… what do you want to be when you grow up?”</em><br><em>“What are you doing these days?”</em></p>
+    <p>Now, I finally have an answer I can say with absolute confidence:<br><strong>I’m becoming a pilot.</strong></p>
 
-  <h2>Resilience Built on the Ground</h2>
-  <p>As a first-generation college graduate, I earned my business degree in 2021 debt-free.</p>
-  <ul>
-    <li>25+ scholarships</li>
-    <li>Summers packed with classes</li>
-    <li>Countless late nights in the library</li>
-  </ul>
-  <p>That season taught me discipline, resilience, and the value of showing up—even when the odds aren’t in your favor.</p>
+    <h2>How I Got Here</h2>
+    <p>My path to aviation wasn’t straight. I didn’t set foot in a cockpit until I was 22. But the seed had been planted long before that—and at 26, I finally made the decision.</p>
+    <p>Not a leap. A decision. Born out of grit, sacrifice, and years of quiet perseverance. On July 16, 2025, with 27 hours logged, I completed my first solo flight. That’s when the journey to SOAR truly began.</p>
 
-  <h2>The Pivot Point</h2>
-  <p>After years of draining jobs, I decided to start where I was with what I had. I got a job at my local Class Charlie airport. Today, I’m in the thick of corporate aviation: fueling, marshaling, battling extreme weather, and learning how the industry moves.</p>
-  <p>Every time I watch a pilot—especially a woman—step off a Pilatus PC-24, King Air, or Gulfstream, it reignites my purpose: <strong>I will be one of them.</strong></p>
+    <h2>Resilience Built on the Ground</h2>
+    <p>As a first-generation college graduate, I earned my business degree in 2021 debt-free.</p>
+    <ul>
+      <li>25+ scholarships</li>
+      <li>Summers packed with classes</li>
+      <li>Countless late nights in the library</li>
+    </ul>
+    <p>That season taught me discipline, resilience, and the value of showing up—even when the odds aren’t in your favor.</p>
 
-  <h2>What I’ve Learned</h2>
-  <p>I’ve had my share of doubts. “Why didn’t I start sooner?” or "Am I good enough?" But I’ve learned that every year of waiting was building something in me. Every delay fortified my character. My journey wasn’t late—it was right on time.</p>
+    <h2>The Pivot Point</h2>
+    <p>After years of draining jobs, I decided to start where I was with what I had. I got a job at my local Class Charlie airport. Today, I’m in the thick of corporate aviation: fueling, marshaling, battling extreme weather, and learning how the industry moves.</p>
+    <p>Every time I watch a pilot—especially a woman—step off a Pilatus PC-24, King Air, or Gulfstream, it reignites my purpose: <strong>I will be one of them.</strong></p>
 
-  <h2>Why I Share This</h2>
-  <p>Aviation isn’t just a dream to me. It’s a responsibility. It demands safety, judgment, and professionalism. And this is my invitation to you:</p>
-  <p><strong>Stop asking, “Why me?”<br>Start declaring, “Why not me?”</strong></p>
-</div>
+    <h2>What I’ve Learned</h2>
+    <p>I’ve had my share of doubts. “Why didn’t I start sooner?” or "Am I good enough?" But I’ve learned that every year of waiting was building something in me. Every delay fortified my character. My journey wasn’t late—it was right on time.</p>
+
+    <h2>Why I Share This</h2>
+    <p>Aviation isn’t just a dream to me. It’s a responsibility. It demands safety, judgment, and professionalism. And this is my invitation to you:</p>
+    <p><strong>Stop asking, “Why me?”<br>Start declaring, “Why not me?”</strong></p>
+  </div>
+
   <footer>
     <p>© 2025 Called To Soar — Built with heart by Mason Airborne</p>
   </footer>
 
-
-  <!-- Slideshow script -->
   <script>
     const slides = document.querySelectorAll('.slideshow img');
     let current = 0;
@@ -158,5 +173,6 @@
   </script>
 </body>
 </html>
+
 
 
