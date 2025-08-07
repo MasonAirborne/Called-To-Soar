@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: 'Lato' sans-serif;
-   background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+  background: linear-gradient(to right, #FF6B35, #FFD166, #F67280);
 
       color: #333;
     }
@@ -95,46 +95,6 @@
       background-color: #1a1a3d;
       color: #fff;
     }
-
-    /* ✈️ Plane Animation Styles */
-    .animated-plane {
-      position: fixed;
-      width: 60px;
-      opacity: 0;
-      z-index: 9999;
-    }
-
-    .plane-1 {
-      top: 60px;
-      left: -100px;
-      animation: flyRight 30s linear infinite;
-    }
-
-    .plane-2 {
-      bottom: 100px;
-      right: -100px;
-      animation: flyLeft 40s linear infinite;
-    }
-
-    .plane-3 {
-      top: 50%;
-      left: -120px;
-      animation: flyRight 50s ease-in-out infinite;
-    }
-
-    @keyframes flyRight {
-      0% { transform: translateX(0); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translateX(120vw); opacity: 0; }
-    }
-
-    @keyframes flyLeft {
-      0% { transform: translateX(0); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translateX(-120vw); opacity: 0; }
-    }
   </style>
 </head>
 <body>
@@ -150,22 +110,37 @@
     <a href="support.html">Support Me</a>
   </nav>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="slideshow">
-      <img src="IMG_0234.JPG" class="active" alt="Slide 1">
-      <img src="website picture.jpeg" alt="Slide 2">
-      <img src="IMG_0950.jpeg" alt="Slide 3">
-    </div>
-    <p><strong>Mason Airborne —</strong><br>
-    After years of uncertainty and dodging the classic holiday questions—“What do you want to be when you grow up?” or “What are you doing these days?”—I finally have an answer I can say with confidence: I'm becoming a pilot.</p>
-    <p>My path to aviation wasn’t linear, but in many ways, it was building in the background all along. I didn’t set foot in a cockpit until I was 22, but the dream had been planted years earlier. At 26, I made the commitment. Not a leap—but a decision born of grit, sacrifice, and years of quiet perseverance. On July 16th, 2025, I completed my first solo flight with 27 hours logged. That’s when the journey to SOAR truly began.</p>
-    <p>As a first-generation college student, I earned my business degree in 2021—completely debt-free. I applied to over 25 scholarships, enrolled in summer courses, and spent countless nights in the library. That experience taught me resilience, discipline, and the value of showing up even when the odds aren’t in your favor.</p>
-    <p>After years of jobs that drained me, I decided to start where I was—with what I had. I got a job at my local Class Charlie airport. Today, I’m immersed in the corporate aviation world, assisting aircraft in extreme weather, maintaining ramp safety, and gaining exposure to what keeps the industry moving. When I watch pilots—especially women—step off a Pilatus PC-24, a King Air, or even a Gulfstream, it reignites my purpose. I want to be one of them.</p>
-    <p>Sure, I’ve had moments of self-doubt. “Why didn’t I do this sooner?” But I’ve come to realize: every year of waiting was building something in me. Every delay fortified me. My journey wasn’t late—it was right on time. Aviation isn’t just a dream—it’s a responsibility. It demands safety, sound judgment, and professionalism. I’m proud to be learning it from the ground up.</p>
-    <p><em>This is my invitation to you: stop asking “Why me?”<br>Start declaring—“Why not me?”</em></p>
-  </section>
+<!-- About Me Section -->
+<div class="about-section">
+  <h2>About Me</h2>
+  <p>For years, I dreaded the classic questions:</p>
+  <p><em>“So… what do you want to be when you grow up?”</em><br><em>“What are you doing these days?”</em></p>
+  <p>Now, I finally have an answer I can say with absolute confidence:<br><strong>I’m becoming a pilot.</strong></p>
 
+  <h2>How I Got Here</h2>
+  <p>My path to aviation wasn’t straight. I didn’t set foot in a cockpit until I was 22. But the seed had been planted long before that—and at 26, I finally made the decision.</p>
+  <p>Not a leap. A decision. Born out of grit, sacrifice, and years of quiet perseverance. On July 16, 2025, with 27 hours logged, I completed my first solo flight. That’s when the journey to SOAR truly began.</p>
+
+  <h2>Resilience Built on the Ground</h2>
+  <p>As a first-generation college graduate, I earned my business degree in 2021 debt-free.</p>
+  <ul>
+    <li>25+ scholarships</li>
+    <li>Summers packed with classes</li>
+    <li>Countless late nights in the library</li>
+  </ul>
+  <p>That season taught me discipline, resilience, and the value of showing up—even when the odds aren’t in your favor.</p>
+
+  <h2>The Pivot Point</h2>
+  <p>After years of draining jobs, I decided to start where I was with what I had. I got a job at my local Class Charlie airport. Today, I’m in the thick of corporate aviation: fueling, marshaling, battling extreme weather, and learning how the industry moves.</p>
+  <p>Every time I watch a pilot—especially a woman—step off a Pilatus PC-24, King Air, or Gulfstream, it reignites my purpose: <strong>I will be one of them.</strong></p>
+
+  <h2>What I’ve Learned</h2>
+  <p>I’ve had my share of doubts. “Why didn’t I start sooner?” or "Am I good enough?" But I’ve learned that every year of waiting was building something in me. Every delay fortified my character. My journey wasn’t late—it was right on time.</p>
+
+  <h2>Why I Share This</h2>
+  <p>Aviation isn’t just a dream to me. It’s a responsibility. It demands safety, judgment, and professionalism. And this is my invitation to you:</p>
+  <p><strong>Stop asking, “Why me?”<br>Start declaring, “Why not me?”</strong></p>
+</div>
   <footer>
     <p>© 2025 Called To Soar — Built with heart by Mason Airborne</p>
   </footer>
