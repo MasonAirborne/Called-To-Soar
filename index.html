@@ -44,14 +44,21 @@
     .menu a:hover { color: var(--primary); }
 
     /* HERO */
-    header.hero {
-      background:
-        linear-gradient(to right, rgba(0,0,0,0.55), rgba(0,0,0,0.25)),
-        url('update logo.jpg') center no-repeat;
-      background-size: clamp(420px, 70vw, 1100px) auto;
-      min-height: 88vh;
-      display: grid; place-items: center; text-align: center; color: white;
-      padding: 0 1.25rem;
+   ```css
+header.hero {
+  background:
+    linear-gradient(to right, rgba(0,0,0,0.55), rgba(0,0,0,0.25)),
+    url('update logo.jpg') center center no-repeat;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  min-height: 88vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 1.25rem;
     }
     .hero-card{ max-width: 900px; padding: 1.6rem 1.8rem; border-radius: 16px;
       background: rgba(255, 255, 255, 0.08);
