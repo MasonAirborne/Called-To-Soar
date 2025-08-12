@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Called 2 Soar — Mason Airborne</title>
+  <style>
+    :root{
+      --baby-blue:#cfe9ff;
+      --sunset:#ff8c42;        /* soft orange */
+      --sunset-2:#ffb677;      /* lighter orange for gradients */
+      --navy:#0f2a43;
+      --card:#ffffff;
+      --shadow: 0 10px 30px rgba(15,42,67,.12);
+      --radius:20px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color:#172534; line-height:1.6;
+      background:
+        radial-gradient(1000px 600px at 80% 10%, rgba(255,140,66,.18), transparent 55%),
+        linear-gradient(135deg, var(--baby-blue), #eaf4ff 55%, var(--sunset-2));
+    }
+
+    /* HERO */
+    .hero{
+      position:relative;
+      min-height:86vh;
+      display:grid; place-items:center;
+      padding:clamp(20px,4vw,48px);
+      overflow:hidden;
+    }
+    .hero-inner{
+      width:min(1100px, 96%);
+      display:grid; gap:28px; justify-items:center;
+      position:relative;
+    }
+    .logo{
+      width:min(820px, 92vw);         /* BIG + responsive */
+      max-width: 980px;
+      height:auto;
+      display:block;
+      filter: drop-shadow(0 12px 24px rgba(0,0,0,.12));
+    }
+
+    /* CTA BOXES overlay */
+    .cta-wrap{
+      position:absolute;
+      bottom: clamp(16px, 6vh, 56px);
+      left:50%;
+      transform: translateX(-50%);
+      width:min(1100px, 96%);
+      display:grid; gap:16px;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      pointer-events: none;   /* allow clicks only on children */
+    }
+    .cta{
+      pointer-events: auto;
+      background: var(--card);
+      border-radius: var(--radius);
+      padding:18px 16px;
+      box-shadow: var(--shadow);
+      text-align:center;
+      border:1px solid rgba(15,42,67,.08);
+      transition: transform .2s ease, box-shadow .2s ease;
+      cursor:pointer; user-select:none;
+    }
+    .cta:hover{ transform: translateY(-4px); box-shadow: 0 14px 36px rgba(15,42,67,.16); }
+    .cta h3{ margin:6px 0 4px; font-size: clamp(16px, 2.1vw, 20px); color:var(--navy); }
+    .cta p{ margin:0; font-size: .95rem; color:#41556d }
+    .cta--orange{ background: linear-gradient(180deg, #fff, #fff7f2 60%); }
+    .cta--blue{ background: linear-gradient(180deg, #fff, #f1f8ff 60%); }
+
+    /* SLIDESHOW */
+    .slideshow{
+      margin: 64px auto 0;
+      width:min(1100px, 96%);
+      border-radius: var(--radius);
+      overflow:hidden; box-shadow: var(--shadow);
+      position:relative; background:#000;
+      aspect-ratio: 16 / 9;
+    }
+    .slides{display:flex; width:300%; height:100%; transition: transform .7s ease; background:#000;}
+    .slides figure{width:100%; height:100%; margin:0; flex:0 0 100%; display:grid; place-items:center; background:#000;}
+    .slides img{max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain;}
+    .dots{
+      position:absolute; inset:auto 0 10px 0; display:flex; gap:10px; justify-content:center;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px; background:#ffffffcc; outline:2px solid #ffffff55; cursor:pointer;
+    }
+    .dot.active{ background: var(--sunset); outline-color:#fff; }
+
+    /* SECTION */
+    section{ width:min(900px, 92%); margin:56px auto; background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding: clamp(20px, 4vw, 36px); }
+    section h2{ margin:0 0 8px; color:var(--navy) }
+    .muted{ color:#536b88; margin:0 0 14px; }
+
+    /* SMALL SCREENS */
+    @media (max-width: 760px){
+      .cta-wrap{ position:static; transform:none; width:100%; margin-top:-10px; grid-template-columns:1fr; }
+      .hero{ min-height: 78vh; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO with prominent logo + overlay CTAs -->
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <img src="Logo.jpg" alt="Called 2 Soar logo" class="logo" />
+
+      <nav class="cta-wrap" aria-label="Primary actions">
+        <a class="cta cta--blue" href="#about" id="wings">
+          <h3>Wings in the Making</h3>
+          <p>Jump to About Me</p>
+        </a>
+        <a class="cta cta--orange" href="blog.html" target="_blank" rel="noopener">
+          <h3>Path 2 Pilot</h3>
+          <p>Opens blog in a new tab</p>
+        </a>
+        <a class="cta cta--blue" href="Support me.html" target="_blank" rel="noopener">
+          <h3>Lift Me Up</h3>
+          <p>Support page (new tab)</p>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Slideshow (uses provided images; duplicates first to make 3 slides) -->
+  <div class="slideshow" aria-label="Photo slideshow">
+    <div class="slides" id="slides">
+      <figure><img src="website picture.jpeg" alt="Website photo" /></figure>
+      <figure><img src="IMG_0950.jpeg" alt="Flight photo" /></figure>
+      <figure><img src="website picture.jpeg" alt="Website photo" /></figure>
+    </div>
+    <div class="dots" role="tablist" aria-label="Slide selectors">
+      <button class="dot active" aria-label="Go to slide 1"></button>
+      <button class="dot" aria-label="Go to slide 2"></button>
+      <button class="dot" aria-label="Go to slide 3"></button>
+    </div>
+  </div>
+
+  <!-- About Me -->
+  <section id="about" aria-labelledby="about-title">
+    <h2 id="about-title">About Me</h2>
+    <p class="muted"><strong>Mason Airborne</strong></p>
+    <p>
+      With years of searching and getting tired of answering the dreadful question every holiday season from family I can confidently answer “What do you want to be when you grow up” or “ what are you doing for work these days”. My path to aviation didn’t start in a straight line, but in many ways, it was preparing me all along. I didn’t sit in the cockpit until I was 22, but the seed had been planted long before. After years of exploring different paths, I finally committed myself to flying at 26. It wasn’t a sudden leap, but a decision shaped by years of perseverance, sacrifice, and growth. July 16th of 2025 I completed my first solo with 27 logged hours and the journey to SOAR began!
+    </p>
+    <p>
+      As a First- Generation college student  I earned my business degree in 2021, debt-free, after applying to over 25 scholarships, taking summer classes, and spending countless nights in the library. These experiences shaped my discipline, courage, and resilience—traits I now bring to my training. I learned the value of showing up consistently—even when the odds were stacked against me.
+    </p>
+    <p>
+      After years of unfulfilling jobs and the grueling holiday small talk, I made a commitment to myself. Start NOW! For me that was getting a job at my local airport. I am currently immersed in the corporate sector of a Class Charlie. Whether it’s assisting aircraft in extreme weather or helping maintain ramp safety, I take pride in doing the "grunt work" that keeps aviation moving. It gives me purpose and motivation. When I see pilots, especially women, step off these Pilatus PC-24, KingAirs and even Gulfstreams. It lights a fire under my butt. The determination to fly corporate and that feeling of having a flash back to today will be surreal.
+    </p>
+    <p>
+      Still, there are days I battle self-doubt. I ask myself, “Why didn’t I do this sooner?” But then I remind myself—every year of preparation matters. Every struggle gave me grit. My journey wasn’t delayed; it was fortified. I’ve learned to give myself grace. I am not behind—I am right on time. Flying isn’t just a dream for me—it’s a responsibility. My daily training reinforces that aviation is not just about skill, but about safety, sound judgment, and professionalism—values I uphold on every flight and every shift on the ramp. I’m proud to be learning aviation from the ground up, experiencing every layer of what makes this industry thrive.
+    </p>
+    <p>
+      see what’s possible when you stop asking “Why me?” and start declaring, “Why not me?”
+    </p>
+  </section>
+
+  <footer style="text-align:center; color:#5a6f86; padding:40px 16px 64px">
+    © 2025 Called 2 Soar — Mason Airborne
+  </footer>
+
+  <script>
+    // Slideshow logic (auto + dots)
+    const slides = document.getElementById('slides');
+    const dots = Array.from(document.querySelectorAll('.dot'));
+    let i = 0, timer;
+    function go(n){
+      i = (n + dots.length) % dots.length;
+      slides.style.transform = `translateX(-${i * 100}%)`;
+      dots.forEach((d,idx)=> d.classList.toggle('active', idx===i));
+    }
+    function autoplay(){
+      timer = setInterval(()=> go(i+1), 4500);
+    }
+    dots.forEach((d,idx)=> d.addEventListener('click', ()=>{ clearInterval(timer); go(idx); autoplay(); }));
+    autoplay();
+  </script>
+</body>
+</html>
