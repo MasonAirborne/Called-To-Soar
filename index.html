@@ -4,217 +4,245 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Called To Soar</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #FF6B35; /* Vibrant Orange */
-      --secondary: #6EC1E4; /* Baby Blue */
-      --light-bg: #f9f9f9;
+      --primary: #FF6B35;   /* vibrant orange */
+      --secondary: #6EC1E4; /* baby blue */
+      --ink: #1A1A1A;
+      --bg1: #F4FAFF;       /* very light baby blue */
+      --bg2: #FFF3E6;       /* soft warm cream */
+      --card: rgba(255,255,255,0.7);
     }
+
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
-      background-color: white;
-      color: #333;
+      color: var(--ink);
       line-height: 1.7;
+      background:
+        radial-gradient(1200px 800px at 20% 10%, var(--bg1), #ffffff 40%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
     }
 
-    /* Navigation */
+    a { color: inherit; }
+
+    /* NAV */
     nav {
-      background-color: var(--secondary);
-      padding: 1rem;
-      text-align: center;
+      position: sticky; top: 0; z-index: 50;
+      background: var(--secondary);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
     }
-    nav a {
-      color: white;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1rem;
+    .nav-inner{
+      max-width: 1100px; margin: 0 auto; padding: .8rem 1rem;
+      display: flex; align-items: center; justify-content: space-between;
     }
-    nav a:hover {
-      color: var(--primary);
-    }
+    .brand { color: #fff; font-weight: 800; letter-spacing: .5px; }
+    .menu a { color: #fff; text-decoration: none; font-weight: 700; margin-left: 1rem; }
+    .menu a:hover { color: var(--primary); }
 
-    /* Hero Section */
-    header {
-      background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.3)), 
-                  url('update logo.jpg') center no-repeat;
-      background-size: contain;
-      height: 85vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-      padding: 0 2rem;
+    /* HERO */
+    header.hero {
+      background:
+        linear-gradient(to right, rgba(0,0,0,0.55), rgba(0,0,0,0.25)),
+        url('update logo.jpg') center no-repeat;
+      background-size: clamp(420px, 70vw, 1100px) auto;
+      min-height: 88vh;
+      display: grid; place-items: center; text-align: center; color: white;
+      padding: 0 1.25rem;
     }
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.5rem;
-      margin-bottom: 0.5rem;
+    .hero-card{ max-width: 900px; padding: 1.6rem 1.8rem; border-radius: 16px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5.5vw, 3.6rem); margin: 0 0 .5rem; }
+    .hero p { font-size: clamp(1.05rem, 2.5vw, 1.25rem); margin: 0 0 1.2rem; }
+    .cta {
+      display: inline-block; padding: 12px 22px; border-radius: 10px;
+      font-weight: 800; text-decoration: none; transition: transform .15s ease, box-shadow .2s ease;
+      box-shadow: 0 8px 16px rgba(0,0,0,.15);
     }
-    header p {
-      font-size: 1.3rem;
-      margin-bottom: 1.5rem;
-    }
-    .cta-button {
-      background: var(--primary);
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 0.5rem;
-      transition: background 0.3s ease;
-    }
-    .cta-button:hover {
-      background: #e85b2b;
-    }
-    .cta-button.secondary {
-      background: white;
-      color: var(--primary);
-      border: 2px solid var(--primary);
-    }
+    .cta.primary { background: var(--primary); color: #fff; margin-right: .5rem; }
+    .cta.secondary { background: #fff; color: var(--primary); border: 2px solid var(--primary); }
+    .cta:hover{ transform: translateY(-1px); box-shadow: 0 10px 20px rgba(0,0,0,.2); }
 
-    /* Slideshow */
-    .slideshow {
-      max-width: 1000px;
-      margin: 3rem auto;
-      position: relative;
-      height: 350px;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-    .slideshow img {
-      position: absolute;
-      top: 0; left: 0;
-      opacity: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: opacity 1s ease-in-out;
-    }
-    .slideshow img.active {
-      opacity: 1;
-      position: relative;
-    }
+    /* SECTIONS */
+    section { padding: 3rem 1.25rem; }
+    .wrap { max-width: 1100px; margin: 0 auto; }
 
-    /* About Section */
-    .about-section {
-      max-width: 1000px;
-      margin: 3rem auto;
-      padding: 2rem;
+    /* MINI ABOUT (Wings in the Making) */
+    .about-mini {
+      display: grid; gap: 1.25rem; align-items: center;
+      grid-template-columns: 1.1fr 1fr; 
+      background: var(--card); border-radius: 14px; padding: 1.5rem; box-shadow: 0 8px 24px rgba(0,0,0,0.06);
     }
-    .about-section h2 {
-      color: var(--secondary);
-      font-family: 'Playfair Display', serif;
-      margin-top: 2rem;
-    }
-    .highlight-box {
-      background-color: var(--light-bg);
-      padding: 1rem;
-      border-left: 5px solid var(--primary);
-      margin: 1rem 0;
-      border-radius: 8px;
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
+    .about-mini h2 { color: var(--secondary); font-family: 'Playfair Display', serif; margin: 0 0 .4rem; }
+    .about-mini p { margin: 0 0 .8rem; }
+    .about-art { min-height: 240px; border-radius: 12px; overflow: hidden; }
+    .about-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      background-color: var(--secondary);
-      color: #fff;
-      margin-top: 3rem;
+    /* Read more collapsible */
+    details { margin-top: .6rem; }
+    summary { cursor: pointer; font-weight: 700; color: var(--primary); list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+
+    /* GOALS */
+    .goals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .goal {
+      background: #fff; border-left: 5px solid var(--primary); padding: 1rem; border-radius: 10px;
+      box-shadow: 0 8px 18px rgba(0,0,0,.06);
+    }
+    .goal h3 { margin: .2rem 0 .4rem; color: var(--secondary); }
+
+    /* BLOG TEASER */
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .post { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 18px rgba(0,0,0,.06); }
+    .post img { width: 100%; height: 160px; object-fit: cover; display: block; }
+    .post .p-body { padding: 1rem; }
+    .post a { color: var(--primary); font-weight: 700; text-decoration: none; }
+
+    /* SUPPORT STRIPE */
+    .support {
+      background: linear-gradient(90deg, var(--secondary), #9bd7ef);
+      color: #072f3d; border-radius: 14px; padding: 1.25rem 1.4rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+    }
+    .support h3 { margin: 0 0 .25rem; font-size: 1.25rem; }
+
+    /* FOOTER */
+    footer { text-align: center; padding: 2rem 1rem; color: #fff; background: var(--secondary); margin-top: 2rem; }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px){
+      .about-mini{ grid-template-columns: 1fr; }
+      .goals{ grid-template-columns: repeat(2, 1fr); }
+      .blog-grid{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px){
+      header.hero{ background-size: clamp(320px, 88vw, 900px) auto; min-height: 78vh; }
+      .goals{ grid-template-columns: 1fr; }
+      .blog-grid{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- NAV -->
   <nav>
-    <a href="index.html">About Me</a>
-    <a href="blog.html">Blog</a>
-    <a href="goals.html">Goals</a>
-    <a href="support.html">Lift Me Up</a>
+    <div class="nav-inner">
+      <div class="brand">Called To Soar</div>
+      <div class="menu">
+        <a href="#about">Wings in the Making</a>
+        <a href="#goals">Flight Plan Ahead</a>
+        <a href="#blog">Flight Log</a>
+        <a href="support.html">Lift Me Up</a>
+      </div>
+    </div>
   </nav>
 
-  <!-- Hero Section -->
-  <header>
-    <h1>Called To Soar</h1>
-    <p>From the Ramp to the Runway: My Journey to the Cockpit</p>
-    <div>
-      <a href="blog.html" class="cta-button">Read My Story</a>
-      <a href="support.html" class="cta-button secondary">Lift Me Up</a>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-card">
+      <h1>Called To Soar</h1>
+      <p>From the Ramp to the Runway — Pilot in Progress, chasing the cockpit one flight at a time.</p>
+      <a href="#about" class="cta primary">Wings in the Making</a>
+      <a href="support.html" class="cta secondary">Lift Me Up</a>
     </div>
   </header>
 
-  <!-- Slideshow -->
-  <div class="slideshow">
-    <img src="IMG_0234.JPG" class="active" alt="Photo 1" />
-    <img src="IMG_0950.jpeg" alt="Photo 2" />
-    <img src="website picture.jpeg" alt="Photo 3" />
-  </div>
-
-  <!-- About Section -->
-  <div class="about-section">
-    <h2>About Me</h2>
-    <p>For years, I dreaded the classic questions:</p>
-    <div class="highlight-box">
-      <em>“So… what do you want to be when you grow up?”</em><br>
-      <em>“What are you doing these days?”</em>
+  <!-- MINI ABOUT / WINGS IN THE MAKING -->
+  <section id="about">
+    <div class="wrap">
+      <div class="about-mini">
+        <div>
+          <h2>Wings in the Making</h2>
+          <p>From fueling jets to logging my first solo, I’m building the discipline, judgment, and hours it takes to earn my seat up front. I didn’t start in aviation — but every step brought me here.</p>
+          <details>
+            <summary>Read my full story</summary>
+            <p>At 22, I sat in a cockpit for the first time. At 26, I decided to go all‑in. I’m a first‑gen college grad who finished debt‑free through 25+ scholarships and relentless hustle. Today I’m hands‑on in corporate aviation — fueling, marshaling, battling weather — learning how the industry really works. Every time I watch a pilot (especially a woman) step off a Pilatus, King Air, or Gulfstream, it reignites the same truth: <strong>this is where I’m headed</strong>.</p>
+          </details>
+        </div>
+        <div class="about-art">
+          <img src="IMG_0234.JPG" alt="On the ramp"/>
+        </div>
+      </div>
     </div>
-    <p>Now, I finally have an answer I can say with absolute confidence: <strong>I’m becoming a pilot.</strong></p>
+  </section>
 
-    <h2>How I Got Here</h2>
-    <p>My path to aviation wasn’t straight. I didn’t set foot in a cockpit until I was 22. But the seed had been planted long before that—and at 26, I finally made the decision.</p>
-    <div class="highlight-box">
-      <strong>July 16, 2025</strong> — With 27 hours logged, I completed my first solo flight. That’s when the journey to SOAR truly began.
+  <!-- GOALS / FLIGHT PLAN AHEAD -->
+  <section id="goals">
+    <div class="wrap">
+      <h2 style="font-family:'Playfair Display',serif;color:var(--secondary);margin-top:0;">Flight Plan Ahead</h2>
+      <div class="goals">
+        <div class="goal">
+          <h3>IFR Checkride</h3>
+          <p>Dialing in procedures, holds, and approaches — targeting checkride within the next phase block.</p>
+        </div>
+        <div class="goal">
+          <h3>Commercial + Multi</h3>
+          <p>Time‑building with intention and polishing airmanship for commercial proficiency.</p>
+        </div>
+        <div class="goal">
+          <h3>CFI or Skydive Pilot</h3>
+          <p>Start getting paid to fly — teach what I love or fly jump runs to stack hours.</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <h2>Resilience Built on the Ground</h2>
-    <p>As a first-generation college graduate, I earned my business degree in 2021 debt-free.</p>
-    <ul>
-      <li>25+ scholarships</li>
-      <li>Summers packed with classes</li>
-      <li>Countless late nights in the library</li>
-    </ul>
-
-    <h2>The Pivot Point</h2>
-    <p>After years of draining jobs, I decided to start where I was with what I had. I got a job at my local Class Charlie airport. Today, I’m in the thick of corporate aviation: fueling, marshaling, battling extreme weather, and learning how the industry moves.</p>
-    <p>Every time I watch a pilot—especially a woman—step off a Pilatus PC-24, King Air, or Gulfstream, it reignites my purpose: <strong>I will be one of them.</strong></p>
-
-    <h2>What I’ve Learned</h2>
-    <p>I’ve had my share of doubts. “Why didn’t I start sooner?” or "Am I good enough?" But I’ve learned that every year of waiting was building something in me. Every delay fortified my character. My journey wasn’t late—it was right on time.</p>
-
-    <h2>Why I Share This</h2>
-    <p>Aviation isn’t just a dream to me. It’s a responsibility. It demands safety, judgment, and professionalism. And this is my invitation to you:</p>
-    <div class="highlight-box">
-      <strong>Stop asking, “Why me?”<br>Start declaring, “Why not me?”</strong>
+  <!-- BLOG / FLIGHT LOG TEASER -->
+  <section id="blog">
+    <div class="wrap">
+      <h2 style="font-family:'Playfair Display',serif;color:var(--secondary);margin-top:0;">Flight Log</h2>
+      <div class="blog-grid">
+        <article class="post">
+          <img src="IMG_0950.jpeg" alt="Training day" />
+          <div class="p-body">
+            <h3>First Solo — The Moment it Clicked</h3>
+            <p>A few circuits, a full heart, and a brand new perspective from the left seat.</p>
+            <a href="blog.html">Read Post →</a>
+          </div>
+        </article>
+        <article class="post">
+          <img src="website picture.jpeg" alt="Ramp life" />
+          <div class="p-body">
+            <h3>Lessons from the Ramp</h3>
+            <p>Fueling jets taught me more about safety and teamwork than any textbook.</p>
+            <a href="blog.html">Read Post →</a>
+          </div>
+        </article>
+        <article class="post">
+          <img src="IMG_0234.JPG" alt="Study stack" />
+          <div class="p-body">
+            <h3>IFR Study Stack</h3>
+            <p>What’s working for me: flows, chair‑flying, and bite‑sized sim sessions.</p>
+            <a href="blog.html">Read Post →</a>
+          </div>
+        </article>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Footer -->
+  <!-- SUPPORT / CTA STRIPE -->
+  <section id="support">
+    <div class="wrap">
+      <div class="support">
+        <div>
+          <h3>Lift Me Up</h3>
+          <p>Believe in the mission? Your encouragement and support help me keep climbing.</p>
+        </div>
+        <a class="cta secondary" href="support.html" style="background:#fff;color:var(--primary);border:2px solid var(--primary);">Support the Journey</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>© 2025 Called To Soar — Built with heart by Mason Airborne</p>
+    © 2025 Called To Soar — Built with heart by Mason Airborne
   </footer>
-
-  <script>
-    const slides = document.querySelectorAll('.slideshow img');
-    let current = 0;
-    setInterval(() => {
-      slides[current].classList.remove('active');
-      current = (current + 1) % slides.length;
-      slides[current].classList.add('active');
-    }, 4000);
-  </script>
 
 </body>
 </html>
