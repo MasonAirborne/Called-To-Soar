@@ -13,9 +13,11 @@
       --bg1: #F4FAFF;       /* very light baby blue */
       --bg2: #FFF3E6;       /* soft warm cream */
       --card: rgba(255,255,255,0.7);
+      --ok: #14b8a6;        /* teal for success */
     }
 
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -31,7 +33,7 @@
 
     /* NAV */
     nav {
-      position: sticky; top: 0; z-index: 50;
+      position: sticky; top: 0; z-index: 60;
       background: var(--secondary);
       box-shadow: 0 4px 14px rgba(0,0,0,0.1);
     }
@@ -40,25 +42,20 @@
       display: flex; align-items: center; justify-content: space-between;
     }
     .brand { color: #fff; font-weight: 800; letter-spacing: .5px; }
-    .menu a { color: #fff; text-decoration: none; font-weight: 700; margin-left: 1rem; }
+    .menu a { color: #fff; text-decoration: none; font-weight: 700; margin-left: 1rem; padding-bottom: 4px; border-bottom: 2px solid transparent; }
     .menu a:hover { color: var(--primary); }
+    .menu a.active { border-bottom-color: #fff; }
 
     /* HERO */
-   ```css
-header.hero {
-  background:
-    linear-gradient(to right, rgba(0,0,0,0.55), rgba(0,0,0,0.25)),
-    url('update logo.jpg') center center no-repeat;
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat;
-  min-height: 88vh;
-  width: 100%;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  color: white;
-  padding: 0 1.25rem;
+    header.hero {
+      background:
+        linear-gradient(to right, rgba(0,0,0,0.55), rgba(0,0,0,0.25)),
+        url('update logo.jpg') center center no-repeat;
+      background-size: contain; /* show full logo, no crop */
+      min-height: 88vh;
+      width: 100%;
+      display: grid; place-items: center; text-align: center; color: white;
+      padding: 0 1.25rem;
     }
     .hero-card{ max-width: 900px; padding: 1.6rem 1.8rem; border-radius: 16px;
       background: rgba(255, 255, 255, 0.08);
@@ -122,6 +119,25 @@ header.hero {
     /* FOOTER */
     footer { text-align: center; padding: 2rem 1rem; color: #fff; background: var(--secondary); margin-top: 2rem; }
 
+    /* TOAST & BANNER */
+    .toast {
+      position: fixed; right: 16px; bottom: 16px; z-index: 70;
+      background: #ffffffee; color: #064e3b; border-left: 6px solid var(--ok);
+      padding: .9rem 1rem; border-radius: 10px; box-shadow: 0 10px 24px rgba(0,0,0,.16);
+      display: flex; align-items: center; gap: .6rem; max-width: 360px;
+      opacity: 0; transform: translateY(8px); transition: opacity .25s ease, transform .25s ease;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+    .toast .close { cursor: pointer; margin-left: auto; border: none; background: transparent; font-weight: 800; }
+
+    .thankyou-banner {
+      position: sticky; top: 48px; z-index: 55; /* below nav */
+      margin: 0; padding: .8rem 1rem; text-align: center;
+      background: #ecfeff; color: #065f46; border-bottom: 2px solid var(--ok);
+      display: none;
+    }
+    .thankyou-banner.show { display: block; }
+
     /* RESPONSIVE */
     @media (max-width: 960px){
       .about-mini{ grid-template-columns: 1fr; }
@@ -129,7 +145,7 @@ header.hero {
       .blog-grid{ grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 640px){
-      header.hero{ background-size: clamp(420px, 70vw, 1100px) auto; min-height: 78vh; }
+      header.hero{ background-size: contain; min-height: 78vh; }
       .goals{ grid-template-columns: 1fr; }
       .blog-grid{ grid-template-columns: 1fr; }
     }
@@ -145,18 +161,21 @@ header.hero {
         <a href="#about">Wings in the Making</a>
         <a href="#goals">Flight Plan Ahead</a>
         <a href="#blog">Flight Log</a>
-        <a href="support.html">Lift Me Up</a>
+        <a class="lift-link" href="https://forms.gle/H79MMPihK9w3bDYTA" target="_blank" rel="noopener">Lift Me Up</a>
       </div>
     </div>
   </nav>
 
+  <!-- OPTIONAL THANK YOU BANNER (shown via JS when appropriate) -->
+  <div class="thankyou-banner" id="thankyouBanner">Thank you for lifting me up — your encouragement means the world. ✈️</div>
+
   <!-- HERO -->
-  <header class="hero">
+  <header class="hero" id="top">
     <div class="hero-card">
       <h1>Called To Soar</h1>
-      <p>A Journey of Flight,Faith and Fierce Perceverance.</p>
+      <p>From the Ramp to the Runway — Pilot in Progress, chasing the cockpit one flight at a time.</p>
       <a href="#about" class="cta primary">Wings in the Making</a>
-      <a href="support.html" class="cta secondary">Lift Me Up</a>
+      <a href="https://forms.gle/H79MMPihK9w3bDYTA" target="_blank" rel="noopener" class="cta secondary lift-link">Lift Me Up</a>
     </div>
   </header>
 
@@ -169,7 +188,7 @@ header.hero {
           <p>From fueling jets to logging my first solo, I’m building the discipline, judgment, and hours it takes to earn my seat up front. I didn’t start in aviation — but every step brought me here.</p>
           <details>
             <summary>Read my full story</summary>
-            <p>At 22, I sat in a cockpit for the first time. At 26, I decided to go all‑in. I’m a first‑gen college grad who finished debt‑free through 25+ scholarships and relentless hustle. Today I’m hands‑on in corporate aviation — fueling, marshaling, battling weather — learning how the industry really works. Every time I watch a pilot (especially a woman) step off a Pilatus, King Air, or Gulfstream, it reignites a thought: <strong>Why Not ME?</strong>.</p>
+            <p>At 22, I sat in a cockpit for the first time. At 26, I decided to go all‑in. I’m a first‑gen college grad who finished debt‑free through 25+ scholarships and relentless hustle. Today I’m hands‑on in corporate aviation — fueling, marshaling, battling weather — learning how the industry really works. Every time I watch a pilot (especially a woman) step off a Pilatus, King Air, or Gulfstream, it reignites the same truth: <strong>this is where I’m headed</strong>.</p>
           </details>
         </div>
         <div class="about-art">
@@ -241,7 +260,7 @@ header.hero {
           <h3>Lift Me Up</h3>
           <p>Believe in the mission? Your encouragement and support help me keep climbing.</p>
         </div>
-        <a class="cta secondary" href="support.html" style="background:#fff;color:var(--primary);border:2px solid var(--primary);">Support the Journey</a>
+        <a class="cta secondary lift-link" href="https://forms.gle/H79MMPihK9w3bDYTA" target="_blank" rel="noopener" style="background:#fff;color:var(--primary);border:2px solid var(--primary);">Support the Journey</a>
       </div>
     </div>
   </section>
@@ -251,7 +270,88 @@ header.hero {
     © 2025 Called To Soar — Built with heart by Mason Airborne
   </footer>
 
+  <!-- Toast template (injected by JS) -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" style="display:none">
+    <span>Thank you for lifting me up! Your support means the world. ✈️</span>
+    <button class="close" aria-label="Close">×</button>
+  </div>
+
+  <script>
+    // Smooth scroll with sticky-nav offset
+    const nav = document.querySelector('nav');
+    const offset = () => (nav ? nav.offsetHeight + 8 : 0);
+
+    document.querySelectorAll('.menu a[href^="#"], .cta.primary[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        const target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          const top = target.getBoundingClientRect().top + window.pageYOffset - offset();
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Active menu highlight using IntersectionObserver
+    const links = document.querySelectorAll('.menu a[href^="#"]');
+    const linkMap = new Map([...links].map(l => [l.getAttribute('href').slice(1), l]));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute('id');
+        const link = linkMap.get(id);
+        if (!link) return;
+        if (entry.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px', threshold: 0.01 });
+
+    document.querySelectorAll('section[id]').forEach(sec => observer.observe(sec));
+
+    // ===== Lift Me Up: thank-you toast & banner =====
+    const TOAST_KEY = 'cts_lift_clicked';
+
+    // Mark intent when user clicks Lift links
+    document.querySelectorAll('.lift-link').forEach(a => {
+      a.addEventListener('click', () => {
+        try { sessionStorage.setItem(TOAST_KEY, '1'); } catch(_){}
+      });
+    });
+
+    function showToast(msg){
+      const toast = document.getElementById('toast');
+      if (!toast) return;
+      toast.querySelector('span').textContent = msg;
+      toast.style.display = 'flex';
+      requestAnimationFrame(() => toast.classList.add('show'));
+    }
+    function hideToast(){
+      const toast = document.getElementById('toast');
+      toast.classList.remove('show');
+      setTimeout(()=> toast.style.display = 'none', 250);
+    }
+    document.querySelector('#toast .close').addEventListener('click', hideToast);
+
+    // If user returns focus to this tab after clicking the form link, show toast
+    window.addEventListener('focus', () => {
+      try {
+        if (sessionStorage.getItem(TOAST_KEY) === '1') {
+          showToast('Thank you for lifting me up! Your support means the world. ✈️');
+          sessionStorage.removeItem(TOAST_KEY);
+        }
+      } catch(_){}
+    });
+
+    // Also support a query flag like ?thanks=1 to show a banner (e.g., from support.html)
+    const params = new URLSearchParams(location.search);
+    if (params.get('thanks') === '1') {
+      const b = document.getElementById('thankyouBanner');
+      if (b) b.classList.add('show');
+    }
+  </script>
+
 </body>
 </html>
-
-
