@@ -6,46 +6,26 @@
   <title>Called To Soar</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #FF6B35;
+      --secondary: #1a1a3d;
+      --light-bg: #f9f9f9;
+    }
+
     body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
-      background: linear-gradient(to right, #FF6B35, #FFD166, #F67280);
+      background-color: white;
       color: #333;
+      line-height: 1.7;
     }
 
-    header {
-      background-image: url('update logo.jpg');
-      background-size: cover;
-      background-position: center;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-      color: white;
-      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
-    }
-
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 4rem;
-      margin: 0;
-    }
-
-    header p {
-      font-size: 1.5rem;
-      margin-top: 1rem;
-      font-weight: 600;
-    }
-
+    /* Navigation */
     nav {
-      background-color: #1a1a3d;
+      background-color: var(--secondary);
       padding: 1rem;
       text-align: center;
     }
-
     nav a {
       color: white;
       margin: 0 1rem;
@@ -53,81 +33,110 @@
       font-weight: bold;
       font-size: 1.1rem;
     }
-
-    .about-section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      line-height: 1.7;
+    nav a:hover {
+      color: var(--primary);
     }
 
-    .about-section h2 {
-      color: #6A0572;
+    /* Hero Section */
+    header {
+      background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('update logo.jpg') center/cover no-repeat;
+      height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 2rem;
+    }
+    header h1 {
       font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+    }
+    .cta-button {
+      background: var(--primary);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0.5rem;
+      transition: background 0.3s ease;
+    }
+    .cta-button:hover {
+      background: #e85b2b;
+    }
+    .cta-button.secondary {
+      background: white;
+      color: var(--primary);
+      border: 2px solid var(--primary);
     }
 
-    .about-section p, .about-section li {
-      font-size: 1.05rem;
-    }
-
+    /* Slideshow */
     .slideshow {
-      max-width: 900px;
-      margin: 2rem auto;
+      max-width: 1000px;
+      margin: 3rem auto;
       position: relative;
-      height: 400px;
+      height: 350px;
       overflow: hidden;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
-
     .slideshow img {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       opacity: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: opacity 1s ease-in-out;
     }
-
     .slideshow img.active {
       opacity: 1;
       position: relative;
     }
 
+    /* About Section */
+    .about-section {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 2rem;
+    }
+    .about-section h2 {
+      color: var(--secondary);
+      font-family: 'Playfair Display', serif;
+      margin-top: 2rem;
+    }
+    .highlight-box {
+      background-color: var(--light-bg);
+      padding: 1rem;
+      border-left: 5px solid var(--primary);
+      margin: 1rem 0;
+      border-radius: 8px;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
-      background-color: #1a1a3d;
+      background-color: var(--secondary);
       color: #fff;
+      margin-top: 3rem;
     }
   </style>
-  header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #001f3f; /* dark navy blue to match your branding */
-  padding: 20px;
-}
-
-.header-logo {
-  max-width: 90%;
-  height: auto;
-  object-fit: contain;
-}
-
 </head>
 <body>
- <header>
-  <img src="update logo.jpg" alt="Called 2 Soar Logo" class="header-logo">
-</header>
 
-
+  <!-- Navigation -->
   <nav>
     <a href="index.html">About Me</a>
     <a href="blog.html">Blog</a>
@@ -135,21 +144,38 @@
     <a href="support.html">Support Me</a>
   </nav>
 
+  <!-- Hero Section -->
+  <header>
+    <h1>Called To Soar</h1>
+    <p>From the Ramp to the Runway: My Journey to the Cockpit</p>
+    <div>
+      <a href="blog.html" class="cta-button">Read My Story</a>
+      <a href="support.html" class="cta-button secondary">Support My Training</a>
+    </div>
+  </header>
+
+  <!-- Slideshow -->
   <div class="slideshow">
     <img src="IMG_0234.JPG" class="active" alt="Photo 1" />
     <img src="IMG_0950.jpeg" alt="Photo 2" />
     <img src="website picture.jpeg" alt="Photo 3" />
   </div>
 
+  <!-- About Section -->
   <div class="about-section">
     <h2>About Me</h2>
     <p>For years, I dreaded the classic questions:</p>
-    <p><em>“So… what do you want to be when you grow up?”</em><br><em>“What are you doing these days?”</em></p>
-    <p>Now, I finally have an answer I can say with absolute confidence:<br><strong>I’m becoming a pilot.</strong></p>
+    <div class="highlight-box">
+      <em>“So… what do you want to be when you grow up?”</em><br>
+      <em>“What are you doing these days?”</em>
+    </div>
+    <p>Now, I finally have an answer I can say with absolute confidence: <strong>I’m becoming a pilot.</strong></p>
 
     <h2>How I Got Here</h2>
     <p>My path to aviation wasn’t straight. I didn’t set foot in a cockpit until I was 22. But the seed had been planted long before that—and at 26, I finally made the decision.</p>
-    <p>Not a leap. A decision. Born out of grit, sacrifice, and years of quiet perseverance. On July 16, 2025, with 27 hours logged, I completed my first solo flight. That’s when the journey to SOAR truly began.</p>
+    <div class="highlight-box">
+      <strong>July 16, 2025</strong> — With 27 hours logged, I completed my first solo flight. That’s when the journey to SOAR truly began.
+    </div>
 
     <h2>Resilience Built on the Ground</h2>
     <p>As a first-generation college graduate, I earned my business degree in 2021 debt-free.</p>
@@ -158,7 +184,6 @@
       <li>Summers packed with classes</li>
       <li>Countless late nights in the library</li>
     </ul>
-    <p>That season taught me discipline, resilience, and the value of showing up—even when the odds aren’t in your favor.</p>
 
     <h2>The Pivot Point</h2>
     <p>After years of draining jobs, I decided to start where I was with what I had. I got a job at my local Class Charlie airport. Today, I’m in the thick of corporate aviation: fueling, marshaling, battling extreme weather, and learning how the industry moves.</p>
@@ -169,9 +194,12 @@
 
     <h2>Why I Share This</h2>
     <p>Aviation isn’t just a dream to me. It’s a responsibility. It demands safety, judgment, and professionalism. And this is my invitation to you:</p>
-    <p><strong>Stop asking, “Why me?”<br>Start declaring, “Why not me?”</strong></p>
+    <div class="highlight-box">
+      <strong>Stop asking, “Why me?”<br>Start declaring, “Why not me?”</strong>
+    </div>
   </div>
 
+  <!-- Footer -->
   <footer>
     <p>© 2025 Called To Soar — Built with heart by Mason Airborne</p>
   </footer>
@@ -185,8 +213,10 @@
       slides[current].classList.add('active');
     }, 4000);
   </script>
+
 </body>
 </html>
+
 
 
 
