@@ -1,357 +1,253 @@
+<!-- ===== index.html (Homepage) ===== -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Called To Soar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Called To Soar — Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #FF6B35;   /* vibrant orange */
-      --secondary: #6EC1E4; /* baby blue */
-      --ink: #1A1A1A;
-      --bg1: #F4FAFF;       /* very light baby blue */
-      --bg2: #FFF3E6;       /* soft warm cream */
-      --card: rgba(255,255,255,0.7);
-      --ok: #14b8a6;        /* teal for success */
+    :root{
+      --blue: #6EC1E4;          /* baby blue */
+      --orange: #F6A560;        /* soft sunset orange (not bright) */
+      --orange-strong: #EE9348; /* slightly deeper for accents */
+      --ink:#1A1A1A;
+      --bg1:#F5FAFF;            /* very light blue */
+      --bg2:#FFF3E6;            /* warm cream */
     }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      color: var(--ink);
-      line-height: 1.7;
-      background:
-        radial-gradient(1200px 800px at 20% 10%, var(--bg1), #ffffff 40%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
-    }
-
-    a { color: inherit; }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:'Open Sans',sans-serif;color:var(--ink);line-height:1.7;background:
+      radial-gradient(1200px 800px at 20% 10%, var(--bg1), #ffffff 40%),
+      linear-gradient(180deg, var(--bg1), var(--bg2));}
 
     /* NAV */
-    nav {
-      position: sticky; top: 0; z-index: 60;
-      background: var(--secondary);
-      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-    }
-    .nav-inner{
-      max-width: 1100px; margin: 0 auto; padding: .8rem 1rem;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .brand { color: #fff; font-weight: 800; letter-spacing: .5px; }
-    .menu a { color: #fff; text-decoration: none; font-weight: 700; margin-left: 1rem; padding-bottom: 4px; border-bottom: 2px solid transparent; }
-    .menu a:hover { color: var(--primary); }
-    .menu a.active { border-bottom-color: #fff; }
+    nav{position:sticky;top:0;z-index:50;background:var(--blue);box-shadow:0 4px 14px rgba(0,0,0,.08)}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:.8rem 1rem;display:flex;align-items:center;justify-content:space-between}
+    .brand{color:#fff;font-weight:800;letter-spacing:.4px}
+    .menu a{color:#fff;text-decoration:none;font-weight:700;margin-left:1rem;padding-bottom:4px;border-bottom:2px solid transparent}
+    .menu a:hover{color:var(--orange)}
 
-    /* HERO */
-    header.hero {
+    /* HERO (logo only, no glass box) */
+    header.hero{min-height:78vh;display:grid;place-items:center;text-align:center;color:#fff;padding:0 1rem;
       background:
-        linear-gradient(to right, rgba(0,0,0,0.55), rgba(0,0,0,0.25)),
-        url('update logo.jpg') center center no-repeat;
-      background-size: contain; /* show full logo, no crop */
-      min-height: 88vh;
-      width: 100%;
-      display: grid; place-items: center; text-align: center; color: white;
-      padding: 0 1.25rem;
-    }
-    .hero-card{ max-width: 900px; padding: 1.6rem 1.8rem; border-radius: 16px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(3px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
-    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5.5vw, 3.6rem); margin: 0 0 .5rem; }
-    .hero p { font-size: clamp(1.05rem, 2.5vw, 1.25rem); margin: 0 0 1.2rem; }
-    .cta {
-      display: inline-block; padding: 12px 22px; border-radius: 10px;
-      font-weight: 800; text-decoration: none; transition: transform .15s ease, box-shadow .2s ease;
-      box-shadow: 0 8px 16px rgba(0,0,0,.15);
-    }
-    .cta.primary { background: var(--primary); color: #fff; margin-right: .5rem; }
-    .cta.secondary { background: #fff; color: var(--primary); border: 2px solid var(--primary); }
-    .cta:hover{ transform: translateY(-1px); box-shadow: 0 10px 20px rgba(0,0,0,.2); }
+        linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.15)),
+        url('Logo.jpg') center no-repeat;
+      background-size: clamp(420px, 72vw, 1150px) auto;}
+    /* optionally hide heading but keep for SEO */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-    /* SECTIONS */
-    section { padding: 3rem 1.25rem; }
-    .wrap { max-width: 1100px; margin: 0 auto; }
+    /* QUICK TILES */
+    .tiles{max-width:1100px;margin:-60px auto 2rem;display:grid;gap:1rem;padding:0 1rem;grid-template-columns:repeat(3,1fr)}
+    .tile{background:#fff;border-radius:14px;padding:1rem 1.2rem;box-shadow:0 10px 24px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.05);
+      display:flex;flex-direction:column;align-items:flex-start;transition:transform .15s ease, box-shadow .2s ease}
+    .tile:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(0,0,0,.12)}
+    .t-kicker{font-size:.8rem;font-weight:800;color:var(--orange-strong);letter-spacing:.08em;text-transform:uppercase}
+    .tile h3{margin:.2rem 0 .5rem;color:var(--blue);font-family:'Playfair Display',serif}
+    .tile a{margin-top:auto;display:inline-block;font-weight:800;color:#fff;background:linear-gradient(90deg,var(--orange),var(--orange-strong));
+      padding:.55rem .9rem;border-radius:10px;text-decoration:none}
 
-    /* MINI ABOUT (Wings in the Making) */
-    .about-mini {
-      display: grid; gap: 1.25rem; align-items: center;
-      grid-template-columns: 1.1fr 1fr; 
-      background: var(--card); border-radius: 14px; padding: 1.5rem; box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-    }
-    .about-mini h2 { color: var(--secondary); font-family: 'Playfair Display', serif; margin: 0 0 .4rem; }
-    .about-mini p { margin: 0 0 .8rem; }
-    .about-art { min-height: 240px; border-radius: 12px; overflow: hidden; }
-    .about-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    /* SLIDESHOW */
+    .slideshow{max-width:1100px;margin:2rem auto 0;position:relative;height:360px;overflow:hidden;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.12)}
+    .slideshow img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s ease}
+    .slideshow img.active{opacity:1;position:relative}
 
-    /* Read more collapsible */
-    details { margin-top: .6rem; }
-    summary { cursor: pointer; font-weight: 700; color: var(--primary); list-style: none; }
-    summary::-webkit-details-marker { display: none; }
-
-    /* GOALS */
-    .goals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .goal {
-      background: #fff; border-left: 5px solid var(--primary); padding: 1rem; border-radius: 10px;
-      box-shadow: 0 8px 18px rgba(0,0,0,.06);
-    }
-    .goal h3 { margin: .2rem 0 .4rem; color: var(--secondary); }
-
-    /* BLOG TEASER */
-    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .post { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 18px rgba(0,0,0,.06); }
-    .post img { width: 100%; height: 160px; object-fit: cover; display: block; }
-    .post .p-body { padding: 1rem; }
-    .post a { color: var(--primary); font-weight: 700; text-decoration: none; }
-
-    /* SUPPORT STRIPE */
-    .support {
-      background: linear-gradient(90deg, var(--secondary), #9bd7ef);
-      color: #072f3d; border-radius: 14px; padding: 1.25rem 1.4rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
-      box-shadow: 0 10px 24px rgba(0,0,0,.08);
-    }
-    .support h3 { margin: 0 0 .25rem; font-size: 1.25rem; }
+    /* ABOUT */
+    section{padding:3rem 1rem}
+    .wrap{max-width:1100px;margin:0 auto}
+    h2.section-title{font-family:'Playfair Display',serif;color:var(--blue);margin:.2rem 0 1rem}
+    .about-card{background:#fff;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.08);padding:1.4rem;border-left:6px solid var(--orange)}
+    details{margin-top:.6rem}
+    summary{cursor:pointer;font-weight:700;color:var(--orange-strong);list-style:none}
+    summary::-webkit-details-marker{display:none}
 
     /* FOOTER */
-    footer { text-align: center; padding: 2rem 1rem; color: #fff; background: var(--secondary); margin-top: 2rem; }
-
-    /* TOAST & BANNER */
-    .toast {
-      position: fixed; right: 16px; bottom: 16px; z-index: 70;
-      background: #ffffffee; color: #064e3b; border-left: 6px solid var(--ok);
-      padding: .9rem 1rem; border-radius: 10px; box-shadow: 0 10px 24px rgba(0,0,0,.16);
-      display: flex; align-items: center; gap: .6rem; max-width: 360px;
-      opacity: 0; transform: translateY(8px); transition: opacity .25s ease, transform .25s ease;
-    }
-    .toast.show { opacity: 1; transform: translateY(0); }
-    .toast .close { cursor: pointer; margin-left: auto; border: none; background: transparent; font-weight: 800; }
-
-    .thankyou-banner {
-      position: sticky; top: 48px; z-index: 55; /* below nav */
-      margin: 0; padding: .8rem 1rem; text-align: center;
-      background: #ecfeff; color: #065f46; border-bottom: 2px solid var(--ok);
-      display: none;
-    }
-    .thankyou-banner.show { display: block; }
+    footer{text-align:center;padding:2rem 1rem;background:var(--blue);color:#fff;margin-top:2rem}
 
     /* RESPONSIVE */
-    @media (max-width: 960px){
-      .about-mini{ grid-template-columns: 1fr; }
-      .goals{ grid-template-columns: repeat(2, 1fr); }
-      .blog-grid{ grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 640px){
-      header.hero{ background-size: contain; min-height: 78vh; }
-      .goals{ grid-template-columns: 1fr; }
-      .blog-grid{ grid-template-columns: 1fr; }
-    }
+    @media (max-width:960px){.tiles{grid-template-columns:1fr 1fr}}
+    @media (max-width:640px){header.hero{background-size:clamp(320px,86vw,900px) auto;min-height:68vh}.tiles{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-
-  <!-- NAV -->
   <nav>
     <div class="nav-inner">
       <div class="brand">Called To Soar</div>
       <div class="menu">
         <a href="#about">Wings in the Making</a>
-        <a href="#goals">Flight Plan Ahead</a>
-        <a href="#blog">Flight Log</a>
-        <a class="lift-link" href="https://forms.gle/H79MMPihK9w3bDYTA" target="_blank" rel="noopener">Lift Me Up</a>
+        <a href="path2pilot.html">Path 2 Pilot</a>
+        <a href="support.html">Lift Me Up</a>
       </div>
     </div>
   </nav>
 
-  <!-- OPTIONAL THANK YOU BANNER (shown via JS when appropriate) -->
-  <div class="thankyou-banner" id="thankyouBanner">Thank you for lifting me up — your encouragement means the world. ✈️</div>
-
-  <!-- HERO -->
-  <header class="hero" id="top">
-    <div class="hero-card">
-      <h1>Called To Soar</h1>
-      <p>From the Ramp to the Runway — Pilot in Progress, chasing the cockpit one flight at a time.</p>
-      <a href="#about" class="cta primary">Wings in the Making</a>
-      <a href="https://forms.gle/H79MMPihK9w3bDYTA" target="_blank" rel="noopener" class="cta secondary lift-link">Lift Me Up</a>
-    </div>
+  <header class="hero">
+    <h1 class="sr-only">Called To Soar</h1>
   </header>
 
-  <!-- MINI ABOUT / WINGS IN THE MAKING -->
-  <section id="about">
-    <div class="wrap">
-      <div class="about-mini">
-        <div>
-          <h2>Wings in the Making</h2>
-          <p>From fueling jets to logging my first solo, I’m building the discipline, judgment, and hours it takes to earn my seat up front. I didn’t start in aviation — but every step brought me here.</p>
-          <details>
-            <summary>Read my full story</summary>
-            <p>At 22, I sat in a cockpit for the first time. At 26, I decided to go all‑in. I’m a first‑gen college grad who finished debt‑free through 25+ scholarships and relentless hustle. Today I’m hands‑on in corporate aviation — fueling, marshaling, battling weather — learning how the industry really works. Every time I watch a pilot (especially a woman) step off a Pilatus, King Air, or Gulfstream, it reignites the same truth: <strong>this is where I’m headed</strong>.</p>
-          </details>
-        </div>
-        <div class="about-art">
-          <img src="IMG_0234.JPG" alt="On the ramp"/>
-        </div>
-      </div>
+  <!-- Quick tiles -->
+  <div class="tiles">
+    <div class="tile">
+      <span class="t-kicker">About</span>
+      <h3>Wings in the Making</h3>
+      <p>A snapshot of my journey — from the ramp to the left seat.</p>
+      <a href="#about">Jump to About</a>
     </div>
-  </section>
-
-  <!-- GOALS / FLIGHT PLAN AHEAD -->
-  <section id="goals">
-    <div class="wrap">
-      <h2 style="font-family:'Playfair Display',serif;color:var(--secondary);margin-top:0;">Flight Plan Ahead</h2>
-      <div class="goals">
-        <div class="goal">
-          <h3>IFR Checkride</h3>
-          <p>Dialing in procedures, holds, and approaches — targeting checkride within the next phase block.</p>
-        </div>
-        <div class="goal">
-          <h3>Commercial + Multi</h3>
-          <p>Time‑building with intention and polishing airmanship for commercial proficiency.</p>
-        </div>
-        <div class="goal">
-          <h3>CFI or Skydive Pilot</h3>
-          <p>Start getting paid to fly — teach what I love or fly jump runs to stack hours.</p>
-        </div>
-      </div>
+    <div class="tile">
+      <span class="t-kicker">Blog</span>
+      <h3>Path 2 Pilot</h3>
+      <p>Stories + lessons: Life's Obligation, New Perspective, Life's Not a Box…</p>
+      <a href="path2pilot.html">Open Blog</a>
     </div>
-  </section>
-
-  <!-- BLOG / FLIGHT LOG TEASER -->
-  <section id="blog">
-    <div class="wrap">
-      <h2 style="font-family:'Playfair Display',serif;color:var(--secondary);margin-top:0;">Flight Log</h2>
-      <div class="blog-grid">
-        <article class="post">
-          <img src="IMG_0950.jpeg" alt="Training day" />
-          <div class="p-body">
-            <h3>First Solo — The Moment it Clicked</h3>
-            <p>A few circuits, a full heart, and a brand new perspective from the left seat.</p>
-            <a href="blog.html">Read Post →</a>
-          </div>
-        </article>
-        <article class="post">
-          <img src="website picture.jpeg" alt="Ramp life" />
-          <div class="p-body">
-            <h3>Lessons from the Ramp</h3>
-            <p>Fueling jets taught me more about safety and teamwork than any textbook.</p>
-            <a href="blog.html">Read Post →</a>
-          </div>
-        </article>
-        <article class="post">
-          <img src="IMG_0234.JPG" alt="Study stack" />
-          <div class="p-body">
-            <h3>IFR Study Stack</h3>
-            <p>What’s working for me: flows, chair‑flying, and bite‑sized sim sessions.</p>
-            <a href="blog.html">Read Post →</a>
-          </div>
-        </article>
-      </div>
+    <div class="tile">
+      <span class="t-kicker">Support</span>
+      <h3>Lift Me Up</h3>
+      <p>Share encouragement or help fund flight hours — every bit counts.</p>
+      <a href="support.html">Go to Support</a>
     </div>
-  </section>
-
-  <!-- SUPPORT / CTA STRIPE -->
-  <section id="support">
-    <div class="wrap">
-      <div class="support">
-        <div>
-          <h3>Lift Me Up</h3>
-          <p>Believe in the mission? Your encouragement and support help me keep climbing.</p>
-        </div>
-        <a class="cta secondary lift-link" href="https://forms.gle/H79MMPihK9w3bDYTA" target="_blank" rel="noopener" style="background:#fff;color:var(--primary);border:2px solid var(--primary);">Support the Journey</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    © 2025 Called To Soar — Built with heart by Mason Airborne
-  </footer>
-
-  <!-- Toast template (injected by JS) -->
-  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" style="display:none">
-    <span>Thank you for lifting me up! Your support means the world. ✈️</span>
-    <button class="close" aria-label="Close">×</button>
   </div>
 
+  <!-- Slideshow -->
+  <div class="slideshow" aria-label="Photo highlights">
+    <img src="IMG_0234.JPG" class="active" alt="Photo 1" />
+    <img src="IMG_0950.jpeg" alt="Photo 2" />
+    <img src="website picture.jpeg" alt="Photo 3" />
+  </div>
+
+  <!-- About snippet -->
+  <section id="about">
+    <div class="wrap">
+      <h2 class="section-title">Wings in the Making</h2>
+      <div class="about-card">
+        <p>From fueling jets to logging my first solo, I’m building the discipline, judgment, and hours it takes to earn my seat up front. I didn’t start in aviation — but every step brought me here.</p>
+        <details>
+          <summary>Read more</summary>
+          <p>At 22, I sat in a cockpit for the first time. At 26, I decided to go all‑in. I’m a first‑gen college grad who finished debt‑free through 25+ scholarships and relentless hustle. Today I’m hands‑on in corporate aviation — fueling, marshaling, battling weather — learning how the industry really works. Every time I watch a pilot (especially a woman) step off a Pilatus, King Air, or Gulfstream, it reignites the same truth: <strong>this is where I’m headed</strong>.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2025 Called To Soar — Built with heart by Mason Airborne</footer>
+
   <script>
-    // Smooth scroll with sticky-nav offset
-    const nav = document.querySelector('nav');
-    const offset = () => (nav ? nav.offsetHeight + 8 : 0);
-
-    document.querySelectorAll('.menu a[href^="#"], .cta.primary[href^="#"]').forEach(a => {
-      a.addEventListener('click', (e) => {
-        const id = a.getAttribute('href');
-        const target = document.querySelector(id);
-        if (target) {
-          e.preventDefault();
-          const top = target.getBoundingClientRect().top + window.pageYOffset - offset();
-          window.scrollTo({ top, behavior: 'smooth' });
-        }
-      });
-    });
-
-    // Active menu highlight using IntersectionObserver
-    const links = document.querySelectorAll('.menu a[href^="#"]');
-    const linkMap = new Map([...links].map(l => [l.getAttribute('href').slice(1), l]));
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const id = entry.target.getAttribute('id');
-        const link = linkMap.get(id);
-        if (!link) return;
-        if (entry.isIntersecting) {
-          links.forEach(l => l.classList.remove('active'));
-          link.classList.add('active');
-        }
-      });
-    }, { rootMargin: '-30% 0px -60% 0px', threshold: 0.01 });
-
-    document.querySelectorAll('section[id]').forEach(sec => observer.observe(sec));
-
-    // ===== Lift Me Up: thank-you toast & banner =====
-    const TOAST_KEY = 'cts_lift_clicked';
-
-    // Mark intent when user clicks Lift links
-    document.querySelectorAll('.lift-link').forEach(a => {
-      a.addEventListener('click', () => {
-        try { sessionStorage.setItem(TOAST_KEY, '1'); } catch(_){}
-      });
-    });
-
-    function showToast(msg){
-      const toast = document.getElementById('toast');
-      if (!toast) return;
-      toast.querySelector('span').textContent = msg;
-      toast.style.display = 'flex';
-      requestAnimationFrame(() => toast.classList.add('show'));
-    }
-    function hideToast(){
-      const toast = document.getElementById('toast');
-      toast.classList.remove('show');
-      setTimeout(()=> toast.style.display = 'none', 250);
-    }
-    document.querySelector('#toast .close').addEventListener('click', hideToast);
-
-    // If user returns focus to this tab after clicking the form link, show toast
-    window.addEventListener('focus', () => {
-      try {
-        if (sessionStorage.getItem(TOAST_KEY) === '1') {
-          showToast('Thank you for lifting me up! Your support means the world. ✈️');
-          sessionStorage.removeItem(TOAST_KEY);
-        }
-      } catch(_){}
-    });
-
-    // Also support a query flag like ?thanks=1 to show a banner (e.g., from support.html)
-    const params = new URLSearchParams(location.search);
-    if (params.get('thanks') === '1') {
-      const b = document.getElementById('thankyouBanner');
-      if (b) b.classList.add('show');
-    }
+    // simple slideshow
+    const slides = document.querySelectorAll('.slideshow img');
+    let i=0; setInterval(()=>{slides[i].classList.remove('active'); i=(i+1)%slides.length; slides[i].classList.add('active');}, 4000);
   </script>
+</body>
+</html>
 
+
+<!-- ===== path2pilot.html (Blog list) ===== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Called To Soar — Path 2 Pilot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--blue:#6EC1E4;--orange:#F6A560;--orange-strong:#EE9348;--ink:#1A1A1A;--bg1:#F5FAFF;--bg2:#FFF3E6}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Open Sans',sans-serif;color:var(--ink);background:
+      radial-gradient(1000px 700px at 20% 10%, var(--bg1), #ffffff 40%), linear-gradient(180deg,var(--bg1),var(--bg2));}
+    nav{position:sticky;top:0;z-index:40;background:var(--blue);color:#fff}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:.8rem 1rem;display:flex;justify-content:space-between}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1100px;margin:0 auto;padding:2rem 1rem}
+    h1{font-family:'Playfair Display',serif;color:var(--blue);margin:.2rem 0 1rem}
+    .post{background:#fff;border-radius:14px;box-shadow:0 8px 18px rgba(0,0,0,.08);padding:1.2rem;border-left:6px solid var(--orange);margin-bottom:1rem}
+    .post h2{margin:.2rem 0 .4rem;color:var(--ink)}
+    .post p{margin:0 0 .8rem}
+    .post a.read{font-weight:800;color:#fff;background:linear-gradient(90deg,var(--orange),var(--orange-strong));padding:.5rem .8rem;border-radius:10px}
+    footer{text-align:center;padding:2rem 1rem;background:var(--blue);color:#fff;margin-top:2rem}
+  </style>
+</head>
+<body>
+  <nav><div class="nav-inner"><a href="index.html">← Home</a><strong>Path 2 Pilot</strong><span></span></div></nav>
+  <div class="wrap">
+    <h1>Path 2 Pilot</h1>
+
+    <article class="post">
+      <h2>Life’s Obligation</h2>
+      <p>What we owe to the dreams we carry and the people who helped us get this far.</p>
+      <a class="read" href="#">Read More →</a>
+    </article>
+
+    <article class="post">
+      <h2>New Perspective</h2>
+      <p>How a few hours in the pattern can reframe failure, fear, and momentum.</p>
+      <a class="read" href="#">Read More →</a>
+    </article>
+
+    <article class="post">
+      <h2>Life’s Not a Box</h2>
+      <p>Why we don’t have to fit the template to live a meaningful, mission‑driven life.</p>
+      <a class="read" href="#">Read More →</a>
+    </article>
+
+    <article class="post">
+      <h2>How Job Rejection Led Me to My Purpose</h2>
+      <p>Closed doors, better runways — the messy middle that made the calling clear.</p>
+      <a class="read" href="#">Read More →</a>
+    </article>
+  </div>
+  <footer>© 2025 Called To Soar</footer>
+</body>
+</html>
+
+
+<!-- ===== support.html (Google Form + Thank-you toast) ===== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Called To Soar — Lift Me Up</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--blue:#6EC1E4;--orange:#F6A560;--orange-strong:#EE9348;--ink:#1A1A1A;--bg1:#F5FAFF;--bg2:#FFF3E6}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Open Sans',sans-serif;color:var(--ink);background:
+      radial-gradient(1000px 700px at 20% 10%, var(--bg1), #ffffff 40%), linear-gradient(180deg,var(--bg1),var(--bg2));}
+    nav{position:sticky;top:0;z-index:40;background:var(--blue);color:#fff}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:.8rem 1rem;display:flex;justify-content:space-between}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1100px;margin:0 auto;padding:2rem 1rem}
+    h1{font-family:'Playfair Display',serif;color:var(--blue);margin:.2rem 0 1rem}
+    .card{background:#fff;border-radius:14px;box-shadow:0 8px 18px rgba(0,0,0,.08);padding:1.2rem;border-left:6px solid var(--orange)}
+    .btn{display:inline-block;font-weight:800;color:#fff;background:linear-gradient(90deg,var(--orange),var(--orange-strong));padding:.6rem .9rem;border-radius:10px;text-decoration:none}
+    .note{font-size:.95rem;color:#555}
+    /* toast */
+    .toast{position:fixed;right:16px;bottom:16px;background:#ffffffee;border-left:6px solid #14b8a6;color:#065f46;padding:.9rem 1rem;border-radius:10px;box-shadow:0 10px 24px rgba(0,0,0,.16);display:none;opacity:0;transform:translateY(8px);transition:opacity .25s ease, transform .25s ease}
+    .toast.show{display:flex;opacity:1;transform:translateY(0)}
+  </style>
+</head>
+<body>
+  <nav><div class="nav-inner"><a href="index.html">← Home</a><strong>Lift Me Up</strong><span></span></div></nav>
+  <div class="wrap">
+    <h1>Lift Me Up</h1>
+    <div class="card">
+      <p class="note">If the form doesn’t load below, click the button to open it in a new tab. When you come back, you’ll see a thank‑you message automatically. ✈️</p>
+      <!-- Replace the src below with your Google Forms EMBED link (Send → < > → copy iframe src) -->
+      <iframe id="gform" src="" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0" title="Called To Soar — Support Form">Loading…</iframe>
+      <p style="margin-top:1rem">
+        <a class="btn" id="openForm" href="https://forms.gle/H79MMPihK9w3bDYTA" target="_blank" rel="noopener">Open Full Form</a>
+      </p>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">Thank you for lifting me up! Your support means the world. ✈️</div>
+
+  <script>
+    // show toast when user returns focus after opening form in a new tab
+    const KEY='cts_lift_clicked';
+    document.getElementById('openForm').addEventListener('click',()=>{try{sessionStorage.setItem(KEY,'1')}catch(e){}});
+    window.addEventListener('focus',()=>{try{if(sessionStorage.getItem(KEY)==='1'){const t=document.getElementById('toast');t.classList.add('show');sessionStorage.removeItem(KEY);setTimeout(()=>t.classList.remove('show'),4000)}}catch(e){}});
+
+    // also allow ?thanks=1 in URL to force toast
+    const p=new URLSearchParams(location.search); if(p.get('thanks')==='1'){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),4000)}
+  </script>
 </body>
 </html>
