@@ -29,7 +29,7 @@
     }
     header {
       background-image: url("Final LOGO.png");
-      background-size: 80% auto; /* Logo scales nicely */
+      background-size: 70% auto; /* Slightly smaller logo */
       background-repeat: no-repeat;
       background-position: center;
       height: 100vh;
@@ -38,6 +38,11 @@
       justify-content: center;
       align-items: center;
       margin-top: 60px; /* Space for fixed nav */
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
     section {
       max-width: 900px;
@@ -78,7 +83,7 @@
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
-      background: linear-gradient(to bottom, #dcb79b, #f6e3d3);
+      background: #d97341;
       color: #fff;
     }
   </style>
@@ -109,5 +114,16 @@
 
   <footer>
     <p>© 2025 Called To Soar — Built with heart by Mason Airborne</p>
-  </foot
+  </footer>
 
+  <script>
+    const slides = document.querySelectorAll('.slideshow img');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 4000);
+  </script>
+</body>
+</html>
