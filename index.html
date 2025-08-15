@@ -5,17 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Called To Soar</title>
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #FFB47B, #FCE8D8);
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #f6e3d3, #dcb79b);
       color: #333;
     }
     nav {
-      background-color: #A4F0FF;
+      background-color: #d97341; /* Dusky orange */
       padding: 1rem;
       text-align: center;
       position: fixed;
@@ -24,22 +21,28 @@
       z-index: 10;
     }
     nav a {
-      color: #FF7E26;
+      color: #fff;
       margin: 0 1rem;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
       font-size: 1.1rem;
     }
     header {
       background-image: url("Final LOGO.png");
-      background-size: contain;
+      background-size: 70% auto; /* Slightly smaller logo */
       background-repeat: no-repeat;
       background-position: center;
-      height: 90vh;
+      height: 100vh;
+      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding-top: 3rem; /* Space for navbar */
+      margin-top: 60px; /* Space for fixed nav */
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
     section {
       max-width: 900px;
@@ -50,21 +53,17 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     h2 {
-      color: #FF7E26;
-      font-size: 2rem;
-      text-align: center;
+      color: #d97341;
     }
-    .mission {
-      font-size: 1.2rem;
-      font-style: italic;
-      text-align: center;
-      margin-bottom: 1.5rem;
+    img.about-photo {
+      width: 100%;
+      border-radius: 12px;
+      margin: 1rem 0;
     }
     .slideshow {
       position: relative;
       overflow: hidden;
       height: 400px;
-      margin-bottom: 1rem;
     }
     .slideshow img {
       position: absolute;
@@ -84,16 +83,14 @@
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
-      background-color: transparent;
-      color: white;
+      background: linear-gradient(to bottom, #dcb79b, #f6e3d3);
+      color: #fff;
     }
   </style>
 </head>
 <body>
-
   <nav>
-    <a href="#about">About Me</a>
-    <a href="#goals">Goals</a>
+    <a href="index.html">About Me</a>
     <a href="blog.html">Blog</a>
     <a href="support.html">Support Me</a>
   </nav>
@@ -102,15 +99,10 @@
 
   <section id="about">
     <h2>About Me</h2>
-    <p class="mission">
-      I’m Mason Airborne — a determined, full-of-life adventurer with a love for flight, people, and the thrill of the unknown.
-      My mission is to inspire others to chase the dreams that scare them, and to prove that the leap of faith is worth it.
-    </p>
     <div class="slideshow">
       <img src="IMG_0234.JPG" class="active" alt="Slide 1">
       <img src="website picture.jpeg" alt="Slide 2">
-    </div>
-    <!-- About Section -->
+   <!-- About Section -->
   <section id="about">
     <h2>About Me</h2>
     <div class="about-highlight">
@@ -123,15 +115,13 @@
     </div>
   </section>
 
+  <!-- Goals Section -->
   <section id="goals">
-    <h2>Goals</h2>
-    <ul>
-      <li>Earn IFR, Commercial, Multi-Engine, and CFI ratings.</li>
-      <li>Pursue a career in corporate aviation.</li>
-      <li>Inspire others to invest in themselves and chase the dreams they’ve been afraid to start.</li>
-      <li>Be a role model for the next generation of pilots, especially those who feel like they don’t fit the mold.</li>
-    </ul>
+    <h2>My Goals</h2>
+    <p>My dream is to become a professional corporate pilot — flying jets like the Gulfstream, Bombardier, or Dassault. I’ve already saved over $20,000 and completed my first solo flight, but I still need funding for the rest of my ratings.</p>
+    <p>I’m actively applying for scholarships and working at a busy Class C airport to make my dream a reality. Every hour, every application, and every flight gets me closer to inspiring others to chase their boldest dreams.</p>
   </section>
+
 
   <footer>
     <p>© 2025 Called To Soar — Built with heart by Mason Airborne</p>
@@ -146,6 +136,6 @@
       slides[current].classList.add('active');
     }, 4000);
   </script>
-
 </body>
 </html>
+
