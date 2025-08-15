@@ -7,31 +7,37 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #cbc7f2;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #f6e3d3, #dcb79b);
       color: #333;
+    }
+    nav {
+      background-color: #d97341; /* Dusky orange */
+      padding: 1rem;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
     }
     header {
       background-image: url("Final LOGO.png");
-      background-size: contain; /* Keep full logo visible */
+      background-size: 80% auto; /* Logo scales nicely */
       background-repeat: no-repeat;
       background-position: center;
-      height: 100vh; /* Full viewport height */
+      height: 100vh;
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-    nav {
-      background-color: #1a1a3d;
-      padding: 1rem;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: bold;
+      margin-top: 60px; /* Space for fixed nav */
     }
     section {
       max-width: 900px;
@@ -42,7 +48,7 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     h2 {
-      color: #4b0082;
+      color: #d97341;
     }
     img.about-photo {
       width: 100%;
@@ -72,19 +78,19 @@
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
-      background-color: #1a1a3d;
+      background: linear-gradient(to bottom, #dcb79b, #f6e3d3);
       color: #fff;
     }
   </style>
 </head>
 <body>
-  <header></header>
-
   <nav>
     <a href="index.html">About Me</a>
     <a href="blog.html">Blog</a>
     <a href="support.html">Support Me</a>
   </nav>
+
+  <header></header>
 
   <section id="about">
     <h2>About Me</h2>
@@ -103,16 +109,5 @@
 
   <footer>
     <p>© 2025 Called To Soar — Built with heart by Mason Airborne</p>
-  </footer>
+  </foot
 
-  <script>
-    const slides = document.querySelectorAll('.slideshow img');
-    let current = 0;
-    setInterval(() => {
-      slides[current].classList.remove('active');
-      current = (current + 1) % slides.length;
-      slides[current].classList.add('active');
-    }, 4000);
-  </script>
-</body>
-</html>
