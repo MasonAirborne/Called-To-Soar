@@ -1,206 +1,129 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Called 2 Soar — A journey of flight, faith, and fierce perseverance</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Called To Soar</title>
   <style>
-    :root{
-      /* Palette pulled from your logo */
-      --sky:#A4F0FF;          /* soft sky blue */
-      --sky-2:#EAF4FF;        /* pale sky highlight */
-      --navy:#0F2A43;         /* deep navy */
-      --orange:#FFA630;       /* soft orange */
-      --sun:#FFC857;          /* sun yellow */
-      --white:#FFFFFF;
-
-      --shadow:0 10px 30px rgba(15,42,67,.12);
-      --radius:18px;
-      --maxw:1100px;
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #cbc7f2;
+      color: #333;
     }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      color:#182A3E;
-      background: linear-gradient(135deg, var(--sky), var(--sky-2) 55%, #FFD9B5);
-      overflow-x:hidden;
+    header {
+      background-image: url("IMG_0234.JPG");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
     }
-
-    /* Top navigation */
-    .topnav{
-      width:100%;
-      background: var(--sky); /* baby blue */
-      padding:14px 20px;
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
     }
-    .topnav .inner{
-      max-width: var(--maxw);
-      margin:0 auto;
-      display:flex;
-      align-items:center;
+    nav {
+      background-color: #1a1a3d;
+      padding: 1rem;
+      text-align: center;
     }
-    .brand{
-      font-family:Poppins, sans-serif;
-      font-weight:800;
-      letter-spacing:.5px;
-      font-size:18px;
-      color: var(--orange);
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
     }
-    .navlinks{
-      flex: 1;
-      display:flex;
-      justify-content:center; /* centers menu links */
-      gap:18px;
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    .navlinks a{
-      color: var(--orange);
-      text-decoration:none;
-      font-weight:600;
-      padding:8px 10px;
-      border-radius:8px;
+    h2 {
+      color: #4b0082;
     }
-    .navlinks a:hover{
-      background: rgba(255,255,255,.2);
+    img.about-photo {
+      width: 100%;
+      border-radius: 12px;
+      margin: 1rem 0;
     }
-
-    /* HERO with full-width logo */
-    header.hero{
-      min-height:72vh;
-      display:grid; place-items:center;
-      padding:48px 20px 28px;
+    .slideshow {
+      position: relative;
+      overflow: hidden;
+      height: 400px;
     }
-    .hero-inner{ width: min(var(--maxw), 94%); text-align:center; }
-    .logo-hero{
-      width:100vw; max-height:68vh; object-fit:contain;
-      display:block; margin:0 auto;
-      margin-inline:calc(-50vw + 50%);
-      filter: drop-shadow(0 10px 22px rgba(0,0,0,.12));
+    .slideshow img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      transition: opacity 1s ease-in-out;
     }
-    .tagline{
-      font-family:Poppins, sans-serif;
-      font-size: clamp(22px, 3.2vw, 32px);
-      font-weight:800; color: var(--navy);
-      margin: 10px 0 0;
+    .slideshow img.active {
+      opacity: 1;
+      position: relative;
     }
-
-    /* Section card */
-    section{
-      width:min(var(--maxw), 94%);
-      margin:28px auto 56px;
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 28px clamp(20px, 3vw, 36px);
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      background-color: #1a1a3d;
+      color: #fff;
     }
-    section h2{
-      font-family:Poppins, sans-serif; color:var(--navy);
-      margin:0 0 8px; font-size:28px;
-    }
-    .muted{ margin:0 0 14px; color:#56708E; }
-
-    /* Slideshow — no zoom/crop */
-    .slideshow{
-      margin-top: 16px;
-      border-radius: 14px;
-      overflow:hidden;
-      background:#000;
-      aspect-ratio: 16/9;
-      position:relative;
-      box-shadow: 0 6px 16px rgba(0,0,0,.15);
-    }
-    .slides{ display:flex; width:300%; height:100%; transition: transform .65s ease; }
-    .slides figure{ width:100%; height:100%; margin:0; flex:0 0 100%; display:grid; place-items:center; background:#000; }
-    .slides img{ max-width:100%; max-height:100%; object-fit:contain; }
-    .dots{
-      position:absolute; left:0; right:0; bottom:10px;
-      display:flex; gap:10px; justify-content:center;
-    }
-    .dot{
-      width:10px; height:10px; border-radius:999px;
-      background:#ffffffcc; outline:2px solid #ffffff55; cursor:pointer;
-    }
-    .dot.active{ background: var(--orange); }
-
-    /* Buttons */
-    .btn{
-      display:inline-block; text-decoration:none; font-weight:700;
-      padding:10px 14px; border-radius:10px; margin-top:12px;
-      background: var(--orange); color:#fff;
-    }
-    .btn:hover{ filter:brightness(1.06); }
-
-    footer{ text-align:center; padding:40px 16px 64px; color:#5a6f86; }
   </style>
 </head>
 <body>
-
-  <!-- Top nav -->
-  <nav class="topnav">
-    <div class="inner">
-      <div class="brand">CALLED 2 SOAR</div>
-      <div class="navlinks">
-        <a href="#about">About</a>
-        <a href="blog.html">Blog</a>
-        <a href="goals.html">Goals</a>
-        <a href="support.html">Support</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- HERO with full-width logo -->
-  <header class="hero">
-    <div class="hero-inner">
-      <img src="Prop logo.jpg" alt="Called 2 Soar logo" class="logo-hero" />
-      <p class="tagline">A journey of flight, faith, and fierce perseverance</p>
-    </div>
+  <header>
+    <h1>Called To Soar</h1>
+    <p>A journey of flight, faith, and fierce perseverance</p>
   </header>
 
-  <!-- About + Slideshow -->
-  <section id="about" aria-labelledby="about-title">
-    <h2 id="about-title">About Me</h2>
-    <p class="muted"><strong>Mason “May” Airborne</strong></p>
-    <p>
-      First-gen grad. Debt-free. Former collegiate athlete. Now building hours and discipline—from the ramp to the cockpit.
-      I’m training to fly corporate jets and mentor the next generation to ask, <em>“Why not me?”</em>
-    </p>
+  <nav>
+    <a href="index.html">About Me</a>
+    <a href="blog.html">Blog</a>
+    <a href="support.html">Support Me</a>
+  </nav>
 
-    <div class="slideshow" aria-label="Photo slideshow">
-      <div class="slides" id="slides">
-        <figure><img src="IMG_0234.JPG" alt="Preflight" /></figure>
-        <figure><img src="IMG_0950.jpeg" alt="In flight" /></figure>
-        <figure><img src="website picture.jpeg" alt="Training day" /></figure>
-      </div>
-      <div class="dots" role="tablist" aria-label="Slide selectors">
-        <button class="dot active" aria-label="Go to slide 1"></button>
-        <button class="dot" aria-label="Go to slide 2"></button>
-        <button class="dot" aria-label="Go to slide 3"></button>
-      </div>
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="slideshow">
+      <img src="IMG_0234.JPG" class="active" alt="Slide 1">
+      <img src="website picture.jpeg" alt="Slide 2">
     </div>
-
-    <a class="btn" href="blog.html">Read the Blog</a>
+    <p><strong>Mason Airborne —</strong><br>
+    After years of uncertainty and dodging the classic holiday questions—“What do you want to be when you grow up?” or “What are you doing these days?”—I finally have an answer I can say with confidence: I'm becoming a pilot.</p>
+    <p>My path to aviation wasn’t linear, but in many ways, it was building in the background all along. I didn’t set foot in a cockpit until I was 22, but the dream had been planted years earlier. At 26, I made the commitment. Not a leap—but a decision born of grit, sacrifice, and years of quiet perseverance. On July 16th, 2025, I completed my first solo flight with 27 hours logged. That’s when the journey to SOAR truly began.</p>
+    <p>As a first-generation college student, I earned my business degree in 2021—completely debt-free. I applied to over 25 scholarships, enrolled in summer courses, and spent countless nights in the library. That experience taught me resilience, discipline, and the value of showing up even when the odds aren’t in your favor.</p>
+    <p>After years of jobs that drained me, I decided to start where I was—with what I had. I got a job at my local Class Charlie airport. Today, I’m immersed in the corporate aviation world, assisting aircraft in extreme weather, maintaining ramp safety, and gaining exposure to what keeps the industry moving. When I watch pilots—especially women—step off a Pilatus PC-24, a King Air, or even a Gulfstream, it reignites my purpose. I want to be one of them.</p>
+    <p>Sure, I’ve had moments of self-doubt. “Why didn’t I do this sooner?” But I’ve come to realize: every year of waiting was building something in me. Every delay fortified me. My journey wasn’t late—it was right on time. Aviation isn’t just a dream—it’s a responsibility. It demands safety, sound judgment, and professionalism. I’m proud to be learning it from the ground up.</p>
+    <p><em>This is my invitation to you: stop asking “Why me?”<br>Start declaring—“Why not me?”</em></p>
   </section>
 
-  <footer>© 2025 Called 2 Soar — Mason Airborne</footer>
+  <footer>
+    <p>© 2025 Called To Soar — Built with heart by Mason Airborne</p>
+  </footer>
 
   <script>
-    // Simple slideshow
-    const track = document.getElementById('slides');
-    const dots = Array.from(document.querySelectorAll('.dot'));
-    let i = 0, timer;
-    function go(n){
-      i = (n + dots.length) % dots.length;
-      track.style.transform = `translateX(-${i * 100}%)`;
-      dots.forEach((d,idx)=> d.classList.toggle('active', idx===i));
-    }
-    function autoplay(){ timer = setInterval(()=> go(i+1), 4500); }
-    dots.forEach((d,idx)=> d.addEventListener('click', ()=>{ clearInterval(timer); go(idx); autoplay(); }));
-    autoplay();
+    const slides = document.querySelectorAll('.slideshow img');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 4000);
   </script>
 </body>
 </html>
