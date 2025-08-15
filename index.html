@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Called 2 Soar — Mason Airborne</title>
   <style>
     :root{
       --baby-blue:#cfe9ff;
       --sunset:#ff8c42;        /* soft orange */
-      --sunset-2:#ffb677;      /* lighter orange for gradients */
+      --sunset-2:#ffb677;      /* lighter orange */
       --navy:#0f2a43;
       --card:#ffffff;
       --shadow: 0 10px 30px rgba(15,42,67,.12);
@@ -22,6 +21,7 @@
       background:
         radial-gradient(1000px 600px at 80% 10%, rgba(255,140,66,.18), transparent 55%),
         linear-gradient(135deg, var(--baby-blue), #eaf4ff 55%, var(--sunset-2));
+      overflow-x:hidden; /* prevent horizontal scroll from animations */
     }
 
     /* HERO */
@@ -29,32 +29,32 @@
       position:relative;
       min-height:86vh;
       display:grid; place-items:center;
-      padding:clamp(20px,4vw,48px);
+      padding:40px;
       overflow:hidden;
     }
     .hero-inner{
-      width:min(1100px, 96%);
-      display:grid; gap:28px; justify-items:center;
-      position:relative;
+      width:100%;              /* let the logo span full width */
     }
     .logo{
-      width:min(820px, 92vw);         /* BIG + responsive */
-      max-width: 980px;
+      width:100vw;             /* fill the screen edge-to-edge */
       height:auto;
+      max-height:70vh;         /* keep it from getting too tall */
+      object-fit:contain;
       display:block;
-      filter: drop-shadow(0 12px 24px rgba(0,0,0,.12));
+      margin-inline:calc(-50vw + 50%); /* truly stretch to edges */
+      filter: drop-shadow(0 12px 24px rgba(0,0,0,.10));
     }
 
-    /* CTA BOXES overlay */
+    /* CTA boxes */
     .cta-wrap{
       position:absolute;
-      bottom: clamp(16px, 6vh, 56px);
+      bottom: 56px;
       left:50%;
       transform: translateX(-50%);
-      width:min(1100px, 96%);
+      width:min(1200px, 95%);
       display:grid; gap:16px;
       grid-template-columns: repeat(3, minmax(0,1fr));
-      pointer-events: none;   /* allow clicks only on children */
+      pointer-events: none;
     }
     .cta{
       pointer-events: auto;
@@ -68,48 +68,86 @@
       cursor:pointer; user-select:none;
     }
     .cta:hover{ transform: translateY(-4px); box-shadow: 0 14px 36px rgba(15,42,67,.16); }
-    .cta h3{ margin:6px 0 4px; font-size: clamp(16px, 2.1vw, 20px); color:var(--navy); }
+    .cta h3{ margin:6px 0 4px; font-size: 20px; color:var(--navy); }
     .cta p{ margin:0; font-size: .95rem; color:#41556d }
     .cta--orange{ background: linear-gradient(180deg, #fff, #fff7f2 60%); }
     .cta--blue{ background: linear-gradient(180deg, #fff, #f1f8ff 60%); }
 
-    /* SLIDESHOW */
+    /* SLIDESHOW (desktop) */
     .slideshow{
       margin: 64px auto 0;
-      width:min(1100px, 96%);
+      width:min(1200px, 96%);
       border-radius: var(--radius);
       overflow:hidden; box-shadow: var(--shadow);
       position:relative; background:#000;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 16 / 9;    /* cinematic, not zoomed */
     }
     .slides{display:flex; width:300%; height:100%; transition: transform .7s ease; background:#000;}
     .slides figure{width:100%; height:100%; margin:0; flex:0 0 100%; display:grid; place-items:center; background:#000;}
-    .slides img{max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain;}
+    .slides img{
+      max-width:100%;
+      max-height:100%;
+      width:auto; height:auto;
+      object-fit:contain; /* 👈 shows entire image; no crop/zoom */
+      background:#000;
+    }
     .dots{
-      position:absolute; inset:auto 0 10px 0; display:flex; gap:10px; justify-content:center;
+      position:absolute; inset:auto 0 12px 0; display:flex; gap:10px; justify-content:center;
     }
     .dot{
       width:10px; height:10px; border-radius:999px; background:#ffffffcc; outline:2px solid #ffffff55; cursor:pointer;
     }
     .dot.active{ background: var(--sunset); outline-color:#fff; }
 
-    /* SECTION */
-    section{ width:min(900px, 92%); margin:56px auto; background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding: clamp(20px, 4vw, 36px); }
+    /* CONTENT SECTIONS */
+    section{
+      width:min(1000px, 92%);
+      margin:56px auto;
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding: 36px;
+    }
     section h2{ margin:0 0 8px; color:var(--navy) }
     .muted{ color:#536b88; margin:0 0 14px; }
 
-    /* SMALL SCREENS */
-    @media (max-width: 760px){
-      .cta-wrap{ position:static; transform:none; width:100%; margin-top:-10px; grid-template-columns:1fr; }
-      .hero{ min-height: 78vh; }
+    footer{
+      text-align:center; color:#5a6f86; padding:40px 16px 64px
+    }
+
+    /* ✈️ Animated planes (colored, professional icons) */
+    .animated-plane{
+      position:fixed;
+      width:64px;
+      opacity:.0;
+      z-index: 9999;
+      pointer-events:none;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,.18));
+    }
+    .plane-1{ top:80px; left:-120px; animation: flyRight 30s linear infinite; }
+    .plane-2{ bottom:120px; right:-140px; animation: flyLeft 42s linear infinite; }
+    .plane-3{ top:50%; left:-160px; animation: flyRight 55s ease-in-out infinite; }
+
+    @keyframes flyRight{
+      0%{ transform: translateX(0) rotate(3deg); opacity:0; }
+      8%{ opacity:1; }
+      92%{ opacity:1; }
+      100%{ transform: translateX(120vw) rotate(5deg); opacity:0; }
+    }
+    @keyframes flyLeft{
+      0%{ transform: translateX(0) rotate(-3deg); opacity:0; }
+      8%{ opacity:1; }
+      92%{ opacity:1; }
+      100%{ transform: translateX(-120vw) rotate(-5deg); opacity:0; }
     }
   </style>
 </head>
 <body>
 
-  <!-- HERO with prominent logo + overlay CTAs -->
+  <!-- HERO with full-width logo + overlay CTAs -->
   <header class="hero" id="top">
     <div class="hero-inner">
+      <!-- Make sure Logo.jpg exists; this will go edge-to-edge -->
       <img src="Logo.jpg" alt="Called 2 Soar logo" class="logo" />
 
       <nav class="cta-wrap" aria-label="Primary actions">
@@ -121,7 +159,7 @@
           <h3>Path 2 Pilot</h3>
           <p>Opens blog in a new tab</p>
         </a>
-        <a class="cta cta--blue" href="Support me.html" target="_blank" rel="noopener">
+        <a class="cta cta--blue" href="support.html" target="_blank" rel="noopener">
           <h3>Lift Me Up</h3>
           <p>Support page (new tab)</p>
         </a>
@@ -129,12 +167,12 @@
     </div>
   </header>
 
-  < Slideshow> </Slideshow>
+  <!-- Slideshow -->
   <div class="slideshow" aria-label="Photo slideshow">
     <div class="slides" id="slides">
       <figure><img src="IMG_0234.JPG" alt="Website photo" /></figure>
       <figure><img src="IMG_0950.jpeg" alt="Flight photo" /></figure>
-      <figure><img src="website picture.jpeg" alt="Website photo" /></figure>
+      <figure><img src="website picture.jpeg" alt="Website photo 2" /></figure>
     </div>
     <div class="dots" role="tablist" aria-label="Slide selectors">
       <button class="dot active" aria-label="Go to slide 1"></button>
@@ -164,9 +202,15 @@
     </p>
   </section>
 
-  <footer style="text-align:center; color:#5a6f86; padding:40px 16px 64px">
+  <footer>
     © 2025 Called 2 Soar — Mason Airborne
   </footer>
+
+  <!-- ✈️ Colorful Animated Planes (professional icon style) -->
+  <!-- You can swap these URLs for other icons if you prefer -->
+  <img src="https://cdn-icons-png.flaticon.com/512/1170/1170576.png" class="animated-plane plane-1" alt="Plane 1">
+  <img src="https://cdn-icons-png.flaticon.com/512/2784/2784468.png" class="animated-plane plane-2" alt="Plane 2">
+  <img src="https://cdn-icons-png.flaticon.com/512/744/744479.png" class="animated-plane plane-3" alt="Plane 3">
 
   <script>
     // Slideshow logic (auto + dots)
