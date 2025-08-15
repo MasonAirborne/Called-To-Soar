@@ -5,86 +5,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Called To Soar</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f6f2e7; /* Soft tan background */
+      background: linear-gradient(to bottom right, #FFB47B, #FCE8D8);
       color: #333;
-      scroll-behavior: smooth;
     }
-
-    /* Nav bar */
     nav {
-      background: linear-gradient(90deg, #d87f39, #f5a65b); /* Dusky orange gradient */
+      background-color: #A4F0FF;
       padding: 1rem;
       text-align: center;
       position: fixed;
       top: 0;
-      left: 0;
       width: 100%;
       z-index: 10;
     }
     nav a {
-      color: white;
+      color: #FF7E26;
       margin: 0 1rem;
       text-decoration: none;
       font-weight: bold;
       font-size: 1.1rem;
     }
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    /* Logo section */
     header {
       background-image: url("Final LOGO.png");
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
-      height: 100vh;
-      width: 100%;
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 3rem; /* Space for navbar */
     }
-
-    /* About section */
     section {
       max-width: 900px;
-      margin: 6rem auto 2rem; /* Push down for fixed nav */
+      margin: 2rem auto;
       padding: 2rem;
       background-color: white;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     h2 {
-      color: #d87f39;
+      color: #FF7E26;
       font-size: 2rem;
-      margin-bottom: 1rem;
       text-align: center;
     }
-    .about-highlight {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-    .about-highlight strong {
-      color: #f07e26;
-      font-size: 1.3rem;
-    }
-    .about-highlight p:first-child {
+    .mission {
+      font-size: 1.2rem;
       font-style: italic;
-      font-weight: bold;
+      text-align: center;
+      margin-bottom: 1.5rem;
     }
-
+    .slideshow {
+      position: relative;
+      overflow: hidden;
+      height: 400px;
+      margin-bottom: 1rem;
+    }
+    .slideshow img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      transition: opacity 1s ease-in-out;
+    }
+    .slideshow img.active {
+      opacity: 1;
+      position: relative;
+    }
     footer {
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
-      background: linear-gradient(90deg, #d87f39, #f5a65b);
-      color: #fff;
-      margin-top: 2rem;
+      background-color: transparent;
+      color: white;
     }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
+
   <nav>
     <a href="#about">About Me</a>
     <a href="#goals">Goals</a>
@@ -92,33 +98,48 @@
     <a href="support.html">Support Me</a>
   </nav>
 
-  <!-- Logo header -->
   <header></header>
 
-  <!-- About Section -->
   <section id="about">
     <h2>About Me</h2>
-    <div class="about-highlight">
-      <p>"<strong>Why NOT me?</strong>" — That’s the question I live by.</p>
-      <p>I’ve never been the type to sit still or play it safe. From catching waves on a surfboard to fueling jets on the ramp, I’ve always chased that heart-racing mix of awe and calm that comes from embracing the unknown.</p>
-      <p>I didn’t step into a cockpit until I was 22 — but when I did, I felt the same rush I used to get from the ocean, only this time, it was God’s creation stretched out beneath me.</p>
-      <p>I worked my way through college debt-free, juggling multiple jobs while leaning on the incredible support of my family. Basketball taught me grit, leadership, and dedication; life taught me resilience, hustle, and faith.</p>
-      <p>Now, my dream is to become a corporate pilot — flying sleek jets across the skies, inspiring the underdog, and proving that no dream is too bold if you’re willing to put in the work.</p>
-      <p>If I can make one person believe in themselves — or even just smile in a day — I’ve succeeded.</p>
+    <p class="mission">
+      I’m Mason Airborne — a determined, full-of-life adventurer with a love for flight, people, and the thrill of the unknown.
+      My mission is to inspire others to chase the dreams that scare them, and to prove that the leap of faith is worth it.
+    </p>
+    <div class="slideshow">
+      <img src="IMG_0234.JPG" class="active" alt="Slide 1">
+      <img src="website picture.jpeg" alt="Slide 2">
     </div>
+    <p>After years of uncertainty and dodging the classic holiday questions—“What do you want to be when you grow up?” or “What are you doing these days?”—I finally have an answer I can say with confidence: I'm becoming a pilot.</p>
+    <p>My path to aviation wasn’t linear, but in many ways, it was building in the background all along. I didn’t set foot in a cockpit until I was 22, but the dream had been planted years earlier. At 26, I made the commitment. On July 16th, 2025, I completed my first solo flight with 27 hours logged. That’s when the journey to SOAR truly began.</p>
+    <p>As a first-generation college student, I earned my business degree in 2021—completely debt-free. I applied to over 25 scholarships, enrolled in summer courses, and spent countless nights in the library. That experience taught me resilience, discipline, and the value of showing up even when the odds aren’t in your favor.</p>
+    <p>I thrive on adventure, new challenges, and connecting with people. From surfing waves to flying above the clouds, I chase that feeling of awe that reminds me of God’s incredible creation. My grandparents’ unwavering belief in me has shaped my path, and now I want to pass that same encouragement to others who question themselves the way I once did.</p>
+    <p>If I can make one person smile or believe in their own dream each day, I’ve succeeded.</p>
   </section>
 
-  <!-- Goals Section -->
   <section id="goals">
-    <h2>My Goals</h2>
-    <p>My dream is to become a professional corporate pilot — flying jets like the Gulfstream, Bombardier, or Dassault. I’ve already saved over $20,000 and completed my first solo flight, but I still need funding for the rest of my ratings.</p>
-    <p>I’m actively applying for scholarships and working at a busy Class C airport to make my dream a reality. Every hour, every application, and every flight gets me closer to inspiring others to chase their boldest dreams.</p>
+    <h2>Goals</h2>
+    <ul>
+      <li>Earn IFR, Commercial, Multi-Engine, and CFI ratings.</li>
+      <li>Pursue a career in corporate aviation.</li>
+      <li>Inspire others to invest in themselves and chase the dreams they’ve been afraid to start.</li>
+      <li>Be a role model for the next generation of pilots, especially those who feel like they don’t fit the mold.</li>
+    </ul>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>© 2025 Called To Soar — Built with heart by Mason Airborne</p>
   </footer>
+
+  <script>
+    const slides = document.querySelectorAll('.slideshow img');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 4000);
+  </script>
+
 </body>
 </html>
-
