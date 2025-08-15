@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,21 +13,14 @@
     }
     header {
       background-image: url("Final LOGO.jpg");
-      background-size: cover;
+      background-size: contain; /* Keep full logo visible */
+      background-repeat: no-repeat;
       background-position: center;
-      color: white;
-      height: 100vh;
+      height: 100vh; /* Full viewport height */
+      width: 100%;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 2rem;
-    }
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
     }
     nav {
       background-color: #1a1a3d;
@@ -86,10 +78,7 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>Called To Soar</h1>
-    <p>A journey of flight, faith, and fierce perseverance</p>
-  </header>
+  <header></header>
 
   <nav>
     <a href="index.html">About Me</a>
