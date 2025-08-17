@@ -3,55 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Life’s Obligation | Called To Soar</title>
+  <title>The Call 2 Lift Other's Up | Called To Soar</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
+    html { scroll-behavior: smooth; }
+    body{
+      margin:0;
+      font-family:'Poppins',sans-serif;
       background: linear-gradient(to bottom, #f6e3d3, #dcb79b);
-      color: #333;
+      color:#333;
     }
-    nav {
-      background-color: #d97341;
-      padding: 1rem;
-      text-align: center;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 10;
+    /* Fixed top nav */
+    nav{
+      background:#d97341;
+      padding:1rem;
+      text-align:center;
+      position:fixed; top:0; left:0; width:100%; z-index:10;
+      box-shadow:0 4px 12px rgba(0,0,0,.12);
     }
-    nav a {
-      color: #fff;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
+    nav a{
+      color:#fff; margin:0 1rem; text-decoration:none;
+      font-weight:600; font-size:1.1rem;
     }
-    section {
-      max-width: 900px;
-      margin: 6rem auto 2rem auto;
-      padding: 2rem;
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    nav a:hover{ text-decoration:underline; }
+
+    /* Page card */
+    main{
+      max-width:900px;
+      margin: 6.5rem auto 2.5rem;  /* push below fixed nav */
+      padding:2rem;
+      background:#fff;
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,.1);
     }
-    h1 {
-      color: #d97341;
-      margin-bottom: 1rem;
+    h1{
+      color:#d97341;
+      margin:0 0 1rem;
+      font-size:2rem;
+      line-height:1.2;
     }
-    p {
-      line-height: 1.7;
-      margin: 1rem 0;
+    p{ line-height:1.75; margin:1rem 0; }
+    blockquote{
+      margin:1.2rem 0;
+      padding:.6rem 1rem;
+      border-left:4px solid #d97341;
+      color:#4b3c32;
+      background:#FFF4E9;
+      border-radius:6px;
     }
-    blockquote {
-      font-style: italic;
-      color: #4b0082;
-      margin: 1.5rem 0;
-      padding-left: 1rem;
-      border-left: 4px solid #d97341;
+    .post-nav{
+      margin-top:1.5rem;
+      text-align:center;
     }
-     footer{
+    .post-nav a{
+      color:#d97341; text-decoration:none; font-weight:700;
+      border-bottom:2px solid transparent;
+    }
+    .post-nav a:hover{ border-color:#d97341; }
+
+    footer{
       text-align:center; padding:2rem 1rem 3rem;
       color:#fff; background:transparent;
     }
@@ -59,16 +69,19 @@
 </head>
 <body>
   <nav>
-    <a href="index.html">About Me</a>
+    <a href="index.html#about">About Me</a>
     <a href="blog.html">Wings In The Making</a>
     <a href="goals.html">The Destination</a>
     <a href="support.html">Lift Me Up</a>
   </nav>
 
-  <section>
-    <h1>Life’s Obligation</h1>
+  <main>
+    <h1>The Call 2 Lift Other's Up</h1>
+    
+   <!-- Optional meta -->
+    <p class="meta">Aug 16th 2025 • ~2 min read</p>
 
-    <p>There are things in life we often overlook—responsibilities we carry whether we realize it or not. Of course, we know the basics: we’re obligated to work, to treat others with kindness—not for gain or recognition, but because true kindness stems from grace and love. We’re obligated to care for our children, our parents, or at the very least, ourselves. Wake up, fuel your body, and move with purpose.</p>
+ <p>There are things in life we often overlook—responsibilities we carry whether we realize it or not. Of course, we know the basics: we’re obligated to work, to treat others with kindness—not for gain or recognition, but because true kindness stems from grace and love. We’re obligated to care for our children, our parents, or at the very least, ourselves. Wake up, fuel your body, and move with purpose.</p>
 
     <p>But there’s another kind of obligation we rarely consider: the obligation to show others what life can be. This is different from your purpose, though deeply connected to it. It influences how you carry yourself, how you approach each day, and how others experience you. People may not think about you as much as you imagine—most are consumed with their own lives and worries. But every decision you make still ripples outward. Marinate on that.</p>
 
@@ -93,9 +106,7 @@
     <p>Science agrees: dopamine—the brain’s “happy” chemical—is released most when we help others. Service is joy. So wake up and ask not, <em>“Why me?”</em> but <em>“Why not me?”</em></p>
 
     <p><strong>Be better. Be the example. Show others what’s possible through resilience, dedication, and faith.</strong></p>
-    <section>
-      
-    <!-- Back link -->
+  
     <div class="post-nav">
       <a href="blog.html">← Back to Blog</a>
     </div>
