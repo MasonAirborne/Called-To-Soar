@@ -1,91 +1,156 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog | Called To Soar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wings In The Making | Called To Soar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-     background: linear-gradient(to right, #FF6B35, #FFD166, #F67280);
-      color: #333;
+    html { scroll-behavior: smooth; }
+    body{
+      margin:0; font-family:'Poppins',sans-serif;
+      background: linear-gradient(to bottom, #f6e3d3, #dcb79b); /* matches index */
+      color:#333;
     }
-    nav {
-      background-color: #1a1a3d;
-      padding: 1rem;
-      text-align: center;
+
+    /* Fixed top nav (dusky orange) */
+    nav{
+      background:#d97341; padding:1rem; text-align:center;
+      position:fixed; top:0; left:0; width:100%; z-index:10;
+      box-shadow:0 4px 12px rgba(0,0,0,.12);
     }
-    nav a {
-      color: white;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: bold;
+    nav a{
+      color:#fff; margin:0 1rem; text-decoration:none;
+      font-weight:600; font-size:1.1rem;
     }
-    section {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background-color: white;
-      border-radius: 12px;
+    nav a:hover{ text-decoration:underline; }
+
+    /* Page container */
+    main{
+      max-width: 1100px;
+      margin: 6.5rem auto 2rem;   /* push below fixed nav */
+      padding: 0 1rem 2rem;
     }
-    h2 {
-      color: #4b0082;
-      margin-bottom: 1rem;
+    h1{
+      text-align:center; color:#d97341; font-size:2rem; margin:0 0 1.25rem;
     }
-    ul {
-      list-style: none;
-      padding: 0;
+    p.sub{ text-align:center; margin:0 0 2rem; color:#4b3c32; }
+
+    /* Grid of post cards */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:18px;
     }
-    li {
-      margin-bottom: 1rem;
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
     }
-    a.blog-link {
-      text-decoration: none;
-      color: #ADD8E6;
-      font-size: 1.2rem;
-      font-weight: bold;
+    @media (max-width: 640px){
+      .grid{ grid-template-columns: 1fr; }
     }
-    a.blog-link:hover {
-      color: #4b0082;
+
+    .card{
+      background:#fff; border-radius:14px; overflow:hidden;
+      box-shadow:0 6px 16px rgba(0,0,0,.10);
+      transition: transform .18s ease, box-shadow .18s ease;
     }
-    .venmo {
-      margin-top: 3rem;
-      font-size: 1rem;
-      text-align: center;
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow:0 10px 22px rgba(0,0,0,.16);
     }
-    .venmo a {
-      color: #4b0082;
-      text-decoration: none;
-      font-weight: bold;
+    .card a{
+      display:block; color:inherit; text-decoration:none; height:100%;
+    }
+    .thumb{
+      aspect-ratio: 16/9; width:100%; object-fit:cover; display:block; background:#eee;
+    }
+    .card-body{ padding:14px 14px 16px; }
+    .card-title{
+      margin:0 0 6px; font-size:1.05rem; font-weight:800; color:#0f2a43;
+    }
+    .meta{
+      margin:0; font-size:.9rem; color:#6a5a4e;
+    }
+
+    /* Venmo block */
+    .support{
+      margin: 2rem auto 0; max-width: 900px;
+      background:#fff; border-radius:12px; padding:18px 20px;
+      box-shadow:0 4px 12px rgba(0,0,0,.10);
+      text-align:center;
+    }
+    .support a{ color:#d97341; font-weight:800; text-decoration:none; }
+    .support a:hover{ text-decoration:underline; }
+
+    footer{
+      text-align:center; color:#fff; padding: 2rem 1rem 3rem; background: transparent;
     }
   </style>
 </head>
 <body>
   <nav>
-    <a href="index.html">About Me</a>
-    <a href="blog.html">Blog</a>
-    <a href="goals.html">Goals</a>
+    <a href="index.html#about">About Me</a>
+    <a href="goals.html">The Destination</a>
+    <a href="blog.html">Wings In The Making</a>
     <a href="support.html">Lift Me Up</a>
   </nav>
 
-  <section>
-    <h2>Blog</h2>
-    <ul>
-      <li><a class="blog-link" href="life-obligation.html">Life’s Obligation</a></li>
-      <li><a class="blog-link" href="new-perspective.html">A New Perspective on Lessons</a></li>
-       <li><a class="blog-link" href="grounded-to-grow.html">How Job Rejection Led Me to Purpose</a></li>
-       <li><a class="blog-link" href="Life's Not A Box.html">Life's Not A Box</a></li>
-      <article>
+  <main>
+    <h1>Wings In The Making</h1>
+    <p class="sub">Stories from the ramp, the cockpit, and the climb.</p>
 
-    </ul>
+    <section class="grid" aria-label="Blog posts">
+      <!-- Post 1 -->
+      <article class="card">
+        <a href="life-obligation.html">
+          <img class="thumb" src="thumb-life-obligation.jpg" alt="Life’s Obligation thumbnail"/>
+          <div class="card-body">
+            <h2 class="card-title">Life’s Obligation</h2>
+            <p class="meta">Encouragement · Faith · Grit</p>
+          </div>
+        </a>
+      </article>
 
-    <div class="venmo">
-      💖 Support this journey:<a href="https://venmo.com/u/called-2-soar" target="_blank">@called-2-soar</a>
-  </p> </a>
+      <!-- Post 2 -->
+      <article class="card">
+        <a href="new-perspective.html">
+          <img class="thumb" src="thumb-new-perspective.jpg" alt="A New Perspective on Lessons thumbnail"/>
+          <div class="card-body">
+            <h2 class="card-title">A New Perspective on Lessons</h2>
+            <p class="meta">Growth · Resilience · Reflection</p>
+          </div>
+        </a>
+      </article>
+
+      <!-- Post 3 -->
+      <article class="card">
+        <a href="grounded-to-grow.html">
+          <img class="thumb" src="thumb-grounded-to-grow.jpg" alt="How Job Rejection Led Me to Purpose thumbnail"/>
+          <div class="card-body">
+            <h2 class="card-title">How Job Rejection Led Me to Purpose</h2>
+            <p class="meta">Purpose · Setbacks → Setups</p>
+          </div>
+        </a>
+      </article>
+
+      <!-- Post 4 -->
+      <article class="card">
+        <a href="Life's Not A Box.html">
+          <img class="thumb" src="thumb-lifes-not-a-box.jpg" alt="Life’s Not a Box thumbnail"/>
+          <div class="card-body">
+            <h2 class="card-title">Life’s Not a Box</h2>
+            <p class="meta">Possibility · Mindset</p>
+          </div>
+        </a>
+      </article>
+    </section>
+
+    <div class="support">
+      💖 Support this journey:
+      <a href="https://venmo.com/u/called-2-soar" target="_blank" rel="noopener">@called-2-soar</a>
     </div>
-  </section>
-</p>
+  </main>
+
+  <footer>© 2025 Called To Soar — Mason Airborne</footer>
 </body>
 </html>
