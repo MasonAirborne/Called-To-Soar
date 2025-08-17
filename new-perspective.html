@@ -1,58 +1,115 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Lessons from the Skies: Faith That Lifts, Trials That Teach</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lessons from the Skies: Faith That Lifts, Trials That Teach | Called To Soar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background-color: #cbc7f2;
-      color: #333;
+    html { scroll-behavior: smooth; }
+    body{
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      background: linear-gradient(to bottom, #f6e3d3, #dcb79b);
+      color:#333;
     }
-    nav {
-      background-color: linear-gradient(to right, #1e90ff, #ff9a00)
-      padding: 1rem;
-      text-align: center;
+    /* Fixed top nav */
+    nav{
+      background:#d97341;
+      padding:1rem;
+      text-align:center;
+      position:fixed; top:0; left:0; width:100%; z-index:10;
+      box-shadow:0 4px 12px rgba(0,0,0,.12);
     }
-    nav a {
-      color: white;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: bold;
+    nav a{
+      color:#fff; margin:0 1rem; text-decoration:none;
+      font-weight:600; font-size:1.1rem;
     }
-    section {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background-color: white;
-      border-radius: 12px;
+    nav a:hover{ text-decoration:underline; }
+
+    /* Page card */
+    main{
+      max-width:900px;
+      margin: 6.5rem auto 2.5rem;  /* push below fixed nav */
+      padding:2rem;
+      background:#fff;
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,.1);
     }
-    h2 {
-      color: #4b0082;
+    h1{
+      color:#d97341;
+      margin:0 0 1rem;
+      font-size:2rem;
+      line-height:1.2;
+    }
+    p{ line-height:1.75; margin:1rem 0; }
+    blockquote{
+      margin:1.2rem 0;
+      padding:.6rem 1rem;
+      border-left:4px solid #d97341;
+      color:#4b3c32;
+      background:#FFF4E9;
+      border-radius:6px;
+    }
+    .post-nav{
+      margin-top:1.5rem;
+      text-align:center;
+    }
+    .post-nav a{
+      color:#d97341; text-decoration:none; font-weight:700;
+      border-bottom:2px solid transparent;
+    }
+    .post-nav a:hover{ border-color:#d97341; }
+
+    footer{
+      text-align:center; padding:2rem 1rem 3rem;
+      color:#fff; background:transparent;
     }
   </style>
 </head>
 <body>
   <nav>
-    <a href="index.html">About Me</a>
-    <a href="blog.html">Blog</a>
-    <a href="goals.html">Goals</a>
-    <a href="support.html">Support Me</a>
+    <a href="index.html#about">About Me</a>
+    <a href="blog.html">Wings In The Making</a>
+    <a href="goals.html">The Destination</a>
+    <a href="support.html">Lift Me Up</a>
   </nav>
 
-  <section>
-    <h2>A New Perspective on Lessons</h2>
-    <p>Everyone faces hardships—some that break you, others that build you. Some people shut down, locking their hearts, while others use their wounds to help heal others. Life will always bring challenges, but how we respond is our greatest responsibility.</p>
-    <p>Do we shut our doors? Put a lock on them so no one can enter? Or do we leave them cracked open and be discerning with who we allow in? Not everyone is meant to stay, but those who are true friends will walk with you through the hardest seasons.</p>
-    <p>We were never meant to tackle life alone. The Bible reminds us: “When two or more are gathered, there I am also.” And again: “Two are better than one—for if one falls, the other can lift them up.” Community matters.</p>
-    <p>Life is a series of lessons. Often, the same ones repeat themselves until we finally learn. Ever feel like, “This feels familiar… like something I dealt with two years ago?” That’s not a coincidence. It’s an opportunity to level up—respond differently this time.</p>
-    <p>We gravitate toward comfort. But breakthroughs happen when we do the hard things—leave that unfulfilling relationship, run the race, move away from comfort. God doesn’t expect perfection. He wants us to try—to grow and seek Him wholeheartedly.</p>
-    <p>If life were always smooth, we’d never develop a real relationship with Him. Life is like a heartbeat—constant highs and lows. A flat line means death. We need the lows to appreciate love, gratitude, and community; and we need the highs to experience success and celebration.</p>
-    <p>Earlier today, I greeted a stranger with a smile. He stopped to talk. I learned he was picking up his wife from the hospital. My heart dropped. Words failed me. But something nudged me—I turned back. Shaky voice, racing heart—I asked if I could pray for him and his wife. Her name? Same as my mom’s. It felt divine. After a few awkward lines, I turned to leave. He said, “That made my day, ma’am.”</p>
-    <p>That’s what life is about. It’s not the job, the car, the clothes. It’s about showing up. Meeting people where they are. Loving them without expectation. God isn’t concerned with your job title—He’s looking at your heart. Are you part of a community that reflects His love?</p>
-    <p>If not, maybe it’s time to take courage and seek one. Life isn’t about climbing your mountain alone—it’s about climbing together. That takes courage. And the most courageous decisions often lead to the most fulfilling outcomes.</p>
-  </section>
+  <main>
+    <h1>Lessons from the Skies: Faith That Lifts, Trials That Teach</h1>
+
+    <p>Everyone faces hardships—some that break you, others that build you. Some people shut down, locking their hearts, while others allow their wounds to become bridges that help heal others. Life will always bring challenges, but how we respond is our greatest responsibility.</p>
+
+    <p>Do we shut the doors completely, locking out anyone who might hurt us? Or do we keep them cracked open, discerning who we allow in? Not everyone is meant to stay, but true friends walk with us through the storm—steady like a copilot in rough skies.</p>
+
+    <blockquote>
+      “Where two or more are gathered, there I am also.” — <em>Matthew 18:20</em>
+    </blockquote>
+    <blockquote>
+      “And let us consider how to stir up one another to love and good works, not neglecting to meet together, as is the habit of some, but encouraging one another, and all the more as you see the Day drawing near.” — <em>Hebrews 10:24–25</em>
+    </blockquote>
+
+    <p>We were never meant to navigate life alone. Community matters. Even pilots fly best with support crews and copilots—it’s safer and stronger together.</p>
+
+    <p>Life is a series of lessons, often repeated until we finally learn them. Have you ever thought, “This feels familiar… didn’t I face this before?” That’s not a coincidence—it’s God giving us another approach, another chance to adjust our heading. Just as a pilot corrects course mid-flight, we’re invited to respond differently each time, to persevere and grow.</p>
+
+    <p>We naturally drift toward comfort, but breakthroughs happen in turbulence—when we leave unfulfilling relationships, run the race set before us, or step into unknown skies. God doesn’t expect perfection; He desires perseverance. He wants us to keep trying, to grow, and to seek Him wholeheartedly.</p>
+
+    <p>If life were always smooth, we’d never develop faith. A flat line on the instrument panel means the flight is over. In the same way, life’s highs and lows—the climb and descent—show us what it means to truly live. The lows sharpen our gratitude; the highs remind us of His favor and joy.</p>
+
+    <p>Earlier today, I greeted a stranger with a smile. He stopped to talk. His wife was in the hospital, and my heart sank. Words felt inadequate, but faith nudged me to turn back. Nervous and shaky, I offered to pray for them. When he told me her name—it was the same as my mom’s—it felt like divine confirmation. After a few stammered lines, I turned to leave, but he said, “That made my day, ma’am.”</p>
+
+    <p>That’s what life is about. Not the job, the car, or the clothes. It’s about showing up. Meeting people where they are. Loving without expectation. God isn’t concerned with our titles; He looks at our hearts. Are we reflecting His love? Are we flying the mission He’s given us?</p>
+
+    <p>If not, maybe it’s time to take courage and join a community. Life isn’t about climbing your mountain—or flying your journey—alone. It’s about taking the trip together. That takes courage. But the most courageous choices often lead to the most fulfilling destinations.</p>
+
+    <p>So keep flying. Keep learning. Keep persevering. Each lesson—each hardship—isn’t a dead end; it’s a chance to climb higher.</p>
+
+    <div class="post-nav">
+      <a href="blog.html">← Back to Blog</a>
+    </div>
+  </main>
+
+  <footer>© 2025 Called To Soar — Mason Airborne</footer>
 </body>
 </html>
