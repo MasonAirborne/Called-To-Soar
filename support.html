@@ -1,70 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lift Me Up | Called To Soar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background: linear-gradient(to right, #FF6B35, #FFD166, #F67280);
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #f6e3d3, #dcb79b); /* matches index */
       color: #333;
     }
+
+    /* Fixed top nav (dusky orange) */
     nav {
-      background-color: #1a1a3d;
+      background-color: #d97341;
       padding: 1rem;
       text-align: center;
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      z-index: 10;
     }
     nav a {
-      color: white;
+      color: #fff;
       margin: 0 1rem;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 1.1rem;
     }
-    section {
-      max-width: 800px;
-      margin: 3rem auto;
+    nav a:hover { text-decoration: underline; }
+
+    /* Page card */
+    main {
+      max-width: 900px;
+      margin: 6.5rem auto 2rem; /* push below fixed nav */
       padding: 2rem;
-      background-color: white;
+      background-color: #fff;
       border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #d97341;
+      font-size: 2rem;
+      margin: 0 0 1rem;
       text-align: center;
     }
-    h2 {
-      color: #4b0082;
-      margin-bottom: 1rem;
+    p { line-height: 1.65; margin: 0 0 1rem; }
+
+    /* Callouts + buttons */
+    .callout {
+      background: #FFF4E9;
+      border: 1px solid rgba(217,115,65,.25);
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin: 16px 0;
     }
-    a.button {
+    .btn-row {
+      display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px;
+    }
+    .btn {
       display: inline-block;
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      background-color: #4b0082;
-      color: white;
+      padding: 10px 14px;
+      border-radius: 10px;
       text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
+      font-weight: 700;
+      border: 2px solid transparent;
+      transition: transform .15s ease, filter .15s ease, border-color .15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); filter: brightness(1.05); }
+
+    .btn-orange {
+      background: #d97341; color: #fff;
+    }
+    .btn-outline {
+      color: #d97341; background: #fff; border-color: #d97341;
+    }
+
+    /* Support list */
+    ul { padding-left: 1.25rem; margin: 0 0 1rem; }
+    li { margin: .25rem 0; }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+      font-size: 0.9rem;
+      background: transparent; /* blends like index/goals */
+      color: #fff;
     }
   </style>
 </head>
 <body>
   <nav>
-    <a href="index.html">About Me</a>
-    <a href="blog.html">Blog</a>
-    <a href="goals.html">Goals</a>
+    <a href="index.html#about">About Me</a>
+    <a href="blog.html">Wings In The Making</a>
+    <a href="goals.html">The Destination</a>
     <a href="support.html">Lift Me Up</a>
   </nav>
 
-<section id="support">
-  <h2>Support My Journey</h2>
-  <p>
-    Your encouragement and support help fuel this dream. Whether through sharing my story, prayer, or financial support—thank you.
-  </p>
-  <p>
-    💜 <strong>Venmo:</strong> <a href="https://venmo.com/u/called-2-soar" target="_blank">@called-2-soar</a>
-  </p>
-  <p>
-    ✉️ <strong>Want to send a private word of encouragement?</strong><br>
-    <a href="https://forms.gle/H79MMPihK9w3bDYTA" target="_blank" style="color:#4b0082; font-weight:bold;">
-      Click here to leave a private note through "Ways to Soar"
-    </a>
-  </p>
-</section>
+  <main>
+    <h1>Lift Me Up</h1>
+    <p>
+      Thank you for believing in this journey. Every note, share, and gift helps me keep training, log more hours,
+      and move closer to the corporate cockpit—while inspiring the next person to say, “Why not me?”
+    </p>
+
+    <!-- Financial Support -->
+    <div class="callout">
+      <p><strong>Give Financially</strong></p>
+      <p>Direct support goes straight toward ratings and flight time (Instrument, Commercial, Multi-Engine, CFI).</p>
+      <div class="btn-row">
+        <a class="btn btn-orange" href="https://venmo.com/u/called-2-soar" target="_blank" rel="noopener">Venmo @called-2-soar</a>
+        <a class="btn btn-outline" href="https://www.gofundme.com/f/fund-lindseys-path-to-commercial-aviation/cl/s?utm_campaign=fp_sharesheet&utm_content=amp13_t1&utm_medium=customer&utm_source=copy_link&lang=en_US&attribution_id=sl%3A9ebed828-38da-4cd4-a4f9-2d90d9c772c8&ts=1753820480" target="_blank" rel="noopener">GoFundMe</a>
+      </div>
+    </div>
+
+    <!-- Encouragement / Private Notes -->
+    <div class="callout">
+      <p><strong>Share Encouragement or Advice</strong></p>
+      <p>Your words matter. Leave a private note that only I’ll see—tips, connections, opportunities, or a quick “keep going!”</p>
+      <a class="btn btn-orange" href="https://forms.gle/H79MMPihK9w3bDYTA" target="_blank" rel="noopener">Send a Private Note</a>
+    </div>
+
+    <!-- Other Ways to Help -->
+    <div class="callout">
+      <p><strong>Other Ways to Help</strong></p>
+      <ul>
+        <li>Share this site with someone who loves aviation or mentorship.</li>
+        <li>Introduce me to a pilot, flight department, or mentor in corporate aviation.</li>
+        <li>Pass along scholarship, internship, or shadowing opportunities.</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>© 2025 Called To Soar — Mason Airborne</footer>
+</body>
+</html>
+
