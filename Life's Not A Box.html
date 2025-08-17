@@ -2,87 +2,84 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Life's Not a Box — So Why Live in One?</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Life's Not A Box| Called To Soar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Lato', sans-serif;
-      background: linear-gradient(to right, #f3f4f6, #e0e7ff);
-      color: #222;
-      line-height: 1.7;
-      padding: 2rem;
+    html { scroll-behavior: smooth; }
+    body{
+      margin:0; font-family:'Poppins',sans-serif;
+      background: linear-gradient(to bottom, #f6e3d3, #dcb79b);
+      color:#333;
     }
-
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    /* Fixed top nav (same as index) */
+    nav{
+      background:#d97341; padding:1rem; text-align:center;
+      position:fixed; top:0; left:0; width:100%; z-index:10;
+      box-shadow:0 4px 12px rgba(0,0,0,.12);
     }
-
-    .thumbnail {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 2rem;
+    nav a{
+      color:#fff; margin:0 1rem; text-decoration:none;
+      font-weight:600; font-size:1.1rem;
     }
+    nav a:hover{ text-decoration:underline; }
 
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 900;
-      color: #1e3a8a;
-      margin-bottom: 1rem;
+    /* Post card */
+    main{
+      max-width:900px;
+      margin: 6.5rem auto 2.5rem;  /* push below fixed nav */
+      padding:2rem;
+      background:#fff;
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,.1);
     }
-
-    .quote {
-      font-style: italic;
-      font-weight: 600;
-      color: #374151;
-      background: #e0e7ff;
-      border-left: 4px solid #6366f1;
-      padding: 1rem;
-      margin: 2rem 0;
-      border-radius: 8px;
+    .thumb{
+      width:100%; border-radius:12px; display:block; margin:0 0 1rem; object-fit:cover;
+      aspect-ratio: 16/9; /* keeps all thumbs consistent */
+      background:#eee;
     }
-
-    .cta {
-      font-weight: bold;
-      font-size: 1.2rem;
-      color: #0f172a;
-      margin-top: 2rem;
+    h1{
+      color:#d97341; margin:.2rem 0 .25rem; font-size:2rem; line-height:1.2;
     }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      .container {
-        padding: 1.5rem;
-      }
+    .meta{
+      color:#6a5a4e; font-size:.95rem; margin:0 0 1.25rem;
     }
+    p{ line-height:1.75; margin:1rem 0; }
+    blockquote{
+      margin:1.2rem 0; padding:.6rem 1rem; border-left:4px solid #d97341;
+      color:#4b3c32; background:#FFF4E9; border-radius:6px;
+    }
+    .post-nav{
+      margin-top:1.5rem; text-align:center;
+    }
+    .post-nav a{
+      color:#d97341; text-decoration:none; font-weight:700; border-bottom:2px solid transparent;
+    }
+    .post-nav a:hover{ border-color:#d97341; }
+    footer{ text-align:center; padding:2rem 1rem 3rem; color:#fff; background:transparent; }
   </style>
 </head>
 <body>
+  <!-- Top Nav -->
   <nav>
-    <a href="index.html">About Me</a>
-    <a href="blog.html">Blog</a>
-    <a href="goals.html">Goals</a>
-    <a href="support.html">Support Me</a>
+    <a href="index.html#about">About Me</a>
+    <a href="blog.html">Wings In The Making</a>
+    <a href="goals.html">The Destination</a>
+    <a href="support.html">Lift Me Up</a>
   </nav>
 
-  <div class="container">
-    <!-- 📷 BLOG THUMBNAIL IMAGE -->
-    <img src="Box Thumbnail.jpg" alt="Life's Not A Box Thumbnail" class="thumbnail" />
+  <!-- Post -->
+  <main>
+    <!-- Replace with your thumbnail image path -->
+    <img class="thumb" src="Box Thumbnail.jpg" alt="Post thumbnail" />
 
-    <!-- 📝 BLOG TITLE -->
-    <h1>Life’s Not a Box — So Why Live in One?</h1>
+    <!-- Replace title -->
+    <h1>Life's Not A Box-So Why Live In One /h1>
 
-    <!-- 💬 BLOG CONTENT -->
+    <!-- Optional meta: replace date & read time -->
+    <p class="meta">DATE • ~READTIME min read</p>
+
+        <!-- 💬 BLOG CONTENT -->
     <p>It’s kind of bizarre, isn’t it? Everyone wants to fit in — but what does “fitting in” even mean? Why would you want to blend into the background, to become just another square in a world already full of them?</p>
 
     <p>We spend so much time trying not to look crazy, not to stand out too much. But isn’t that the whole point of life? To be so wildly passionate about something that people can’t decide whether you’re a genius or just completely out of your mind?</p>
@@ -116,6 +113,13 @@
     <p>This is why I chose to chase aviation. It’s big. It’s scary. It’s the kind of dream that makes people raise an eyebrow and ask, “Are you sure?” And that’s exactly why I have to do it.</p>
 
     <p>Because I don’t want to blend in. I want to climb. To see the world from a higher perspective—and to show others that it’s okay to dream crazy big.</p>
-  </div>
+
+    <!-- Back link -->
+    <div class="post-nav">
+      <a href="blog.html">← Back to Blog</a>
+    </div>
+  </main>
+
+  <footer>© 2025 Called To Soar — Mason Airborne</footer>
 </body>
 </html>
