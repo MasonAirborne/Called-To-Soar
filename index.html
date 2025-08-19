@@ -27,6 +27,37 @@
       font-weight: 600;
       font-size: 1.1rem;
     }
+
+        /* 📱 Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 0.5rem;
+      }
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+        font-size: 1rem;
+      }
+      main {
+        margin: 5.5rem 1rem 2rem;
+        padding: 1.2rem;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 14px;
+      }
+      h1 {
+        font-size: 1.4rem;
+      }
+      nav a {
+        font-size: 0.95rem;
+      }
+    }
     header {
       background-image: url("Final LOGO.png");
       background-size: 60% auto; /* Slightly smaller logo */
