@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Called To Soar</title>
   <style>
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(to bottom, #f6e3d3, #dcb79b);
       color: #333;
     }
+
+    /* Top nav */
     nav {
       background-color: #d97341; /* Dusky orange */
       padding: 1rem;
@@ -19,6 +22,7 @@
       top: 0;
       width: 100%;
       z-index: 10;
+      box-shadow: 0 4px 12px rgba(0,0,0,.12);
     }
     nav a {
       color: #fff;
@@ -26,41 +30,14 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 1.1rem;
+      display: inline-block;
     }
+    nav a:hover { text-decoration: underline; }
 
-        /* 📱 Responsive Styles */
-    @media (max-width: 768px) {
-      nav {
-        padding: 0.5rem;
-      }
-      nav a {
-        display: block;
-        margin: 0.5rem 0;
-        font-size: 1rem;
-      }
-      main {
-        margin: 5.5rem 1rem 2rem;
-        padding: 1.2rem;
-      }
-      h1 {
-        font-size: 1.6rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      body {
-        font-size: 14px;
-      }
-      h1 {
-        font-size: 1.4rem;
-      }
-      nav a {
-        font-size: 0.95rem;
-      }
-    }
+    /* HERO header with logo background */
     header {
       background-image: url("Final LOGO.png");
-      background-size: 60% auto; /* Slightly smaller logo */
+      background-size: 60% auto;         /* desktop size */
       background-repeat: no-repeat;
       background-position: center;
       height: 100vh;
@@ -68,33 +45,32 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 60px; /* Space for fixed nav */
+      margin-top: 60px;                   /* space for fixed nav */
       opacity: 0;
       animation: fadeIn 2s ease-in-out forwards;
     }
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    /* Content sections */
     section {
       max-width: 900px;
       margin: 2rem auto;
       padding: 2rem;
-      background-color: white;
+      background-color: #fff;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    h2 {
-      color: #d97341;
-    }
-    img.about-photo {
-      width: 100%;
-      border-radius: 12px;
-      margin: 1rem 0;
-    }
+    h2 { color: #d97341; margin-top: 0; }
+    p { line-height: 1.7; }
+
+    /* Slideshow (desktop) */
     .slideshow {
       position: relative;
       overflow: hidden;
       height: 400px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.08);
+      margin-top: 1rem;
     }
     .slideshow img {
       position: absolute;
@@ -110,6 +86,7 @@
       opacity: 1;
       position: relative;
     }
+
     footer {
       text-align: center;
       padding: 2rem;
@@ -117,37 +94,85 @@
       background: #d97341;
       color: #fff;
     }
+
+    /* ============ RESPONSIVE ============ */
+    /* Tablet and down */
+    @media (max-width: 900px) {
+      nav {
+        padding: 0.75rem 0.5rem;
+      }
+      nav a {
+        margin: 0 0.6rem;
+        font-size: 1rem;
+      }
+      header {
+        background-size: 80% auto;       /* show more of the logo on smaller screens */
+        height: 86vh;                     /* a bit shorter than full height */
+      }
+      section {
+        margin: 1.25rem 1rem;
+        padding: 1.25rem;
+      }
+      .slideshow,
+      .slideshow img {
+        height: 300px;
+      }
+    }
+
+    /* Small phones */
+    @media (max-width: 600px) {
+      nav a {
+        display: block;                   /* stack links for thumb-friendly tapping */
+        margin: 0.35rem 0;
+        font-size: 1rem;
+      }
+      header {
+        margin-top: 56px;
+        background-size: 92% auto;       /* keep the whole logo visible */
+        height: 72vh;                     /* shorter hero to reduce scroll */
+      }
+      section {
+        margin: 1rem 0.75rem;
+        padding: 1rem;
+      }
+      .slideshow,
+      .slideshow img {
+        height: 220px;                    /* prevent “zoomed” feel on phones */
+      }
+      p { font-size: 0.98rem; }
+      h2 { font-size: 1.35rem; }
+      footer { font-size: 0.85rem; }
+    }
   </style>
 </head>
 <body>
   <nav>
-    <a href="index.html">About Me</a>
+    <a href="#about">About Me</a>
     <a href="blog.html">Wings In The Making</a>
     <a href="goals.html">The Destination</a>
     <a href="support.html">Lift Me Up</a>
-</nav>
-
- </nav>
+  </nav>
 
   <header></header>
 
-<section id="about">
+  <section id="about">
     <h2>About Me</h2>
     <p class="mission">
       I’m Mason Airborne — a determined, full-of-life adventurer with a love for flight, people, and the thrill of the unknown.
       My mission is to inspire others to chase the dreams that scare them, and to prove that the leap of faith is worth it.
     </p>
+
     <div class="slideshow">
       <img src="IMG_0234.JPG" class="active" alt="Slide 1">
       <img src="website picture.jpeg" alt="Slide 2">
     </div>
-      <p>"<strong>Why NOT me?</strong>" — That’s the question I live by.</p>
-      <p>I’ve never been the type to sit still or play it safe. From catching waves on a surfboard to fueling jets on the ramp, I’ve always chased that heart-racing mix of awe and calm that comes from embracing the unknown.</p>
-      <p>I didn’t step into a cockpit until I was 22 — but when I did, I felt the same rush I used to get from the ocean, only this time, it was God’s creation stretched out beneath me.</p>
-      <p>I worked my way through college debt-free, juggling multiple jobs while leaning on the incredible support of my family. Basketball taught me grit, leadership, and dedication; life taught me resilience, hustle, and faith.</p>
-      <p>Now, my dream is to become a corporate pilot — flying sleek jets across the skies, inspiring the underdog, and proving that no dream is too bold if you’re willing to put in the work.</p>
-      <p>If I can make one person believe in themselves — or even just smile in a day — I’ve succeeded.</p>
-    </div>
+
+    <p><strong>“Why NOT me?”</strong> — That’s the question I live by.</p>
+    <p>I’ve never been the type to sit still or play it safe. From catching waves on a surfboard to fueling jets on the ramp, I’ve always chased that heart-racing mix of awe and calm that comes from embracing the unknown.</p>
+    <p>I didn’t step into a cockpit until I was 22 — but when I did, I felt the same rush I used to get from the ocean, only this time, it was God’s creation stretched out beneath me.</p>
+    <p>I worked my way through college debt-free, juggling multiple jobs while leaning on the incredible support of my family. Basketball taught me grit, leadership, and dedication; life taught me resilience, hustle, and faith.</p>
+    <p>Now, my dream is to become a corporate pilot — flying sleek jets across the skies, inspiring the underdog, and proving that no dream is too bold if you’re willing to put in the work.</p>
+    <p>If I can make one person believe in themselves — or even just smile in a day — I’ve succeeded.</p>
   </section>
 
   <footer>
@@ -155,6 +180,7 @@
   </footer>
 
   <script>
+    // Simple crossfade slideshow
     const slides = document.querySelectorAll('.slideshow img');
     let current = 0;
     setInterval(() => {
@@ -165,8 +191,3 @@
   </script>
 </body>
 </html>
-
-  </script>
-</body>
-</html>
-
