@@ -3,14 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lift Me Up | Called To Soar</title>
+  <title>Lift Me Up | Called 2 Soar</title>
+  <meta name="description" content="Support Called 2 Soar — help fund flight training, send encouragement, and share opportunities in aviation." />
+  <!-- Canonical for your custom domain -->
+  <link rel="canonical" href="https://called2soar.com/support.html" />
+
+  <!-- Open Graph (social share) -->
+  <meta property="og:title" content="Lift Me Up | Called 2 Soar" />
+  <meta property="og:description" content="Help fund flight training or leave a private note of encouragement." />
+  <meta property="og:url" content="https://called2soar.com/support.html" />
+  <meta property="og:type" content="website" />
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     html { scroll-behavior: smooth; }
+    *, *::before, *::after { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom, #f6e3d3, #dcb79b); /* matches index */
+      background: linear-gradient(to bottom, #f6e3d3, #dcb79b);
       color: #333;
     }
 
@@ -70,6 +81,9 @@
       border: 2px solid transparent;
       transition: transform .15s ease, filter .15s ease, border-color .15s ease;
     }
+    @media (max-width: 520px) {
+      .btn { width: 100%; text-align: center; }
+    }
     .btn:hover { transform: translateY(-1px); filter: brightness(1.05); }
 
     .btn-orange {
@@ -87,17 +101,22 @@
       text-align: center;
       padding: 2rem 1rem 3rem;
       font-size: 0.9rem;
-      background: transparent; /* blends like index/goals */
-      color: #fff;
+      color: #333; /* more readable on light bg */
+    }
+
+    /* Respect reduced motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      .btn { transition: none; }
+      html { scroll-behavior: auto; }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html#about">About Me</a>
-    <a href="blog.html">Wings In The Making</a>
-    <a href="goals.html">The Destination</a>
-    <a href="support.html">Lift Me Up</a>
+  <nav aria-label="Main navigation">
+    <a href="/index.html#about">About Me</a>
+    <a href="/blog.html">Wings In The Making</a>
+    <a href="/goals.html">The Destination</a>
+    <a href="/support.html" aria-current="page">Lift Me Up</a>
   </nav>
 
   <main>
@@ -112,10 +131,13 @@
       <p><strong>Give Financially</strong></p>
       <p>Direct support goes straight toward ratings and flight time (Instrument, Commercial, Multi-Engine, CFI).</p>
       <div class="btn-row">
-  <a class="btn btn-orange" href="https://venmo.com/u/Lindsey-Mehana-15" target="_blank" rel="noopener">Venmo @called-2-soar</a>
-  <a class="btn btn-outline" href="https://gofund.me/98160af3" target="_blank" rel="noopener">GoFundMe</a>
-</div>
-
+        <!-- Text label says @called-2-soar; make sure it matches your actual Venmo handle -->
+        <a class="btn btn-orange" href="https://venmo.com/u/Lindsey-Mehana-15" target="_blank" rel="noopener noreferrer" aria-label="Support via Venmo">
+          Venmo @called-2-soar
+        </a>
+        <a class="btn btn-outline" href="https://gofund.me/98160af3" target="_blank" rel="noopener noreferrer" aria-label="Support via GoFundMe">
+          GoFundMe
+        </a>
       </div>
     </div>
 
@@ -123,7 +145,9 @@
     <div class="callout">
       <p><strong>Share Encouragement or Advice</strong></p>
       <p>Your words matter. Leave a private note that only I’ll see—tips, connections, opportunities, or a quick “keep going!”</p>
-      <a class="btn btn-orange" href="https://forms.gle/H79MMPihK9w3bDYTA" target="_blank" rel="noopener">Send a Private Note</a>
+      <a class="btn btn-orange" href="https://forms.gle/H79MMPihK9w3bDYTA" target="_blank" rel="noopener noreferrer" aria-label="Send a private note via Google Form">
+        Send a Private Note
+      </a>
     </div>
 
     <!-- Other Ways to Help -->
@@ -137,7 +161,6 @@
     </div>
   </main>
 
-  <footer>© 2025 Called To Soar — Mehana Airborne</footer>
+  <footer>© 2025 Called 2 Soar — Mehana Airborne</footer>
 </body>
 </html>
-
