@@ -3,7 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Called To Soar</title>
+
+  <!-- Page title + description (unique, concise, human) -->
+  <title>Called 2 Soar — Lindsey Mehana | Aviation Blog & Flight Training Journey</title>
+  <meta name="description" content="Follow Lindsey Mehana’s Called 2 Soar journey—aviation blog, flight training (Instrument, Commercial, Multi-Engine, CFI), goals, and ways to get involved." />
+
+  <!-- Canonical (points Google to the preferred URL) -->
+  <link rel="canonical" href="https://called2soar.com/" />
+
+  <!-- Open Graph (nice social share previews) -->
+  <meta property="og:title" content="Called 2 Soar — Lindsey Mehana | Aviation Journey" />
+  <meta property="og:description" content="Flight training stories, goals, and ways to support the Called 2 Soar mission." />
+  <meta property="og:url" content="https://called2soar.com/" />
+  <meta property="og:type" content="website" />
+  <!-- Optional: update to a real image you host (no spaces in filename) -->
+  <!-- <meta property="og:image" content="https://called2soar.com/assets/og-cover.jpg" /> -->
+
+  <!-- Fonts (performance-friendly) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     html { scroll-behavior: smooth; }
     body {
@@ -12,7 +32,7 @@
       background: linear-gradient(to bottom, #f6e3d3, #dcb79b);
       color: #333;
     }
-    
+
     /* Top nav */
     nav {
       background-color: #d97341; /* Dusky orange */
@@ -35,24 +55,48 @@
     nav a:hover { text-decoration: underline; }
 
     /* HERO header with logo background */
-    header {
-      background-image: url("Called 2 .png");
+    header[role="banner"] {
+      /* TIP: avoid spaces in filenames; rename your image to 'called-2-logo.png' and update this line */
+      background-image: url("/assets/called-2-logo.png");
       background-size: 60% auto;         /* desktop size */
       background-repeat: no-repeat;
       background-position: center;
-      height: 100vh;
+      height: 90vh;
       width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: grid;
+      place-items: center;
       margin-top: 60px;                   /* space for fixed nav */
       opacity: 0;
-      animation: fadeIn 2s ease-in-out forwards;
+      animation: fadeIn 1.2s ease-in-out forwards;
+      text-align: center;
+      padding: 0 1rem;
     }
     @keyframes fadeIn { to { opacity: 1; } }
 
+    .hero-inner {
+      max-width: 900px;
+    }
+    .tagline {
+      margin: .5rem 0 1rem;
+      font-size: 1.05rem;
+      color: #4a4a4a;
+    }
+    .actions { display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 2px solid transparent;
+      transition: transform .15s ease, filter .15s ease, border-color .15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); filter: brightness(1.05); }
+    .btn-orange { background: #d97341; color: #fff; }
+    .btn-outline { color: #d97341; background: #fff; border-color: #d97341; }
+
     /* Content sections */
-    section {
+    main section {
       max-width: 900px;
       margin: 2rem auto;
       padding: 2rem;
@@ -60,7 +104,7 @@
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    h2 { color: #d97341; margin-top: 0; }
+    h1, h2 { color: #d97341; margin-top: 0; }
     p { line-height: 1.7; }
 
     /* Slideshow (desktop) */
@@ -80,7 +124,7 @@
       width: 100%;
       height: 400px;
       object-fit: cover;
-      transition: opacity 1s ease-in-out;
+      transition: opacity 0.8s ease-in-out;
     }
     .slideshow img.active {
       opacity: 1;
@@ -96,88 +140,101 @@
     }
 
     /* ============ RESPONSIVE ============ */
-    /* Tablet and down */
     @media (max-width: 900px) {
-      nav {
-        padding: 0.75rem 0.5rem;
-      }
-      nav a {
-        margin: 0 0.6rem;
-        font-size: 1rem;
-      }
-      header {
-        background-size: 80% auto;       /* show more of the logo on smaller screens */
-        height: 86vh;                     /* a bit shorter than full height */
-      }
-      section {
-        margin: 1.25rem 1rem;
-        padding: 1.25rem;
-      }
-      .slideshow,
-      .slideshow img {
-        height: 300px;
-      }
+      nav { padding: 0.75rem 0.5rem; }
+      nav a { margin: 0 0.6rem; font-size: 1rem; }
+      header[role="banner"] { background-size: 80% auto; height: 78vh; }
+      main section { margin: 1.25rem 1rem; padding: 1.25rem; }
+      .slideshow, .slideshow img { height: 300px; }
     }
-
-    /* Small phones */
     @media (max-width: 600px) {
-      nav a {
-        display: block;                   /* stack links for thumb-friendly tapping */
-        margin: 0.35rem 0;
-        font-size: 1rem;
-      }
-      header {
-        margin-top: 56px;
-        background-size: 92% auto;       /* keep the whole logo visible */
-        height: 72vh;                     /* shorter hero to reduce scroll */
-      }
-      section {
-        margin: 1rem 0.75rem;
-        padding: 1rem;
-      }
-      .slideshow,
-      .slideshow img {
-        height: 220px;                    /* prevent “zoomed” feel on phones */
-      }
+      nav a { display: block; margin: 0.35rem 0; font-size: 1rem; }
+      header[role="banner"] { margin-top: 56px; background-size: 92% auto; height: 66vh; }
+      main section { margin: 1rem 0.75rem; padding: 1rem; }
+      .slideshow, .slideshow img { height: 220px; }
       p { font-size: 0.98rem; }
       h2 { font-size: 1.35rem; }
       footer { font-size: 0.85rem; }
     }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .btn { transition: none; }
+      html { scroll-behavior: auto; }
+    }
   </style>
+
+  <!-- Structured data (helps Google understand your brand + aliases) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Called 2 Soar",
+    "alternateName": ["Call2Soar", "Call 2 Soar", "Called To Soar"],
+    "url": "https://called2soar.com/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Lindsey Mehana",
+    "alternateName": "May",
+    "url": "https://called2soar.com"
+  }
+  </script>
 </head>
+
 <body>
-  <nav>
-    <a href="#about">About Me</a>
-    <a href="blog.html">Wings In The Making</a>
-    <a href="goals.html">The Destination</a>
-    <a href="support.html">Lift Me Up</a>
+  <nav aria-label="Main navigation">
+    <a href="/" aria-current="page">Home</a>
+    <a href="/#about">About Me</a>
+    <a href="/blog.html">Wings In The Making</a>
+    <a href="/goals.html">The Destination</a>
+    <a href="/support.html">Lift Me Up</a>
   </nav>
 
-  <header></header>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <p class="mission">
-      I’m Lindsey Mehana — a determined, full-of-life adventurer with a love for flight, people, and the thrill of the unknown.
-      My mission is to inspire others to chase the dreams that scare them, and to prove that the leap of faith is worth it.
-    </p>
-
-    <div class="slideshow">
-      <img src="IMG_0234.JPG" class="active" alt="Slide 1">
-      <img src="website picture.jpeg" alt="Slide 2">
-      <img src="IMG_0950.jpeg" class="active" alt="Slide 3">
+  <!-- HERO with one strong H1 for SEO -->
+  <header role="banner">
+    <div class="hero-inner">
+      <h1>Called 2 Soar — A Journey of Flight, Faith & Fierce Perseverance</h1>
+      <p class="tagline">Follow my aviation training (Instrument, Commercial, Multi-Engine, CFI), read the blog, and see how to get involved.</p>
+      <div class="actions">
+        <a class="btn btn-orange" href="/blog.html">Read the Blog</a>
+        <a class="btn btn-outline" href="/support.html">Support the Journey</a>
+      </div>
     </div>
+  </header>
 
-    <p><strong>“Why NOT me?”</strong> — That’s the question I live by.</p>
-    <p>I’ve never been the type to sit still or play it safe. From catching waves on a surfboard to fueling jets on the ramp, I’ve always chased that heart-racing mix of awe and calm that comes from embracing the unknown.</p>
-    <p>I didn’t step into a cockpit until I was 22 — but when I did, I felt the same rush I used to get from the ocean, only this time, it was God’s creation stretched out beneath me.</p>
-    <p>I worked my way through college debt-free, juggling multiple jobs while leaning on the incredible support of my family. Basketball taught me grit, leadership, and dedication; life taught me resilience, hustle, and faith.</p>
-    <p>Now, my dream is to become a corporate pilot — flying sleek jets across the skies, inspiring the underdog, and proving that no dream is too bold if you’re willing to put in the work.</p>
-    <p>If I can make one person believe in themselves — or even just smile in a day — I’ve succeeded.</p>
-  </section>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p class="mission">
+        I’m Lindsey Mehana — a determined, full-of-life adventurer with a love for flight, people, and the thrill of the unknown.
+        My mission is to inspire others to chase the dreams that scare them, and to prove that the leap of faith is worth it.
+      </p>
+
+      <div class="slideshow" aria-label="Photo highlights">
+        <!-- Only the FIRST image should be active -->
+        <img src="/IMG_0234.JPG" class="active" alt="Preflight on the ramp" loading="eager" decoding="async">
+        <img src="/website picture.jpeg" alt="In the pattern over Knoxville" loading="lazy" decoding="async">
+        <img src="/IMG_0950.jpeg" alt="Cessna on the taxiway at golden hour" loading="lazy" decoding="async">
+      </div>
+
+      <p><strong>“Why NOT me?”</strong> — That’s the question I live by.</p>
+      <p>I didn’t step into a cockpit until I was 22. I worked my way through college debt-free and discovered the same rush in a cockpit that I used to get from the ocean — awe, focus, and joy.</p>
+      <p>Now, my dream is to become a corporate pilot — flying sleek jets across the skies, inspiring the underdog, and proving that no dream is too bold if you’re willing to put in the work.</p>
+
+      <!-- Internal links help discovery -->
+      <p>
+        Start with the <a href="/blog.html">Wings In The Making blog</a>, see <a href="/goals.html">The Destination goals</a>,
+        or <a href="/support.html">Lift Me Up</a> to share encouragement or help fund more flight hours.
+      </p>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2025 Called To Soar — Built with heart by Mehana Airborne</p>
+    <p>© 2025 Called 2 Soar — Built with heart by Mehana Airborne • Also known as <em>Call2Soar</em></p>
   </footer>
 
   <script>
