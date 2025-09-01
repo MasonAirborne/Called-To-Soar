@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://called2soar.com/sitemap.xml
