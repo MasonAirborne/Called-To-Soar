@@ -1,16 +1,85 @@
+<!-- FILE: call2soar.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Call2Soar → Called 2 Soar</title>
-  <meta name="description" content="Call2Soar is the short name for Called 2 Soar — Lindsey Mehana’s aviation journey.">
-  <link rel="canonical" href="https://called2soar.com/call2soar.html">
+  <meta name="description" content="Call2Soar is the short name for Called 2 Soar — Lindsey Mehana’s aviation journey. This page connects the variant to the official site, Called2Soar.com." />
+  <link rel="canonical" href="https://called2soar.com/call2soar.html" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #f6e3d3, #dcb79b);
+      color: #333;
+    }
+    nav {
+      background-color: #d97341;
+      padding: 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0; left: 0; width: 100%;
+      z-index: 10;
+    }
+    nav a {
+      color: #fff; margin: 0 1rem; text-decoration: none; font-weight: 600; font-size: 1.05rem;
+    }
+    nav a:hover { text-decoration: underline; }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.1);
+    }
+    h1 { color: #d97341; font-size: 2rem; margin: 0 0 1rem; }
+    p { line-height: 1.65; margin: 0 0 1rem; }
+    .btn { display: inline-block; padding: .7rem 1rem; border-radius: 10px; text-decoration: none; font-weight: 700; border:2px solid #d97341; color:#d97341; }
+    .btn:hover { filter: brightness(1.05); }
+  </style>
 </head>
 <body>
-  <h1>Call2Soar (Called 2 Soar)</h1>
-  <p>People sometimes search for <strong>Call2Soar</strong>. You’re in the right place — the official site is
-    <a href="https://called2soar.com/">Called2Soar.com</a>.</p>
-  <p>Follow my flight training journey, blog, and ways to connect & support.</p>
-  <p><a href="/">Go to the homepage</a></p>
+  <nav aria-label="Main navigation">
+    <a href="/index.html#about">About Me</a>
+    <a href="/blog.html">Wings In The Making</a>
+    <a href="/goals.html">The Destination</a>
+    <a href="/support.html">Lift Me Up</a>
+  </nav>
+
+  <main>
+    <h1>Call2Soar (Called 2 Soar)</h1>
+    <p>
+      People sometimes search for <strong>Call2Soar</strong>. You’re in the right place — the official site is
+      <a href="https://called2soar.com/">Called2Soar.com</a>.
+    </p>
+    <p>
+      I’m Lindsey (“May”), and this site shares my aviation journey — from instrument through commercial, multi‑engine,
+      and CFI — plus ways to follow along and get involved.
+    </p>
+    <p><a class="btn" href="/">Go to the Homepage</a></p>
+  </main>
 </body>
 </html>
+
+
+<!-- SNIPPET: add this inside <head> of your existing index.html (keep Person schema if you have it) -->
+<!-- JSON-LD WebSite schema to teach Google your brand variants -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Called 2 Soar",
+  "alternateName": ["Call2Soar", "Call 2 Soar", "Called To Soar"],
+  "url": "https://called2soar.com/"
+}
+</script>
+
+
+<!-- SNIPPET: add this one line to your existing sitemap.xml -->
+<!-- <url><loc>https://called2soar.com/call2soar.html</loc></url> -->
