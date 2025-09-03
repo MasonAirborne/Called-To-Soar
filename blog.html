@@ -1,1 +1,198 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <title>Wings In The Making | Called To Soar</title> <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> <style> html { scroll-behavior: smooth; } body{ margin:0; font-family:'Poppins',sans-serif; background: linear-gradient(to bottom, #f6e3d3, #dcb79b); /* matches index */ color:#333; } /* Fixed top nav (dusky orange) */ nav{ background:#d97341; padding:1rem; text-align:center; position:fixed; top:0; left:0; width:100%; z-index:10; box-shadow:0 4px 12px rgba(0,0,0,.12); } nav a{ color:#fff; margin:0 1rem; text-decoration:none; font-weight:600; font-size:1.1rem; } nav a:hover{ text-decoration:underline; } /* Page container */ main{ max-width: 1100px; margin: 6.5rem auto 2rem; /* push below fixed nav */ padding: 0 1rem 2rem; } h1{ text-align:center; color:#d97341; font-size:2rem; margin:0 0 1.25rem; } p.sub{ text-align:center; margin:0 0 2rem; color:#4b3c32; } /* Grid of post cards */ .grid{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:18px; } @media (max-width: 980px){ .grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } } @media (max-width: 640px){ .grid{ grid-template-columns: 1fr; } } .card{ background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,.10); transition: transform .18s ease, box-shadow .18s ease; } .card:hover{ transform: translateY(-4px); box-shadow:0 10px 22px rgba(0,0,0,.16); } .card a{ display:block; color:inherit; text-decoration:none; height:100%; } .thumb{ aspect-ratio: 16/9; width:100%; object-fit:cover; display:block; background:#eee; } .card-body{ padding:14px 14px 16px; } .card-title{ margin:0 0 6px; font-size:1.05rem; font-weight:800; color:#0f2a43; } .meta{ margin:0; font-size:.9rem; color:#6a5a4e; } /* Venmo block */ .support{ margin: 2rem auto 0; max-width: 900px; background:#fff; border-radius:12px; padding:18px 20px; box-shadow:0 4px 12px rgba(0,0,0,.10); text-align:center; } .support a{ color:#d97341; font-weight:800; text-decoration:none; } .support a:hover{ text-decoration:underline; } footer{ text-align:center; color:#fff; padding: 2rem 1rem 3rem; background: transparent; } </style> </head> <body> <nav> <a href="index.html#about">About Me</a> <a href="blog.html">Wings In The Making</a> <a href="goals.html">The Destination</a> <a href="support.html">Lift Me Up</a> </nav> <main> <h1>Wings In The Making</h1> <p class="sub">Stories from the ramp, the cockpit, and the climb.</p> <section class="grid" aria-label="Blog posts"> <!-- Post 1 --> <article class="card"> <a href="life-obligation.html"> <img class="thumb" src="thumbnail1.jpg" alt="Life’s Obligation thumbnail"/> <div class="card-body"> <h2 class="card-title">The Call 2 Lift Others Up</h2> <p class="meta">Encouragement · Faith · Grit</p> </div> </a> </article> <!-- Post 2 --> <article class="card"> <a href="new-perspective.html"> <img class="thumb" src="THumbnail2.jpg" alt="A New Perspective on Lessons thumbnail"/> <div class="card-body"> <h2 class="card-title">Lessons from the Skies: Faith That Lifts, Trials That Teach </h2> <p class="meta">Growth · Resilience · Reflection</p> </div> </a> </article> <!-- Post 3 --> <article class="card"> <a href="grounded-to-grow.html"> <img class="thumb" src="thumbnail3.jpg" alt="How Job Rejection Led Me to Purpose thumbnail"/> <div class="card-body"> <h2 class="card-title">How Job Rejection Led Me to Purpose</h2> <p class="meta">Purpose · Setbacks → Setups</p> </div> </a> </article> <!-- Post 4 --> <article class="card"> <a href="Life's Not A Box.html"> <img class="thumb" src="Box Thumbnail.jpg" alt="Life’s Not a Box thumbnail"/> <div class="card-body"> <h2 class="card-title">Life’s Not a Box</h2> <p class="meta">Possibility · Mindset</p> </div> </a> </article> </section> </div> </main> <footer>© 2025 Called To Soar — Mehana Airborne</footer> </body> </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wings In The Making | Called To Soar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body{
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      background: linear-gradient(to bottom, #f6e3d3, #dcb79b); /* matches index */
+      color:#333;
+    }
+    /* Fixed top nav (dusky orange) */
+    nav{
+      background:#d97341;
+      padding:1rem;
+      text-align:center;
+      position:fixed;
+      top:0; left:0;
+      width:100%;
+      z-index:10;
+      box-shadow:0 4px 12px rgba(0,0,0,.12);
+    }
+    nav a{
+      color:#fff;
+      margin:0 1rem;
+      text-decoration:none;
+      font-weight:600;
+      font-size:1.1rem;
+    }
+    nav a:hover{ text-decoration:underline; }
+    /* Page container */
+    main{
+      max-width: 1100px;
+      margin: 6.5rem auto 2rem; /* push below fixed nav */
+      padding: 0 1rem 2rem;
+    }
+    h1{
+      text-align:center;
+      color:#d97341;
+      font-size:2rem;
+      margin:0 0 1.25rem;
+    }
+    p.sub{
+      text-align:center;
+      margin:0 0 2rem;
+      color:#4b3c32;
+    }
+    /* Grid of post cards */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:18px;
+    }
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+    @media (max-width: 640px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+    .card{
+      background:#fff;
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow:0 6px 16px rgba(0,0,0,.10);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow:0 10px 22px rgba(0,0,0,.16);
+    }
+    .card a{
+      display:block;
+      color:inherit;
+      text-decoration:none;
+      height:100%;
+    }
+    .thumb{
+      aspect-ratio: 16/9;
+      width:100%;
+      object-fit:cover;
+      display:block;
+      background:#eee;
+    }
+    .card-body{ padding:14px 14px 16px; }
+    .card-title{
+      margin:0 0 6px;
+      font-size:1.05rem;
+      font-weight:800;
+      color:#0f2a43;
+    }
+    .meta{
+      margin:0;
+      font-size:.9rem;
+      color:#6a5a4e;
+    }
+    /* Venmo block */
+    .support{
+      margin: 2rem auto 0;
+      max-width: 900px;
+      background:#fff;
+      border-radius:12px;
+      padding:18px 20px;
+      box-shadow:0 4px 12px rgba(0,0,0,.10);
+      text-align:center;
+    }
+    .support a{
+      color:#d97341;
+      font-weight:800;
+      text-decoration:none;
+    }
+    .support a:hover{ text-decoration:underline; }
+    footer{
+      text-align:center;
+      color:#fff;
+      padding: 2rem 1rem 3rem;
+      background: transparent;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html#about">About Me</a>
+    <a href="blog.html">Wings In The Making</a>
+    <a href="goals.html">The Destination</a>
+    <a href="support.html">Lift Me Up</a>
+  </nav>
+
+  <main>
+    <h1>Wings In The Making</h1>
+    <p class="sub">Stories from the ramp, the cockpit, and the climb.</p>
+
+    <section class="grid" aria-label="Blog posts">
+      <!-- Post 1 -->
+      <article class="card">
+        <a href="life-obligation.html">
+          <img class="thumb" src="thumbnail1.jpg" alt="Life’s Obligation thumbnail"/>
+          <div class="card-body">
+            <h2 class="card-title">The Call 2 Lift Others Up</h2>
+            <p class="meta">Encouragement · Faith · Grit</p>
+          </div>
+        </a>
+      </article>
+
+      <!-- Post 2 -->
+      <article class="card">
+        <a href="new-perspective.html">
+          <img class="thumb" src="THumbnail2.jpg" alt="A New Perspective on Lessons thumbnail"/>
+          <div class="card-body">
+            <h2 class="card-title">Lessons from the Skies: Faith That Lifts, Trials That Teach </h2>
+            <p class="meta">Growth · Resilience · Reflection</p>
+          </div>
+        </a>
+      </article>
+
+      <!-- Post 3 -->
+      <article class="card">
+        <a href="grounded-to-grow.html">
+          <img class="thumb" src="thumbnail3.jpg" alt="How Job Rejection Led Me to Purpose thumbnail"/>
+          <div class="card-body">
+            <h2 class="card-title">How Job Rejection Led Me to Purpose</h2>
+            <p class="meta">Purpose · Setbacks → Setups</p>
+          </div>
+        </a>
+      </article>
+
+       <!-- Post 4 -->
+      <article class="card">
+        <a href="For Such a Time as This.html">
+          <img class="thumb" src="thumbnal3.jpg" alt="thumbnail"/>
+          <div class="card-body">
+            <h2 class="card-title">For Such a Time as This</h2>
+            <p class="meta">Calling · empowerment → Who you are</p>
+          </div>
+        </a>
+      </article>
+
+      <!-- Post 5 -->
+      <article class="card">
+        <a href="Life's Not A Box.html">
+          <img class="thumb" src="Box Thumbnail.jpg" alt="Life’s Not a Box thumbnail"/>
+          <div class="card-body">
+            <h2 class="card-title">Life’s Not a Box</h2>
+            <p class="meta">Possibility · Mindset</p>
+          </div>
+        </a>
+      </article>
+    </section>
+  </main>
+
+  <footer>© 2025 Called To Soar — Mehana Airborne</footer>
+</body>
+</html>
+
