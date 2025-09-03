@@ -2,188 +2,117 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>For Such a Time as This | Called 2 Soar</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Such a Time as This | Called To Soar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --sky:#cfeaff;          /* baby blue */
-      --sunset:#d97341;       /* soft orange */
-      --ink:#1f2937;          /* dark text */
-      --muted:#6b7280;        /* secondary text */
-      --paper:#ffffff;        /* card bg */
-      --maxw:68ch;            /* comfy reading width */
-      --radius:18px;
-    }
-    * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body{
       margin:0;
-      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--ink);
-      background:
-        radial-gradient(1200px 600px at 10% -10%, var(--sky) 0%, transparent 60%),
-        radial-gradient(1200px 600px at 110% -20%, #ffe8d9 0%, transparent 60%),
-        #f8fafc;
+      font-family:'Poppins',sans-serif;
+      background: linear-gradient(to bottom, #f6e3d3, #dcb79b);
+      color:#333;
     }
-
-    .wrap{
-      max-width: min(100vw, 900px);
-      margin: clamp(16px, 4vw, 48px) auto;
-      padding: 0 clamp(16px, 3vw, 28px);
+    /* Fixed top nav */
+    nav{
+      background:#d97341;
+      padding:1rem;
+      text-align:center;
+      position:fixed; top:0; left:0; width:100%; z-index:10;
+      box-shadow:0 4px 12px rgba(0,0,0,.12);
     }
-
-    .card{
-      background:var(--paper);
-      border-radius:var(--radius);
-      box-shadow: 0 10px 30px rgba(17,24,39,.08);
-      overflow:hidden;
+    nav a{
+      color:#fff; margin:0 1rem; text-decoration:none;
+      font-weight:600; font-size:1.1rem;
     }
+    nav a:hover{ text-decoration:underline; }
 
-    header.article-header{
-      padding: clamp(18px, 3vw, 28px) clamp(18px, 3vw, 28px) 0;
+    /* Page card */
+    main{
+      max-width:900px;
+      margin: 6.5rem auto 2.5rem;  /* push below fixed nav */
+      padding:2rem;
+      background:#fff;
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,.1);
     }
-
-    .kicker{
-      font-size:.9rem;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      color:var(--sunset);
-      font-weight:700;
-      margin: 4px 0 0 2px;
-    }
-
     h1{
-      font-size: clamp(1.6rem, 2.6vw + 1rem, 2.25rem);
+      color:#d97341;
+      margin:0 0 1rem;
+      font-size:2rem;
       line-height:1.2;
-      margin: 6px 0 10px;
     }
-
-    /* Thumbnail slot */
-    .thumb{
-      margin: 8px 0 0;
-      background: linear-gradient(180deg, rgba(217,115,65,.08), transparent 40%);
-    }
-    .thumb img{
-      width:100%;
-      display:block;
-      aspect-ratio: 16 / 9;            /* keeps a nice banner height */
-      object-fit: cover;
-    }
-    .thumb figcaption{
-      font-size:.9rem;
-      color:var(--muted);
-      padding: 8px 16px 0 16px;
-    }
-
-    article{
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: clamp(18px, 3vw, 28px) clamp(18px, 3vw, 28px) clamp(26px, 5vw, 40px);
-    }
-    p{
-      line-height: 1.75;
-      font-size: 1.05rem;
-      margin: 0 0 1rem 0;
-    }
-
+    p{ line-height:1.75; margin:1rem 0; }
     blockquote{
-      border-left: 4px solid var(--sunset);
-      margin: 1rem 0;
-      padding: .5rem 1rem;
-      background: linear-gradient(90deg, rgba(217,115,65,.06), transparent 60%);
-      border-radius: 6px;
+      margin:1.2rem 0;
+      padding:.6rem 1rem;
+      border-left:4px solid #d97341;
+      color:#4b3c32;
+      background:#FFF4E9;
+      border-radius:6px;
     }
-    blockquote cite{
-      display:block;
-      color:var(--muted);
-      font-size:.95rem;
-      margin-top:.25rem;
-      font-style: normal;
+    .post-nav{
+      margin-top:1.5rem;
+      text-align:center;
     }
+    .post-nav a{
+      color:#d97341; text-decoration:none; font-weight:700;
+      border-bottom:2px solid transparent;
+    }
+    .post-nav a:hover{ border-color:#d97341; }
 
-    .callout{
-      background: linear-gradient(180deg, rgba(207,234,255,.5), rgba(207,234,255,.25));
-      border: 1px solid rgba(207,234,255,.8);
-      border-radius: 14px;
-      padding: 14px 16px;
-      margin: 1rem 0 0;
-      font-weight:600;
+    footer{
+      text-align:center; padding:2rem 1rem 3rem;
+      color:#fff; background:transparent;
     }
-
-    .closing{
-      font-weight:700;
-      font-size: 1.1rem;
-      margin-top: .25rem;
-      color: #0f172a;
-    }
-
-    /* Small “back” link if you want it */
-    .back{
-      display:inline-flex; align-items:center; gap:.5rem;
-      color: var(--sunset); text-decoration:none; font-weight:600;
-      margin: 0 0 12px 2px;
-    }
-    .back:hover{ text-decoration: underline; }
   </style>
 </head>
-
 <body>
-  <main class="wrap">
-    <!-- Optional: link back to your blog index -->
-    <!-- <a class="back" href="/blog.html">← Back to Blog</a> -->
+  <nav>
+    <a href="index.html#about">About Me</a>
+    <a href="blog.html">Wings In The Making</a>
+    <a href="goals.html">The Destination</a>
+    <a href="support.html">Lift Me Up</a>
+  </nav>
 
-    <div class="card">
-      <header class="article-header">
-        <div class="kicker">Called 2 Soar</div>
-        <h1>For Such a Time as This ✈️</h1>
+  <main>
+    <h1>For Such a Time as This</h1>
+    
+    <!-- Optional meta -->
+    <p class="meta">September 2, 2025 • ~2–3 min read</p>
 
-        <!-- THUMBNAIL SLOT -->
-        <figure class="thumb">
-          <!-- Replace the src below with your image path (e.g., images/esther-runway.jpg) -->
-          <img src="THUMBNAIL_URL_HERE" alt="Sunrise over clouds—symbol of courage to soar in faith." />
-          <!-- Optional caption (delete if not needed) -->
-          <!-- <figcaption>“Your wings were given for such a time as this.”</figcaption> -->
-        </figure>
-      </header>
+    <p>Some moments feel bigger than us—like the ground shifts and God is whispering, “This is why you’re here.” That’s the heartbeat of Esther’s story. At first glance it might feel ordinary, but lean closer and you’ll uncover truths about courage, identity, and the rise of humility over pride.</p>
 
-      <article>
-        <p>Some moments feel bigger than us—like the ground shifts and God is whispering, “This is why you’re here.” That’s the heartbeat of Esther’s story. At first glance it might feel ordinary, but lean closer and you’ll uncover truths about courage, identity, and the rise of humility over pride.</p>
+    <blockquote>
+      <p>“Who knows but that you have come to your position for such a time as this?”</p>
+      <cite>— Esther 4:14</cite>
+    </blockquote>
 
-        <blockquote>
-          <p>“Who knows but that you have come to your position for such a time as this?”</p>
-          <cite>— Esther 4:14</cite>
-        </blockquote>
+    <p>Mordecai’s words to Esther still echo today. Your background, gifts, and opportunities are not accidents. The presence you carry into a room matters. God positions us in specific times, roles, and relationships for purposes far bigger than ourselves. The dream stirring in your heart—it’s not random. God placed you here.</p>
 
-        <p>Mordecai’s words to Esther still echo today. Your background, gifts, and opportunities are not accidents. The presence you carry into a room matters. God positions us in specific times, roles, and relationships for purposes far bigger than ourselves. The dream stirring in your heart—it’s not random. God placed you here.</p>
+    <p>Esther shows us that courage isn’t the absence of fear—it’s the decision to ACT despite it. She was young, far from home, and living in a male-dominated court. Yet she chose to stand up for her people, even at great risk. Her story reminds us that our voice matters, even when we feel powerless.</p>
 
-        <p>Esther shows us that courage isn’t the absence of fear—it’s the decision to <strong>ACT</strong> despite it. She was young, far from home, and living in a male-dominated court. Yet she chose to stand up for her people, even at great risk. Her story reminds us that our voice matters, even when we feel powerless.</p>
+    <blockquote>
+      <p>“When the time is right, I, the Lord, will make it happen.”</p>
+      <cite>— Isaiah 60:22</cite>
+    </blockquote>
 
-        <blockquote>
-          <p>“When the time is right, I, the Lord, will make it happen.”</p>
-          <cite>— Isaiah 60:22</cite>
-        </blockquote>
+    <p>And here’s the lesson for us: we can’t act out of pride, emotion, or impatience. We must wait on the Lord’s timing. When He does reveal the moment to step forward, we’re called to act with power, love and self-control (2 Timothy 1:7).</p>
 
-        <p>And here’s the lesson for us: we can’t act out of pride, emotion, or impatience. We must wait on the Lord’s timing. When He does reveal the moment to step forward, we’re called to act with power, love, and self-control.</p>
+    <p>Fear doesn’t mean stop. Every pilot feels nerves before takeoff, and every leader feels the weight of risk. But fear is often the sign you’re about to do something that truly matters. The first time you push the throttle forward, your heart pounds. Every time you line up on the runway, you face the unknown. But like Esther, you don’t stay grounded in fear. You breathe deep, trust your training, and rise into the sky.</p>
 
-        <blockquote>
-          <p>“For God gave us a spirit not of fear but of power and love and self-control.”</p>
-          <cite>— 2 Timothy 1:7</cite>
-        </blockquote>
+    <p>Your courage can change more than you know. Your boldness might inspire someone else to chase their own calling. Esther’s story reminds us that faith and courage go hand-in-hand. When God calls you higher, He equips you with the strength to climb. Just like a plane breaks free from gravity to soar, you can rise above doubt and live out your God-given purpose.</p>
 
-        <p>Fear doesn’t mean stop. Every pilot feels nerves before takeoff, and every leader feels the weight of risk. But fear is often the sign you’re about to do something that truly matters. The first time you push the throttle forward, your heart pounds. Every time you line up on the runway, you face the unknown. But like Esther, you don’t stay grounded in fear. You breathe deep, trust your training, and rise into the sky.</p>
+    <p><strong>Are you facing your own “runway moment”? What big step is God calling you to take, even if it scares you?</strong></p>
 
-        <div class="callout">
-          Your courage can change more than you know. Your boldness might inspire someone else to chase their own calling. Esther’s story reminds us that faith and courage go hand-in-hand. When God calls you higher, He equips you with the strength to climb. Just like a plane breaks free from gravity to soar, you can rise above doubt and live out your God-given purpose.
-        </div>
+    <p><strong>This is not by chance—you were made for such a time as this.</strong></p>
 
-        <p class="closing">Are you facing your own “runway moment”? What big step is God calling you to take, even if it scares you?<br>
-        <strong>This is not by chance—you were made for such a time as this.</strong></p>
-      </article>
+    <div class="post-nav">
+      <a href="blog.html">← Back to Blog</a>
     </div>
   </main>
+
+  <footer>© 2025 Called To Soar — Mehana Airborne</footer>
 </body>
 </html>
+
