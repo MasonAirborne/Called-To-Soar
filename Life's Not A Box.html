@@ -12,7 +12,8 @@
       background: linear-gradient(to bottom, #f6e3d3, #dcb79b);
       color:#333;
     }
-    /* Fixed top nav (same as index) */
+
+    /* Fixed top nav */
     nav{
       background:#d97341; padding:1rem; text-align:center;
       position:fixed; top:0; left:0; width:100%; z-index:10;
@@ -46,7 +47,7 @@
     }
     p{ line-height:1.75; margin:1rem 0; }
 
-    /* Styled callouts used in this post */
+    /* Styled pull-quotes / callouts */
     .quote{
       margin:1.2rem 0; padding:.8rem 1rem;
       border-left:4px solid #d97341;
@@ -59,6 +60,36 @@
       padding:.6rem 1rem; border-radius:6px;
     }
 
+    /* Google Form callout (consistent across posts) */
+    .callout {
+      margin:2rem 0;
+      padding:1.2rem 1.5rem;
+      background:#FFF4E9;
+      border-left:5px solid #d97341;
+      border-radius:8px;
+      text-align:center;
+      box-shadow:0 4px 8px rgba(0,0,0,.05);
+    }
+    .callout p{
+      margin:0 0 0.8rem;
+      font-weight:500;
+      color:#4b3c32;
+    }
+    .callout a{
+      display:inline-block;
+      background:#d97341;
+      color:#fff;
+      padding:0.6rem 1.2rem;
+      border-radius:6px;
+      font-weight:600;
+      text-decoration:none;
+      transition:background 0.2s ease;
+    }
+    .callout a:hover{
+      background:#bf5f2f;
+    }
+
+    /* Back link */
     .post-nav{
       margin-top:1.5rem; text-align:center;
     }
@@ -71,7 +102,6 @@
   </style>
 </head>
 <body>
-  
   <!-- Top Nav -->
   <nav>
     <a href="index.html#about">About Me</a>
@@ -82,15 +112,15 @@
 
   <!-- Post -->
   <main>
-    <!-- Thumbnail (rename file if needed to avoid spaces) -->
+    <!-- Thumbnail (rename file to avoid spaces if you prefer) -->
     <img class="thumb" src="Box Thumbnail.jpg" alt="Life’s Not a Box thumbnail" />
 
     <h1>Life’s Not a Box — So Why Live in One?</h1>
 
-    <!-- Optional meta -->
-    <p class="meta">Aug 26th 2025 • ~2 min read</p>
+    <!-- Meta -->
+    <p class="meta">Aug 26 2025 • ~2 min read</p>
 
-    <!-- 💬 BLOG CONTENT -->
+    <!-- Content -->
     <p>It’s kind of bizarre, isn’t it? Everyone wants to fit in — but what does “fitting in” even mean? Why would you want to blend into the background, to become just another square in a world already full of them?</p>
 
     <p>We spend so much time trying not to look crazy, not to stand out too much. But isn’t that the whole point of life? To be so wildly passionate about something that people can’t decide whether you’re a genius or just completely out of your mind?</p>
@@ -125,14 +155,14 @@
 
     <p>Because I don’t want to blend in. I want to climb. To see the world from a higher perspective — and to show others that it’s okay to dream crazy big.</p>
 
-      <!-- Google Form callout -->
+    <!-- Google Form callout -->
     <div class="callout">
       <p>💬 I’d love to hear your thoughts! Share your experiences, feedback, or questions below:</p>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0Gui1vcXxBe1lKysbhXnl1Lhwc1v8Ny_ub4ar7B37Nsq0rg/viewform" target="_blank">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0Gui1vcXxBe1lKysbhXnl1Lhwc1v8Ny_ub4ar7B37Nsq0rg/viewform" target="_blank" rel="noopener">
         ✈️ Leave a Note
       </a>
     </div>
-    
+
     <!-- Back link -->
     <div class="post-nav">
       <a href="blog.html">← Back to Blog</a>
@@ -142,3 +172,4 @@
   <footer>© 2025 Called To Soar — Mehana Airborne</footer>
 </body>
 </html>
+
