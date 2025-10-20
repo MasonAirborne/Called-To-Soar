@@ -5,111 +5,181 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Destination | Called To Soar</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom, #f6e3d3, #dcb79b); /* matches index */
-      color: #333;
+    *,*::before,*::after{ box-sizing: border-box; }
+    :root{
+      --c2s-orange:#d97341;
+      --c2s-white:#ffffff;
+      --c2s-ink:#333;
+      --c2s-shadow:0 4px 12px rgba(0,0,0,.12);
+      --paper:#fff;
+      --bg-grad: linear-gradient(to bottom, #f6e3d3, #dcb79b);
     }
-    /* Fixed top nav */
-    nav {
-      background-color: #d97341; /* dusky orange to match index */
-      padding: 1rem;
-      text-align: center;
-      position: fixed;
-      top: 0; left: 0; width: 100%;
-      z-index: 10;
+
+    body{
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      background: var(--bg-grad);
+      color:var(--c2s-ink);
     }
-    nav a {
-      color: #fff;
-      margin: 0 1rem;
+
+    /* ===== Header (shared across pages) ===== */
+    .c2s-header{
+      position: sticky; top: 0; z-index: 1000;
+      background: var(--c2s-orange);
+      box-shadow: var(--c2s-shadow);
+    }
+    .c2s-nav{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: .9rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .c2s-brand{
+      color: var(--c2s-white);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+      letter-spacing: .2px;
+    }
+    .c2s-menu{
+      display: flex;
+      gap: clamp(.6rem, 2.4vw, 1.25rem);
+    }
+    .c2s-menu a{
+      color: var(--c2s-white);
       text-decoration: none;
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: clamp(.95rem, 1.8vw, 1.05rem);
+      padding: .35rem .25rem;
+      border-bottom: 2px solid transparent;
     }
-    nav a:hover { text-decoration: underline; }
+    .c2s-menu a:hover, .c2s-menu a:focus{ border-color: rgba(255,255,255,.9); }
 
-    /* Page card */
-    main {
+    .c2s-toggle{
+      display: none; /* desktop hidden */
+      background: transparent;
+      border: 0;
+      color: var(--c2s-white);
+      padding: .25rem;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 720px){
+      .c2s-toggle{ display: inline-flex; }
+      .c2s-menu{
+        position: absolute;
+        left: 0; right: 0; top: 100%;
+        background: var(--c2s-orange);
+        display: none;             /* closed by default */
+        flex-direction: column;
+        padding: .5rem .75rem 1rem;
+        gap: .35rem;
+        box-shadow: var(--c2s-shadow);
+      }
+      .c2s-menu a{
+        padding: .6rem .5rem;
+        border-radius: 8px;
+        border-bottom: 0;
+      }
+      .c2s-menu a:hover{ background: rgba(255,255,255,.12); }
+      .c2s-header.open .c2s-menu{ display: flex; } /* show when toggled */
+    }
+
+    /* ===== Page card ===== */
+    main{
       max-width: 900px;
-      margin: 6.5rem auto 2rem; /* push below fixed nav */
+      margin: 1.25rem auto 2.25rem;
       padding: 2rem;
-      background-color: #fff;
+      background: var(--paper);
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,.1);
     }
-
-    h1 {
-      color: #d97341; /* match index headings */
+    h1{
+      color: var(--c2s-orange);
       font-size: 2rem;
       margin: 0 0 1rem;
       text-align: center;
+      line-height: 1.2;
     }
+    p{ line-height: 1.65; margin: 0 0 1rem; }
+    ul{ padding-left: 1.25rem; margin: 0 0 1rem; }
+    li{ margin: .25rem 0; }
 
-    p { line-height: 1.65; margin: 0 0 1rem; }
-
-    ul { padding-left: 1.25rem; margin: 0 0 1rem; }
-    li { margin: 0.25rem 0; }
-
-    /* Inline button/link styles */
-    .link-btn {
-      display: inline-block;
-      margin-top: .5rem;
-      color: #d97341;
-      font-weight: 700;
-      text-decoration: none;
-      border-bottom: 2px solid transparent;
-      transition: color .2s ease, border-color .2s ease;
-    }
-    .link-btn:hover { border-color: #d97341; }
-
-    /* Callouts */
-    .callout {
-      background: #FFF4E9;                /* warm, soft highlight */
+    /* Callouts / links */
+    .callout{
+      background: #FFF4E9;
       border: 1px solid rgba(217,115,65,.25);
       border-radius: 10px;
       padding: 14px 16px;
       margin-top: 12px;
     }
+    .link-btn{
+      display: inline-block;
+      margin-top: .5rem;
+      color: var(--c2s-orange);
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: color .2s ease, border-color .2s ease;
+    }
+    .link-btn:hover{ border-color: var(--c2s-orange); }
 
-    footer {
+    /* Footer */
+    footer{
       text-align: center;
       padding: 2rem 1rem 3rem;
-      font-size: 0.9rem;
-      background: transparent; /* blends like index footer */
+      font-size: .9rem;
       color: #fff;
+      background: transparent;
     }
   </style>
 </head>
+
 <body>
-  <nav>
-    <a href="index.html#about">About Me</a>
-    <a href="blog.html">Wings In The Making</a>
-    <a href="goals.html">The Destination</a>
-    <a href="support.html">Lift Me Up</a>
-  </nav>
+  <!-- Responsive shared header -->
+  <header class="c2s-header" aria-label="Main navigation">
+    <div class="c2s-nav">
+      <a class="c2s-brand" href="/">Called 2 Soar</a>
+
+      <button class="c2s-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="c2s-menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <nav id="c2s-menu" class="c2s-menu" role="navigation">
+        <a href="/index.html#about">About Me</a>
+        <a href="/blog.html">Wings In The Making</a>
+        <a href="/goals.html" aria-current="page">The Destination</a>
+        <a href="/support.html">Lift Me Up</a>
+      </nav>
+    </div>
+  </header>
 
   <main id="goals">
     <h1>My Flight Training Goals</h1>
 
     <p>
-      My dream is to become a professional <strong>corporate pilot</strong> — flying jets like the Gulfstream, Bombardier, or Dassault across the skies.
+      My dream is to become a professional <strong>corporate pilot</strong> — flying jets like the Gulfstream, Bombardier, or Dassault.
       It’s not just about the aircraft — it’s about reaching people, building a legacy, and breaking barriers in aviation.
     </p>
 
     <p>
-      I'm currently working full-time at a busy Class C airport, gaining hands-on experience in operations and fueling my passion for aviation daily.
-      I’ve already saved <strong>Thousands of Dollars</strong> toward flight school and recently completed my first solo flight — a milestone that marked the beginning of my path to the skies.
+      I’m working full-time at a busy Class C airport, gaining hands-on experience in operations and fueling my passion daily.
+      I’ve saved <strong>thousands of dollars</strong> toward training and recently completed my first solo — a milestone that marked the beginning of this climb.
     </p>
 
     <p>
-      Becoming a pilot requires more than passion — it takes funding, focus, and perseverance. I am in works to complete the rest of my ratings
-      (Instrument, Commercial, Multi-Engine)
+      Becoming a pilot takes more than passion — it takes funding, focus, and perseverance. I’m working to complete the rest of my ratings:
+      <strong>Instrument, Commercial, and Multi-Engine</strong>.
     </p>
 
-    <p>I'm actively applying for aviation scholarships, including:</p>
+    <p>I’m actively applying for aviation scholarships, including:</p>
     <ul>
       <li>Women in Aviation International (WAI)</li>
       <li>Women in Corporate Aviation</li>
@@ -117,23 +187,48 @@
     </ul>
 
     <p>
-      Each application, each flight hour, and each shift at the airport brings me closer to inspiring others to follow their dreams —
-      especially young women and underrepresented aspiring aviators.
+      Every application, flight hour, and shift at the airport brings me closer to inspiring others to chase their dreams —
+      especially young women and under-represented aspiring aviators.
     </p>
 
     <div class="callout">
-      <p><strong>Your support</strong> — whether through encouragement, sharing my story, or financial assistance — lifts my wings and fuels this mission.</p>
-      <a class="link-btn" href="support.html">Lift Me Up →</a>
+      <p><strong>Your support</strong> — encouragement, sharing my story, or financial assistance — lifts my wings and fuels this mission.</p>
+      <a class="link-btn" href="/support.html">Lift Me Up →</a>
     </div>
 
     <div class="callout">
       <p>✉️ <strong>Share your encouragement or advice</strong></p>
-      <a class="link-btn" href="https://forms.gle/H79MMPihK9w3bDYTA" target="_blank" rel="noopener">
-        Send a private note via “Ways to Soar” →
+      <a class="link-btn" href="https://forms.gle/H79MMPihK9w3bDYTA" target="_blank" rel="noopener noreferrer">
+        Send a private note →
       </a>
     </div>
   </main>
 
   <footer>© 2025 Called To Soar — Mehana Airborne</footer>
+
+  <script>
+    (function(){
+      const header = document.querySelector('.c2s-header');
+      const btn = document.querySelector('.c2s-toggle');
+      const menu = document.getElementById('c2s-menu');
+      if(!header || !btn || !menu) return;
+
+      btn.addEventListener('click', () => {
+        const open = header.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+
+      // Close the menu when a link is clicked (mobile)
+      menu.addEventListener('click', (e) => {
+        if(e.target.tagName === 'A' && header.classList.contains('open')){
+          header.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+          btn.setAttribute('aria-label','Open menu');
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
+
