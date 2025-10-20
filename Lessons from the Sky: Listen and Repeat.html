@@ -7,70 +7,87 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     html { scroll-behavior: smooth; }
+    *, *::before, *::after { box-sizing: border-box; }
+    :root{
+      --c2s-orange:#d97341;
+      --c2s-white:#ffffff;
+      --c2s-ink:#333;
+      --c2s-shadow:0 4px 12px rgba(0,0,0,.12);
+      --bg-grad: linear-gradient(to bottom, #f6e3d3, #dcb79b);
+    }
     body{
       margin:0;
       font-family:'Poppins',sans-serif;
-      background: linear-gradient(to bottom, #f6e3d3, #dcb79b);
-      color:#333;
+      background: var(--bg-grad);
+      color:var(--c2s-ink);
     }
-    /* Fixed top nav */
-    nav{
-      background:#d97341;
-      padding:1rem;
-      text-align:center;
-      position:fixed; top:0; left:0; width:100%; z-index:10;
-      box-shadow:0 4px 12px rgba(0,0,0,.12);
-    }
-    nav a{
-      color:#fff; margin:0 1rem; text-decoration:none;
-      font-weight:600; font-size:1.1rem;
-    }
-    nav a:hover{ text-decoration:underline; }
 
-    /* Page card */
+    /* ===== Responsive header (shared) ===== */
+    .c2s-header{
+      position: sticky; top:0; z-index:1000;
+      background: var(--c2s-orange);
+      box-shadow: var(--c2s-shadow);
+    }
+    .c2s-nav{
+      max-width:1100px; margin:0 auto;
+      padding:.9rem 1rem;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .c2s-brand{
+      display:flex; align-items:center; gap:.5rem;
+      color:var(--c2s-white); text-decoration:none; font-weight:800;
+      font-size:clamp(1.05rem,2.2vw,1.25rem);
+      letter-spacing:.2px; white-space:nowrap;
+    }
+    .c2s-logo{ height:32px; width:auto; display:block; }
+    @media (max-width:720px){
+      .c2s-logo{ height:26px; }
+      .c2s-brand span{ font-size:1rem; }
+    }
+    .c2s-menu{ display:flex; gap:clamp(.6rem,2.4vw,1.25rem); }
+    .c2s-menu a{
+      color:var(--c2s-white); text-decoration:none; font-weight:600;
+      font-size:clamp(.95rem,1.8vw,1.05rem);
+      padding:.35rem .25rem; border-bottom:2px solid transparent;
+    }
+    .c2s-menu a:hover, .c2s-menu a:focus{ border-color:rgba(255,255,255,.9); }
+    .c2s-menu a[aria-current="page"]{ border-color:rgba(255,255,255,.9); }
+    .c2s-toggle{
+      display:none; background:transparent; border:0; color:var(--c2s-white);
+      padding:.25rem; border-radius:8px;
+    }
+    @media (max-width:720px){
+      .c2s-toggle{ display:inline-flex; }
+      .c2s-menu{
+        position:absolute; left:0; right:0; top:100%;
+        background:var(--c2s-orange);
+        display:none; flex-direction:column; gap:.35rem;
+        padding:.5rem .75rem 1rem; box-shadow:var(--c2s-shadow);
+      }
+      .c2s-menu a{ padding:.6rem .5rem; border-radius:8px; border-bottom:0; }
+      .c2s-menu a:hover{ background:rgba(255,255,255,.12); }
+      .c2s-header.open .c2s-menu{ display:flex; }
+    }
+
+    /* ===== Page card ===== */
     main{
       max-width:900px;
-      margin: 6.5rem auto 2.5rem;  /* push below fixed nav */
+      margin:1.25rem auto 2.5rem;
       padding:2rem;
-      background:#fff;
-      border-radius:12px;
-      box-shadow:0 4px 12px rgba(0,0,0,.1);
+      background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,.1);
     }
     h1{
-      color:#d97341;
-      margin:0 0 1rem;
-      font-size:2rem;
-      line-height:1.2;
-      text-align:center;
+      color:#d97341; margin:0 0 1rem; font-size:2rem; line-height:1.2; text-align:center;
     }
     p{ line-height:1.75; margin:1rem 0; }
-    blockquote{
-      margin:1.2rem 0;
-      padding:.6rem 1rem;
-      border-left:4px solid #d97341;
-      color:#4b3c32;
-      background:#FFF4E9;
-      border-radius:6px;
-    }
-    .post-nav{
-      margin-top:1.5rem;
-      text-align:center;
-    }
-    .post-nav a{
-      color:#d97341; text-decoration:none; font-weight:700;
-      border-bottom:2px solid transparent;
-    }
-    .post-nav a:hover{ border-color:#d97341; }
-
-    footer{
-      text-align:center; padding:2rem 1rem 3rem;
-      color:#fff; background:transparent;
-    }
     .meta{
-      font-size:.95rem;
-      color:#666;
-      margin-bottom:1.5rem;
-      text-align:center;
+      font-size:.95rem; color:#666; margin-bottom:1.5rem; text-align:center;
+    }
+
+    blockquote{
+      margin:1.2rem 0; padding:.6rem 1rem;
+      border-left:4px solid #d97341; color:#4b3c32;
+      background:#FFF4E9; border-radius:6px;
     }
 
     /* Callout for Google Form link */
@@ -98,74 +115,98 @@
       text-decoration:none;
       transition:background 0.2s ease;
     }
-    .callout a:hover{
-      background:#bf5f2f;
+    .callout a:hover{ background:#bf5f2f; }
+
+    .post-nav{ margin-top:1.5rem; text-align:center; }
+    .post-nav a{
+      color:#d97341; text-decoration:none; font-weight:700;
+      border-bottom:2px solid transparent;
     }
+    .post-nav a:hover{ border-color:#d97341; }
+
+    footer{ text-align:center; padding:2rem 1rem 3rem; color:#fff; background:transparent; }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html#about">About Me</a>
-    <a href="blog.html">Wings In The Making</a>
-    <a href="goals.html">The Destination</a>
-    <a href="support.html">Lift Me Up</a>
-  </nav>
+  <!-- Shared responsive header -->
+  <header class="c2s-header" aria-label="Main navigation">
+    <div class="c2s-nav">
+      <!-- Brand with logo + text (space encoded) -->
+      <a class="c2s-brand" href="/">
+        <img src="called%202.png" alt="Called 2 Soar logo" class="c2s-logo">
+        <span>Called 2 Soar</span>
+      </a>
+
+      <button class="c2s-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="c2s-menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <nav id="c2s-menu" class="c2s-menu" role="navigation">
+        <a href="/index.html#about">About Me</a>
+        <a href="/blog.html" aria-current="page">Wings In The Making</a>
+        <a href="/goals.html">The Destination</a>
+        <a href="/support.html">Lift Me Up</a>
+      </nav>
+    </div>
+  </header>
 
   <main>
     <h1>Lessons from the Sky: Listen and Repeat ✈️</h1>
-    <p class="meta">Sept 16 2025 • ~3 min read</p>
+    <p class="meta">Sep 16, 2025 • ~3 min read</p>
 
     <p>
-      Right now, I’m at a stumbling block—it feels like I’m the only one struggling. 
-      My home airport is a little Class G, untowered strip. But my training has moved me 
+      Right now, I’m at a stumbling block—it feels like I’m the only one struggling.
+      My home airport is a little Class G, untowered strip. But my training has moved me
       into the “big leagues”: Class C, towered airspace.
     </p>
 
     <p>
-      That first flight into controlled airspace? Let me tell you—it felt like trying to 
-      speak a foreign language. The tower rattled off instructions, and I barely understood 
-      a word. Second lesson? Not much better. Third lesson? I’ll admit it: I cried on the 
-      drive home. The thought hit me hard—<em>Am I really putting everything I’ve got into 
+      That first flight into controlled airspace? Let me tell you—it felt like trying to
+      speak a foreign language. The tower rattled off instructions, and I barely understood
+      a word. Second lesson? Not much better. Third lesson? I’ll admit it: I cried on the
+      drive home. The thought hit me hard—<em>Am I really putting everything I’ve got into
       this dream? Will I ever make it through this dark tunnel?</em>
     </p>
 
     <p>
-      Throughout the week, I asked other pilots for advice. I picked up little tips, insider 
-      knowledge, encouragement. One guy told me, <q>You’re overcomplicating it—the tower works 
-      for you. Just repeat what they say back.</q>  
-      <br>Well, thanks Todd, but it’s not that easy!
+      Throughout the week, I asked other pilots for advice. I picked up little tips, insider
+      knowledge, encouragement. One guy told me, <q>You’re overcomplicating it—the tower works
+      for you. Just repeat what they say back.</q><br>
+      Well, thanks Todd, but it’s not that easy!
     </p>
 
     <p>And yet—maybe it is.</p>
 
     <p>
-      Because isn’t life exactly like this? We overcomplicate things. We hear what people say, 
-      but we don’t always listen. We don’t always register it. My parents, grandparents, 
-      friends—they’ll tell me: “You’re doing great, May.” “I’m proud of you.” 
+      Because isn’t life exactly like this? We overcomplicate things. We hear what people say,
+      but we don’t always listen. We don’t always register it. My parents, grandparents,
+      friends—they’ll tell me: “You’re doing great, May.” “I’m proud of you.”
       “Your work ethic is amazing.” <br>
-      And what’s my default response? <em>Yeah, yeah, thanks.</em> I shrug it off like static 
+      And what’s my default response? <em>Yeah, yeah, thanks.</em> I shrug it off like static
       on the radio.
     </p>
 
     <blockquote>
-      The solution? Listen and repeat. Don’t just let words pass through—read them back, 
+      The solution? Listen and repeat. Don’t just let words pass through—read them back,
       let them register, let them sink in.
     </blockquote>
 
     <p>
-      Because the truth is: you <strong>are</strong> doing great. You <strong>are</strong> working 
-      toward something incredibly difficult. And it shows—because you’re showing up. Most people 
+      Because the truth is: you <strong>are</strong> doing great. You <strong>are</strong> working
+      toward something incredibly difficult. And it shows—because you’re showing up. Most people
       don’t even get that far.
     </p>
 
     <p>
-      Flying into a towered airport requires you to repeat back every instruction so you can 
+      Flying into a towered airport requires you to repeat back every instruction so you can
       process it, confirm it, and believe it. Life works the same way.
     </p>
 
     <p>
-      So, what truths are you ignoring? What encouragement have you brushed aside instead of 
-      reading back into your own heart? Next time someone affirms you, don’t dismiss it—say it back. 
+      So, what truths are you ignoring? What encouragement have you brushed aside instead of
+      reading back into your own heart? Next time someone affirms you, don’t dismiss it—say it back.
       Believe it. Live it.
     </p>
 
@@ -176,15 +217,43 @@
     <!-- Google Form callout -->
     <div class="callout">
       <p>💬 I’d love to hear your thoughts! Share your experiences, feedback, or questions below:</p>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0Gui1vcXxBe1lKysbhXnl1Lhwc1v8Ny_ub4ar7B37Nsq0rg/viewform" target="_blank">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0Gui1vcXxBe1lKysbhXnl1Lhwc1v8Ny_ub4ar7B37Nsq0rg/viewform" target="_blank" rel="noopener noreferrer">
         ✈️ Leave a Note
       </a>
     </div>
 
     <div class="post-nav">
-      <a href="blog.html">← Back to Blog</a>
+      <a href="/blog.html">← Back to Blog</a>
     </div>
   </main>
+
+  <footer>© 2025 Called To Soar — Mehana Airborne</footer>
+
+  <script>
+    (function(){
+      const header=document.querySelector('.c2s-header');
+      const btn=document.querySelector('.c2s-toggle');
+      const menu=document.getElementById('c2s-menu');
+      if(!header||!btn||!menu) return;
+
+      btn.addEventListener('click', () => {
+        const open=header.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open?'true':'false');
+        btn.setAttribute('aria-label', open?'Close menu':'Open menu');
+      });
+
+      menu.addEventListener('click', (e) => {
+        if(e.target.tagName==='A' && header.classList.contains('open')){
+          header.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+          btn.setAttribute('aria-label','Open menu');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+
 
   <footer>© 2025 Called To Soar — Mehana Airborne</footer>
 </body>
