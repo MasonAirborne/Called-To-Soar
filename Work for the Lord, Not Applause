@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doers, Not Crybabies | Called To Soar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    *, *::before, *::after { box-sizing: border-box; }
+    :root{
+      --c2s-orange:#d97341;
+      --c2s-white:#ffffff;
+      --c2s-ink:#333;
+      --c2s-shadow:0 4px 12px rgba(0,0,0,.12);
+      --bg-grad: linear-gradient(to bottom, #f6e3d3, #dcb79b);
+    }
+    body{
+      margin:0; font-family:'Poppins',sans-serif;
+      background: var(--bg-grad); color:var(--c2s-ink);
+    }
+
+    /* ===== Responsive header (shared) ===== */
+    .c2s-header{
+      position: sticky; top:0; z-index:1000;
+      background: var(--c2s-orange);
+      box-shadow: var(--c2s-shadow);
+    }
+    .c2s-nav{
+      max-width:1100px; margin:0 auto;
+      padding:.9rem 1rem;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .c2s-brand{
+      display:flex; align-items:center; gap:.5rem;
+      color:var(--c2s-white); text-decoration:none; font-weight:800;
+      font-size:clamp(1.05rem,2.2vw,1.25rem);
+      letter-spacing:.2px; white-space:nowrap;
+    }
+    .c2s-logo{ height:32px; width:auto; display:block; }
+    @media (max-width:720px){
+      .c2s-logo{ height:26px; }
+      .c2s-brand span{ font-size:1rem; }
+    }
+    .c2s-menu{ display:flex; gap:clamp(.6rem,2.4vw,1.25rem); }
+    .c2s-menu a{
+      color:var(--c2s-white); text-decoration:none; font-weight:600;
+      font-size:clamp(.95rem,1.8vw,1.05rem);
+      padding:.35rem .25rem; border-bottom:2px solid transparent;
+    }
+    .c2s-menu a:hover, .c2s-menu a:focus{ border-color:rgba(255,255,255,.9); }
+    .c2s-menu a[aria-current="page"]{ border-color:rgba(255,255,255,.9); }
+    .c2s-toggle{
+      display:none; background:transparent; border:0; color:var(--c2s-white);
+      padding:.25rem; border-radius:8px;
+    }
+    @media (max-width:720px){
+      .c2s-toggle{ display:inline-flex; }
+      .c2s-menu{
+        position:absolute; left:0; right:0; top:100%;
+        background:var(--c2s-orange);
+        display:none; flex-direction:column; gap:.35rem;
+        padding:.5rem .75rem 1rem; box-shadow:var(--c2s-shadow);
+      }
+      .c2s-menu a{ padding:.6rem .5rem; border-radius:8px; border-bottom:0; }
+      .c2s-menu a:hover{ background:rgba(255,255,255,.12); }
+      .c2s-header.open .c2s-menu{ display:flex; }
+    }
+
+    /* ===== Post card ===== */
+    main{
+      max-width:900px;
+      margin:1.25rem auto 2.5rem;  /* below sticky header */
+      padding:2rem;
+      background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,.1);
+    }
+    h1{ color:#d97341; margin:0 0 .5rem; font-size:2rem; line-height:1.2; }
+    .meta{ color:#6a5a4e; font-size:.95rem; margin:0 0 1.25rem; }
+    p{ line-height:1.75; margin:1rem 0; }
+
+    blockquote{
+      margin:1.2rem 0; padding:.6rem 1rem;
+      border-left:4px solid #d97341; color:#4b3c32;
+      background:#FFF4E9; border-radius:6px;
+    }
+
+    .pull{
+      margin:1.2rem 0; padding:.8rem 1rem;
+      border-left:4px solid #d97341; background:#FFF4E9;
+      border-radius:6px; font-weight:700; color:#2f2a26;
+    }
+
+    .leave-note{
+      margin-top:2.2rem; text-align:center; background:#FFF4E9;
+      padding:1.4rem; border-radius:10px; border:1px solid #f0c9a6;
+    }
+    .leave-note p{ margin:0 0 1rem; font-weight:500; color:#4b3c32; }
+    .note-btn{
+      background:#d97341; color:#fff; padding:.6rem 1.4rem;
+      border-radius:999px; text-decoration:none; font-weight:600;
+      transition:background .3s ease;
+    }
+    .note-btn:hover{ background:#b95f2f; }
+
+    .post-nav{ margin-top:1.5rem; text-align:center; }
+    .post-nav a{
+      color:#d97341; text-decoration:none; font-weight:700; border-bottom:2px solid transparent;
+    }
+    .post-nav a:hover{ border-color:#d97341; }
+
+    footer{ text-align:center; padding:2rem 1rem 3rem; color:#fff; background:transparent; }
+  </style>
+</head>
+<body>
+  <!-- Shared responsive header -->
+  <header class="c2s-header" aria-label="Main navigation">
+    <div class="c2s-nav">
+      <!-- Brand with logo + text (space encoded filename) -->
+      <a class="c2s-brand" href="/">
+        <img src="called%202.png" alt="Called 2 Soar logo" class="c2s-logo">
+        <span>Called 2 Soar</span>
+      </a>
+
+      <button class="c2s-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="c2s-menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <nav id="c2s-menu" class="c2s-menu" role="navigation">
+        <a href="/index.html#about">About Me</a>
+        <a href="/blog.html" aria-current="page">Wings In The Making</a>
+        <a href="/goals.html">The Destination</a>
+        <a href="/support.html">Lift Me Up</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Post -->
+  <main>
+    <h1>Work for the Lord, Not Applause</h1>
+    <p class="meta">Oct 20, 2025 • ~2–3 min read</p>
+
+    <p>There are two kinds of people in this world: complainers and doers. You fail a test. You get overlooked for a promotion. You face rejection when you know you gave it your all. What happens next defines who you are — not the setback itself.</p>
+
+    <p>Vent if you need to, but don’t camp there. Lift your head. <strong>Next play.</strong> Didn’t get the raise? <em>Good.</em> Didn’t get the promotion? <em>Good.</em> Now show up ten times harder. Be so excellent, so consistent, so committed that no one can ignore you.</p>
+
+    <blockquote>“Whatever you do, work at it with all your heart, as working for the Lord, not for men.” — <em>Colossians 3:23</em></blockquote>
+
+    <p>Don’t drift through life on autopilot, waiting for luck to land on you. There is no luck — only preparation meeting purpose. If you want something, go after it. Your mind is powerful; keep it fixed on where you’re going. As Napoleon Hill said, “Whatever your mind can conceive and believe, it can achieve.”</p>
+
+    <p>The world talks about “balance,” but growth rarely comes from comfort. Refinement doesn’t happen on the mountaintop — it happens in the valley. That’s where grit is born, where faith is forged, and where character is built.</p>
+
+    <blockquote>“Trust in the Lord with all your heart, and lean not on your own understanding.” — <em>Proverbs 3:5</em></blockquote>
+
+    <p>My prayer lately is simple: <em>Father, don’t let me go anywhere You haven’t gone before me. Walk with me through the journey.</em> It sounds beautiful — until His plans stretch you, challenge you, or hold you still. But that’s where transformation begins.</p>
+
+    <div class="pull">Learn to be comfortable in the uncomfortable. If you want to change the world, you must learn to shine even in your darkest moments.</div>
+
+    <p>Look in the mirror and ask yourself: <strong>Am I a doer, or am I making this all about me?</strong> Then lace up, show up, and get back in the arena.</p>
+
+    <!-- Leave a Note -->
+    <div class="leave-note">
+      <p>💬 I’d love to hear your thoughts! What’s your “next play” this week?</p>
+      <a class="note-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd0Gui1vcXxBe1lKysbhXnl1Lhwc1v8Ny_ub4ar7B37Nsq0rg/viewform" target="_blank" rel="noopener noreferrer">✍️ Leave a Note</a>
+    </div>
+
+    <div class="post-nav">
+      <a href="/blog.html">← Back to Blog</a>
+    </div>
+  </main>
+
+  <footer>© 2025 Called To Soar — Mehana Airborne</footer>
+
+  <script>
+    (function(){
+      const header=document.querySelector('.c2s-header');
+      const btn=document.querySelector('.c2s-toggle');
+      const menu=document.getElementById('c2s-menu');
+      if(!header||!btn||!menu) return;
+
+      btn.addEventListener('click', () => {
+        const open=header.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open?'true':'false');
+        btn.setAttribute('aria-label', open?'Close menu':'Open menu');
+      });
+
+      menu.addEventListener('click', (e) => {
+        if(e.target.tagName==='A' && header.classList.contains('open')){
+          header.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+          btn.setAttribute('aria-label','Open menu');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
