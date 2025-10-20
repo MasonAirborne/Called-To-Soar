@@ -3,145 +3,267 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Call 2 Lift Others Up | Called To Soar</title>
+  <title>Lift Me Up | Called 2 Soar</title>
+  <meta name="description" content="Support Called 2 Soar — help fund flight training, send encouragement, and share opportunities in aviation." />
+  <link rel="canonical" href="https://called2soar.com/support.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Lift Me Up | Called 2 Soar" />
+  <meta property="og:description" content="Help fund flight training or leave a private note of encouragement." />
+  <meta property="og:url" content="https://called2soar.com/support.html" />
+  <meta property="og:type" content="website" />
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     html { scroll-behavior: smooth; }
-    body{
-      margin:0;
-      font-family:'Poppins',sans-serif;
-      background: linear-gradient(to bottom, #f6e3d3, #dcb79b);
-      color:#333;
+    *, *::before, *::after { box-sizing: border-box; }
+    :root{
+      --c2s-orange:#d97341;
+      --c2s-white:#ffffff;
+      --c2s-ink:#333;
+      --c2s-shadow:0 4px 12px rgba(0,0,0,.12);
+      --bg-grad: linear-gradient(to bottom, #f6e3d3, #dcb79b);
     }
-    /* Fixed top nav */
-    nav{
-      background:#d97341;
-      padding:1rem;
-      text-align:center;
-      position:fixed; top:0; left:0; width:100%; z-index:10;
-      box-shadow:0 4px 12px rgba(0,0,0,.12);
-    }
-    nav a{
-      color:#fff; margin:0 1rem; text-decoration:none;
-      font-weight:600; font-size:1.1rem;
-    }
-    nav a:hover{ text-decoration:underline; }
-
-    /* Page card */
-    main{
-      max-width:900px;
-      margin: 6.5rem auto 2.5rem;  /* push below fixed nav */
-      padding:2rem;
-      background:#fff;
-      border-radius:12px;
-      box-shadow:0 4px 12px rgba(0,0,0,.1);
-    }
-    h1{
-      color:#d97341;
-      margin:0 0 1rem;
-      font-size:2rem;
-      line-height:1.2;
-    }
-    p{ line-height:1.75; margin:1rem 0; }
-    blockquote{
-      margin:1.2rem 0;
-      padding:.6rem 1rem;
-      border-left:4px solid #d97341;
-      color:#4b3c32;
-      background:#FFF4E9;
-      border-radius:6px;
-    }
-    .post-nav{
-      margin-top:1.5rem;
-      text-align:center;
-    }
-    .post-nav a{
-      color:#d97341; text-decoration:none; font-weight:700;
-      border-bottom:2px solid transparent;
-    }
-    .post-nav a:hover{ border-color:#d97341; }
-
-        .leave-note{
-      margin-top:2.5rem;
-      text-align:center;
-      background:#FFF4E9;
-      padding:1.5rem;
-      border-radius:10px;
-      border:1px solid #f0c9a6;
-    }
-    .leave-note p{
-      margin:0 0 1rem;
-      font-weight:500;
-      color:#4b3c32;
-    }
-    .note-btn{
-      background:#d97341;
-      color:#fff;
-      padding:0.6rem 1.4rem;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:600;
-      transition:background 0.3s ease;
-    }
-    .note-btn:hover{
-      background:#b95f2f;
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-grad);
+      color: var(--c2s-ink);
     }
 
-    footer{
-      text-align:center; padding:2rem 1rem 3rem;
-      color:#fff; background:transparent;
+    /* ===== Responsive sticky header (shared) ===== */
+    .c2s-header{
+      position: sticky; top: 0; z-index: 1000;
+      background: var(--c2s-orange);
+      box-shadow: var(--c2s-shadow);
+    }
+    .c2s-nav{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: .9rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Brand: logo + text */
+    .c2s-brand{
+      display:flex;
+      align-items:center;
+      gap:.5rem;
+      color: var(--c2s-white);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+      letter-spacing: .2px;
+      white-space: nowrap;
+    }
+    .c2s-logo{
+      height:32px; width:auto; display:block;
+    }
+    @media (max-width: 720px){
+      .c2s-logo{ height:26px; }
+      .c2s-brand span{ font-size:1rem; }
+    }
+
+    .c2s-menu{
+      display: flex;
+      gap: clamp(.6rem, 2.4vw, 1.25rem);
+    }
+    .c2s-menu a{
+      color: var(--c2s-white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: clamp(.95rem, 1.8vw, 1.05rem);
+      padding: .35rem .25rem;
+      border-bottom: 2px solid transparent;
+    }
+    .c2s-menu a:hover, .c2s-menu a:focus{ border-color: rgba(255,255,255,.9); }
+    .c2s-menu a[aria-current="page"]{ border-color: rgba(255,255,255,.9); }
+
+    .c2s-toggle{
+      display: none;
+      background: transparent;
+      border: 0;
+      color: var(--c2s-white);
+      padding: .25rem;
+      border-radius: 8px;
+    }
+    @media (max-width: 720px){
+      .c2s-toggle{ display: inline-flex; }
+      .c2s-menu{
+        position: absolute;
+        left: 0; right: 0; top: 100%;
+        background: var(--c2s-orange);
+        display: none;             /* closed by default */
+        flex-direction: column;
+        padding: .5rem .75rem 1rem;
+        gap: .35rem;
+        box-shadow: var(--c2s-shadow);
+      }
+      .c2s-menu a{
+        padding: .6rem .5rem;
+        border-radius: 8px;
+        border-bottom: 0;
+      }
+      .c2s-menu a:hover{ background: rgba(255,255,255,.12); }
+      .c2s-header.open .c2s-menu{ display: flex; }
+    }
+
+    /* ===== Page card ===== */
+    main {
+      max-width: 900px;
+      margin: 1.25rem auto 2rem;
+      padding: 2rem;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: var(--c2s-orange);
+      font-size: 2rem;
+      margin: 0 0 1rem;
+      text-align: center;
+      line-height: 1.2;
+    }
+    p { line-height: 1.65; margin: 0 0 1rem; }
+
+    /* Callouts + buttons */
+    .callout {
+      background: #FFF4E9;
+      border: 1px solid rgba(217,115,65,.25);
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin: 16px 0;
+    }
+    .btn-row {
+      display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 2px solid transparent;
+      transition: transform .15s ease, filter .15s ease, border-color .15s ease;
+    }
+    @media (max-width: 520px) {
+      .btn { width: 100%; text-align: center; }
+    }
+    .btn:hover { transform: translateY(-1px); filter: brightness(1.05); }
+
+    .btn-orange { background: var(--c2s-orange); color: #fff; }
+    .btn-outline { color: var(--c2s-orange); background: #fff; border-color: var(--c2s-orange); }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+      font-size: 0.9rem;
+      color: #fff;  /* unified with other pages over the gradient */
+      background: transparent;
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .btn { transition: none; }
+      html { scroll-behavior: auto; }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html#about">About Me</a>
-    <a href="blog.html">Wings In The Making</a>
-    <a href="goals.html">The Destination</a>
-    <a href="support.html">Lift Me Up</a>
-  </nav>
+  <!-- Shared responsive header -->
+  <header class="c2s-header" aria-label="Main navigation">
+    <div class="c2s-nav">
+      <!-- Brand with logo + text (URL-encoded spaces in filename) -->
+      <a class="c2s-brand" href="/">
+        <img src="Called%202%20.png" alt="Called 2 Soar logo" class="c2s-logo">
+        <span>Called 2 Soar</span>
+      </a>
+
+      <button class="c2s-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="c2s-menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <nav id="c2s-menu" class="c2s-menu" role="navigation">
+        <a href="/index.html#about">About Me</a>
+        <a href="/blog.html">Wings In The Making</a>
+        <a href="/goals.html">The Destination</a>
+        <a href="/support.html" aria-current="page">Lift Me Up</a>
+      </nav>
+    </div>
+  </header>
 
   <main>
-    <h1>The Call 2 Lift Others Up</h1>
-    
-   <!-- Optional meta -->
-    <p class="meta">Aug 5th 2025 • ~2 min read</p>
+    <h1>Lift Me Up</h1>
+    <p>
+      Thank you for believing in this journey. Every note, share, and gift helps me keep training, log more hours,
+      and move closer to the corporate cockpit—while inspiring the next person to say, “Why not me?”
+    </p>
 
- <p>There are things in life we often overlook—responsibilities we carry whether we realize it or not. Of course, we know the basics: we’re obligated to work, to treat others with kindness—not for gain or recognition, but because true kindness stems from grace and love. We’re obligated to care for our children, our parents, or at the very least, ourselves. Wake up, fuel your body, and move with purpose.</p>
-
-    <p>But there’s another kind of obligation we rarely consider: the obligation to show others what life can be. This is different from your purpose, though deeply connected to it. It influences how you carry yourself, how you approach each day, and how others experience you. People may not think about you as much as you imagine—most are consumed with their own lives and worries. But every decision you make still ripples outward.</p>
-
-    <p>Going to college affects your family emotionally and financially. Landing a job impacts coworkers, friends, even your roommates. Here’s the real kicker: when you better yourself—by waking up, eating healthy, working out—someone is always watching. It might be your niece, your cousin, your friend, or even your parents. When they see your effort, it ignites something in them. That’s the fine line between jealousy and inspiration. <em>“If they can do it, why not me?”</em> It becomes a question of possibility.</p>
-
-    <p>So yes, you do have an obligation to try your best. Even when your focus is on personal growth, you elevate everyone around you. You raise the standard. Eventually, your parents beam with pride, your friends crave your energy, and strangers feel inspired. Inspiration is contagious. People—young or old, wise or lost—are watching your steps.</p>
-
-    <p>The way you stand in a room. The way you speak. The quiet strength of authenticity. We are drawn to confidence and truth. And while we all want to grow wiser, if you’re the smartest person in the room, it’s time to find a new room.</p>
-
-    <blockquote>“Iron sharpens iron.” <br> “Two are better than one—for if one falls, the other can help them up.”</blockquote>
-
-    <p>It took me 25 years and countless hills to climb before I realized they were only preparing me for the mountain. Don’t be discouraged if you haven’t found your place yet. Ecclesiastes reminds us there is a time for everything—a time to laugh, cry, rest, and rejoice. You are not delayed. You’re right on time. <em>“Everything works together for the good of those called according to His purpose.”</em></p>
-
-    <p>Your gifts may be wisdom, leadership, service, or compassion. We’re not all made the same, and that’s the beauty of it. Together, we form a body of believers—lifting, inspiring, and loving one another. No one should feel unseen in this life.</p>
-
-    <p>If this world is filled with cause and effect, why wouldn’t there be something greater after this life? If we can see darkness so clearly, then surely there must be light. Let love and grace carry you forward. Tomorrow, remember this: you’re not just living for yourself—you’re living for those beside you.</p>
-
-    <p>This is a healthy race—one where iron sharpens iron and we lift each other up. It’s not about being better than the person next to you. It’s about running alongside them. Encourage your circle to aim higher.</p>
-
-    <p>Our greatest obligation is to encourage—to show others what’s possible through resilience, dedication, and faith.</p>
-
-    <p><strong>So wake up and ask not, <em>“Why me?”</em> but <em>“Why not me?”</em></strong></p>
-
-         <!-- Leave a Note section -->
-    <div class="leave-note">
-      <p>💬 I’d love to hear your thoughts! Share your experiences, feedback, or questions below:</p>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0Gui1vcXxBe1lKysbhXnl1Lhwc1v8Ny_ub4ar7B37Nsq0rg/viewform" target="_blank" class="note-btn">✍️ Leave a Note</a>
+    <!-- Financial Support -->
+    <div class="callout">
+      <p><strong>Give Financially</strong></p>
+      <p>Direct support goes straight toward ratings and flight time (Instrument, Commercial, Multi-Engine, CFI).</p>
+      <div class="btn-row">
+        <!-- Make sure the label matches the actual handle linked -->
+        <a class="btn btn-orange" href="https://venmo.com/u/Lindsey-Mehana-15" target="_blank" rel="noopener noreferrer" aria-label="Support via Venmo">
+          Venmo @Lindsey-Mehana-15
+        </a>
+        <a class="btn btn-outline" href="https://gofund.me/98160af3" target="_blank" rel="noopener noreferrer" aria-label="Support via GoFundMe">
+          Crowd Funding
+        </a>
+      </div>
     </div>
-  
-    <div class="post-nav">
-      <a href="blog.html">← Back to Blog</a>
+
+    <!-- Encouragement / Private Notes -->
+    <div class="callout">
+      <p><strong>Share Encouragement or Advice</strong></p>
+      <p>Your words matter. Leave a private note that only I’ll see—tips, connections, opportunities, or a quick “keep going!”</p>
+      <a class="btn btn-orange" href="https://forms.gle/H79MMPihK9w3bDYTA" target="_blank" rel="noopener noreferrer" aria-label="Send a private note via Google Form">
+        Send a Private Note
+      </a>
+    </div>
+
+    <!-- Other Ways to Help -->
+    <div class="callout">
+      <p><strong>Other Ways to Help</strong></p>
+      <ul>
+        <li>Share this site with someone who loves aviation or mentorship.</li>
+        <li>Introduce me to a pilot, flight department, or mentor in corporate aviation.</li>
+        <li>Pass along scholarship, internship, or shadowing opportunities.</li>
+      </ul>
     </div>
   </main>
 
-  <footer>© 2025 Called To Soar — Mehana Airborne</footer>
+  <footer>© 2025 Called 2 Soar — Mehana Airborne</footer>
+
+  <script>
+    (function(){
+      const header = document.querySelector('.c2s-header');
+      const btn = document.querySelector('.c2s-toggle');
+      const menu = document.getElementById('c2s-menu');
+      if(!header || !btn || !menu) return;
+
+      btn.addEventListener('click', () => {
+        const open = header.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+
+      // Close menu on link click (mobile)
+      menu.addEventListener('click', (e) => {
+        if(e.target.tagName === 'A' && header.classList.contains('open')){
+          header.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+          btn.setAttribute('aria-label','Open menu');
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
