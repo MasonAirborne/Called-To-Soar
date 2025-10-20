@@ -21,7 +21,7 @@
       --c2s-shadow:0 4px 12px rgba(0,0,0,.12);
     }
 
-    /* Responsive sticky header */
+    /* Header */
     .c2s-header{
       position:sticky; top:0; z-index:1000;
       background:var(--c2s-orange);
@@ -35,12 +35,26 @@
       align-items:center;
       justify-content:space-between;
     }
+    /* Brand: logo + text */
     .c2s-brand{
+      display:flex;
+      align-items:center;
+      gap:.5rem;
       color:var(--c2s-white);
       text-decoration:none;
       font-weight:800;
       font-size:clamp(1.05rem,2.2vw,1.25rem);
+      letter-spacing:.2px;
+      white-space:nowrap;
     }
+    .c2s-logo{
+      height:32px; width:auto; display:block;
+    }
+    @media(max-width:720px){
+      .c2s-logo{ height:26px; }
+      .c2s-brand span{ font-size:1rem; }
+    }
+
     .c2s-menu{
       display:flex;
       gap:clamp(.6rem,2.4vw,1.25rem);
@@ -54,6 +68,8 @@
       border-bottom:2px solid transparent;
     }
     .c2s-menu a:hover{ border-color:rgba(255,255,255,.9); }
+    .c2s-menu a[aria-current="page"]{ border-color:rgba(255,255,255,.9); }
+
     .c2s-toggle{
       display:none;
       background:transparent;
@@ -72,15 +88,18 @@
         flex-direction:column;
         padding:.5rem .75rem 1rem;
         gap:.35rem;
+        box-shadow:var(--c2s-shadow);
       }
       .c2s-menu a{
         padding:.6rem .5rem;
         border-radius:8px;
+        border-bottom:0;
       }
       .c2s-menu a:hover{ background:rgba(255,255,255,.12); }
       .c2s-header.open .c2s-menu{ display:flex; }
     }
 
+    /* Page */
     main{
       max-width:1100px;
       margin:2rem auto 2rem;
@@ -146,7 +165,12 @@
 <body>
   <header class="c2s-header" aria-label="Main navigation">
     <div class="c2s-nav">
-      <a class="c2s-brand" href="/">Called 2 Soar</a>
+      <!-- Brand with logo + text (URL-encoded spaces in filename) -->
+      <a class="c2s-brand" href="/">
+        <img src="Called%202%20.png" alt="Called 2 Soar logo" class="c2s-logo">
+        <span>Called 2 Soar</span>
+      </a>
+
       <button class="c2s-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="c2s-menu">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -154,7 +178,7 @@
       </button>
       <nav id="c2s-menu" class="c2s-menu" role="navigation">
         <a href="/index.html#about">About Me</a>
-        <a href="/blog.html">Wings In The Making</a>
+        <a href="/blog.html" aria-current="page">Wings In The Making</a>
         <a href="/goals.html">The Destination</a>
         <a href="/support.html">Lift Me Up</a>
       </nav>
@@ -252,5 +276,3 @@
   </script>
 </body>
 </html>
-
-
