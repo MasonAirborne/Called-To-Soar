@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doers Over Doubters | Called To Soar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    html { scroll-behavior: smooth; }
+    *, *::before, *::after { box-sizing: border-box; }
+    :root{
+      --c2s-orange:#d97341;
+      --c2s-white:#ffffff;
+      --c2s-ink:#333;
+      --c2s-shadow:0 4px 12px rgba(0,0,0,.12);
+      --bg-grad: linear-gradient(to bottom, #f6e3d3, #dcb79b);
+    }
+
+    body{
+      margin:0; font-family:'Poppins',sans-serif;
+      background: var(--bg-grad); color: var(--c2s-ink);
+    }
+
+    /* ===== Responsive header (shared across pages) ===== */
+    .c2s-header{
+      position: sticky; top: 0; z-index: 1000;
+      background: var(--c2s-orange);
+      box-shadow: var(--c2s-shadow);
+    }
+    .c2s-nav{
+      max-width: 1100px; margin: 0 auto;
+      padding: .9rem 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .c2s-brand{
+      display:flex; align-items:center; gap:.5rem;
+      color: var(--c2s-white); text-decoration:none; font-weight:800;
+      font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+      letter-spacing:.2px; white-space:nowrap;
+    }
+    .c2s-logo{ height:32px; width:auto; display:block; }
+    @media (max-width:720px){
+      .c2s-logo{ height:26px; }
+      .c2s-brand span{ font-size:1rem; }
+    }
+    .c2s-menu{ display:flex; gap:clamp(.6rem, 2.4vw, 1.25rem); }
+    .c2s-menu a{
+      color: var(--c2s-white); text-decoration:none; font-weight:600;
+      font-size: clamp(.95rem, 1.8vw, 1.05rem);
+      padding:.35rem .25rem; border-bottom:2px solid transparent;
+    }
+    .c2s-menu a:hover, .c2s-menu a:focus{ border-color: rgba(255,255,255,.9); }
+    .c2s-menu a[aria-current="page"]{ border-color: rgba(255,255,255,.9); }
+
+    .c2s-toggle{
+      display:none; background:transparent; border:0; color:var(--c2s-white);
+      padding:.25rem; border-radius:8px;
+    }
+    @media (max-width:720px){
+      .c2s-toggle{ display:inline-flex; }
+      .c2s-menu{
+        position:absolute; left:0; right:0; top:100%;
+        background: var(--c2s-orange);
+        display:none; flex-direction:column; gap:.35rem;
+        padding:.5rem .75rem 1rem; box-shadow: var(--c2s-shadow);
+      }
+      .c2s-menu a{
+        padding:.6rem .5rem; border-radius:8px; border-bottom:0;
+      }
+      .c2s-menu a:hover{ background: rgba(255,255,255,.12); }
+      .c2s-header.open .c2s-menu{ display:flex; }
+    }
+
+    /* ===== Post card ===== */
+    main{
+      max-width:900px;
+      margin: 1.25rem auto 2.5rem;
+      padding:2rem;
+      background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,.1);
+    }
+    h1{ color:#d97341; margin:0 0 .5rem; font-size:2rem; line-height:1.2; text-align:left; }
+    .meta{ color:#6a5a4e; font-size:.95rem; margin:0 0 1.25rem; }
+
+    p{ line-height:1.75; margin:1rem 0; }
+
+    blockquote{
+      margin:1.2rem 0; padding:.6rem 1rem;
+      border-left:4px solid #d97341; color:#4b3c32;
+      background:#FFF4E9; border-radius:6px;
+    }
+
+    .leave-note{
+      margin-top:2.2rem; text-align:center; background:#FFF4E9;
+      padding:1.4rem; border-radius:10px; border:1px solid #f0c9a6;
+    }
+    .leave-note p{ margin:0 0 1rem; font-weight:500; color:#4b3c32; }
+    .note-btn{
+      background:#d97341; color:#fff; padding:.6rem 1.4rem;
+      border-radius:999px; text-decoration:none; font-weight:600;
+      transition:background .3s ease;
+    }
+    .note-btn:hover{ background:#b95f2f; }
+
+    .post-nav{ margin-top:1.5rem; text-align:center; }
+    .post-nav a{
+      color:#d97341; text-decoration:none; font-weight:700; border-bottom:2px solid transparent;
+    }
+    .post-nav a:hover{ border-color:#d97341; }
+
+    footer{ text-align:center; padding:2rem 1rem 3rem; color:#fff; background:transparent; }
+  </style>
+</head>
+<body>
+  <!-- Shared responsive header -->
+  <header class="c2s-header" aria-label="Main navigation">
+    <div class="c2s-nav">
+      <a class="c2s-brand" href="/">
+        <!-- Use URL-encoded filename if your image has a space -->
+        <img src="Called%202%20.png" alt="Called 2 Soar logo" class="c2s-logo">
+        <span>Called 2 Soar</span>
+      </a>
+
+      <button class="c2s-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="c2s-menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <nav id="c2s-menu" class="c2s-menu" role="navigation">
+        <a href="/index.html#about">About Me</a>
+        <a href="/blog.html" aria-current="page">Wings In The Making</a>
+        <a href="/goals.html">The Destination</a>
+        <a href="/support.html">Lift Me Up</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>The Cost of Being First</h1>
+    <p class="meta">June 20, 2026 • ~2–3 min read</p>
+    
+<p> </p>A trailblazer is someone who goes first.<p>
+  
+</p>They're the person willing to step into the unknown, creating a path that didn't exist before so others can follow it. They don't have a blueprint, a guarantee, or someone to show them exactly what to do. They simply take the first step.
+Have you ever stopped to ask yourself: What have I been a trailblazer in?
+When I look back at my own life, I realize I've been fortunate enough to experience many "firsts."
+I was the first in my family to go to college. The first to become a collegiate athlete. The first to become a pilot. Looking back, those accomplishments sound exciting, but living through them felt anything but glamorous.
+Being first is lonely.
+No one talks about that part.
+There were no family stories to follow, no one who could tell me what to expect, and no roadmap showing me the next step. Every decision felt like I was walking into unfamiliar territory.
+Growing up, my mom wanted one thing more than anything else: for me to go to college.
+Failure wasn't an option in our house. The word "no" almost didn't exist.
+She was a single mother raising our family in a two-bedroom apartment. We qualified for free school lunches, and money was always tight. We weren't surrounded by abundance—we were surrounded by determination.
+I remember telling her one day, "Mom... we don't have the money to apply to colleges."
+Most people don't realize that applying to universities isn't free. Every application had a fee, and when you apply to several schools, those costs add up quickly.
+To me, that was the end of the conversation.
+To my mom, it was simply another obstacle to solve.
+Looking back, I still don't know how she managed it. She found a way around every roadblock. My high school ended up providing five free college applications. She made sure I attended every college fair, every campus tour, every informational meeting she could find.
+At the time, I hated it.
+I had already decided what I was capable of—and what I wasn't.
+I had placed limits on my own life before it had even begun.
+My mom refused to let me stay inside those limits.
+She spoke life into me long before I knew how to believe in myself. She saw potential I couldn't see, and she never stopped reminding me that my circumstances didn't determine my future.
+Looking back now, that's one of the greatest gifts anyone has ever given me.
+Not every door opened.
+Some schools rejected me. Others accepted me, but I knew they weren't where I was supposed to be.
+Eventually, I packed up my life and moved over 1,200 miles away to a small college in East Tennessee to continue playing basketball. Just down the road sat the university I had dreamed about attending for years: the University of Tennessee.
+After two years, I transferred.
+The dream that once felt impossible became reality.
+I graduated from the University of Tennessee debt-free.
+I should have felt like I had reached the finish line.
+Instead, I found myself asking, "Now what?"
+For so many years, getting to UT had been my entire identity. It was the dream that carried me through difficult seasons. Once I accomplished it, I realized something surprising.
+I had stopped dreaming.
+For nearly four years after graduation, I simply worked.
+There wasn't another mountain to climb.
+And I learned something during that season: a person without a vision slowly begins to drift.
+We were created to grow. To build. To pursue. To become.
+Living without something meaningful to work toward isn't peace—it's stagnation.
+Then aviation entered my life.
+Suddenly, I had another impossible dream.
+I didn't come from a family of pilots. I didn't know anyone who had walked this path. There wasn't a step-by-step guide explaining how someone like me was supposed to make it happen.
+Once again, I found myself becoming the first.
+That's the thing about trailblazers.
+You don't get a map.
+You don't know if you're making the right decision.
+You don't know how long the journey will take.
+You just keep taking one faithful step after another.
+There are days I still wonder if this dream is too big.
+There are moments when it feels almost ridiculous to believe I'll accomplish everything I've set out to do.
+But every meaningful dream starts that way.
+Someone has to be willing to go first.
+Someone has to believe before there's evidence.
+Someone has to create a path where one doesn't already exist.
+Maybe that's you.
+Maybe you're the first in your family to pursue higher education. The first to start a business. The first to break unhealthy cycles. The first to follow God wholeheartedly. The first to dream beyond what anyone around you thought was possible.
+If that's you, I want you to know something.
+The loneliness doesn't mean you're on the wrong path.
+The uncertainty doesn't mean you've failed.
+Sometimes those feelings are simply evidence that you're walking where no one around you has walked before.
+Trailblazers don't wait for perfect conditions.
+They move forward with faith, grit, and perseverance.
+Today, I'm still chasing another dream that many people would call unrealistic.
+I don't have a perfect plan.
+I don't have every answer.
+What I do have is a willingness to work hard, stay disciplined, trust God, and keep putting one foot in front of the other.
+Because every trail that exists today was once untouched ground.
+And one day, the path you're creating may become the road someone else is brave enough to follow. <p>
+  
+</p>
+
+
+    <!-- Leave a Note -->
+    <div class="leave-note">
+      <p>💬 I’d love to hear your thoughts! What’s your next play?</p>
+      <a class="note-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd0Gui1vcXxBe1lKysbhXnl1Lhwc1v8Ny_ub4ar7B37Nsq0rg/viewform" target="_blank" rel="noopener noreferrer">✍️ Leave a Note</a>
+    </div>
+
+    <div class="post-nav">
+      <a href="/blog.html">← Back to Blog</a>
+    </div>
+  </main>
+
+  <footer>© 2025 Called To Soar — Mehana Airborne</footer>
+
+  <script>
+    (function(){
+      const header=document.querySelector('.c2s-header');
+      const btn=document.querySelector('.c2s-toggle');
+      const menu=document.getElementById('c2s-menu');
+      if(!header||!btn||!menu) return;
+
+      btn.addEventListener('click', () => {
+        const open=header.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+
+      // Close the menu when a link is clicked (mobile)
+      menu.addEventListener('click', (e) => {
+        if(e.target.tagName==='A' && header.classList.contains('open')){
+          header.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+          btn.setAttribute('aria-label','Open menu');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
